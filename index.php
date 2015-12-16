@@ -7,30 +7,20 @@ $ROOT = __DIR__;  /*  Correspond à /var/www/html/private/TD4
 // DS contient le slash des chemins de fichiers, c'est-à-dire '/' sur Linux et '\' sur Windows
 $DS = DIRECTORY_SEPARATOR;
 
-if(!isset($_GET['action'])) // s'il n a pas d'action
-    $action = "readAll";
-else
-    $action = $_GET["action"]; // on recupère l'action
 
-if(!isset($_GET["controller"]))
-    $controller = 'modele';
-else
-    $controller = $_GET["controller"];
-
-$view ='';
 
 if ( !isset($_GET['controller']) )
 {
-    $controller = 'visiteur';
+    $controller = 'utilisateur';
 }
 else{
     $controller = $_GET['controller'];
 }
 
 
-if ( !isset($_GET['action'] ))
+if (!isset($_GET['action'] ))
 {
-    $action="LogIn";
+    $action="Connexion";
 }
 else
 {
@@ -39,16 +29,23 @@ else
 
 $view = '';
 
-
-
+$layout ='Visiteur';
+if(isset($_SESSION['login'])){
+    if($_SESSION['rang']=='admin'){
+        $layout='Admin';
+    }else if($_SESSION['rang']=='moderateur'){
+        $layout='Moderateur';
+    }else{
+        $layout ='Membre';
+    }
+}
 switch($controller)
 {
-    case 'visiteur':
-        require("{$ROOT}{$DS}controller{$DS}controllerVisiteur.php");
-        break;
     case 'document':
+        require("{$ROOT}{$DS}controller{$DS}controllerDocument.php");
         break;
-    case 'membre':
+    case 'utilisateur':
+        require("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
         break;
 
 }
