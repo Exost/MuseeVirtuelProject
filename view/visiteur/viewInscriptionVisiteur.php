@@ -1,4 +1,7 @@
-<form method="post" action="index.php?controller=utilisateur&action=inscrit">
+<?php
+echo $messageErreur;
+?>
+<form method="post" action="index.php?controller=visiteur&action=inscrit">
     <fieldset>
         <legend>Inscription :</legend> <p>
 

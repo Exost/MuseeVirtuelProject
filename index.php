@@ -11,7 +11,7 @@ $DS = DIRECTORY_SEPARATOR;
 
 if ( !isset($_GET['controller']) )
 {
-    $controller = 'utilisateur';
+    $controller = 'visiteur';
 }
 else{
     $controller = $_GET['controller'];
@@ -44,8 +44,11 @@ switch($controller)
     case 'document':
         require("{$ROOT}{$DS}controller{$DS}controllerDocument.php");
         break;
-    case 'utilisateur':
-        require("{$ROOT}{$DS}controller{$DS}controllerUtilisateur.php");
+    case 'visiteur':
+        require("{$ROOT}{$DS}controller{$DS}controllerVisiteur.php");
+        break;
+    case 'membre':
+        require("{$ROOT}{$DS}controller{$DS}controllerMembre.php");
         break;
 
 }
