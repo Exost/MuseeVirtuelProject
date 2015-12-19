@@ -5,7 +5,8 @@
  * Date: 17/12/15
  * Time: 11:34
  */
-
+$messageErreur='';
+require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
 switch($action){
     case 'deconnexion':
         $layout='Visiteur';
@@ -15,6 +16,19 @@ switch($action){
         $view ='Connexion';
         break;
     case 'connecte':
+        if(isset($_POST['login'])){
+            $membre =modelMembre::select($_POST['login']);
+            $mdp =$_POST['mdp'];
+            if($membre->getEtat() =='en attente'){
+                $controller ='visiteur';
+                $view ='Connexion';
+                $messageErreur ="votre compte n'est pas encore activé <a href=''>renvoyer le mail</a>";
+                 // option pour renvoyer le mail
+            }
+        }else{
+            $controller ='visiteur';
+            $view ='Connexion';
+        }
         break;
     case 'poster': // poster un document
         if(isset($_SESSION['login'])){
@@ -33,5 +47,4 @@ switch($action){
             $view='Profil';
         }
         break;
-
-}
+}require("{$ROOT}{$DS}view{$DS}view$layout.php");

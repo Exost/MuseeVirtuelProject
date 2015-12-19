@@ -18,7 +18,7 @@ class modelMembre extends Model
     private $rang;
     private $code_Act;
 
-    private  static $primary ='login';
+    static $primary ='login';
     static $table = "membre" ;
 
     /**
@@ -156,7 +156,7 @@ class modelMembre extends Model
         Pour activer votre compte, veuillez cliquer sur le lien ci dessous
         ou copier/coller dans votre navigateur internet.
 
-        index.php?controller=user&action=activation&idUsr='.urlencode($id).'&code='.urlencode($code).'
+        index.php?controller=user&action=activation&idUsr='.urlencode($login).'&code='.urlencode($code).'
 
 
         ---------------
@@ -180,10 +180,10 @@ class modelMembre extends Model
      * @return bool
      * inscription membre
      */
-    static function createMembre($tab,$id,$mail, $code){
+    static function createMembre($tab,$login,$mail, $code){
         $res = false;
-        if(self::sendMail($id,$mail,$code)){
-            modelUser::insert($tab);
+        if(self::sendMail($login,$mail,$code)){
+            self::insert($tab);
             $res = true;
         }
         return $res;

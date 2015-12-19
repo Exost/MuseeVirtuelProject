@@ -1,6 +1,4 @@
-<?php
-echo $messageErreur;
-?>
+
 <form method="post" action="index.php?controller=visiteur&action=inscrit">
     <fieldset>
         <legend>Inscription :</legend> <p>
@@ -22,8 +20,8 @@ echo $messageErreur;
         </p><p>
 
             <label for="sexe" class="label">sexe</label>
-            <input type="radio" name="sexe" value="homme" id="homme" /> <label for="homme">H </label>
-            <input type="radio" name="sexe" value="femme" id="femmme" /> <label for="femme">F</label>
+            <input type="radio" name="sexe" value="homme" id="homme" required/> <label for="homme">H </label>
+            <input type="radio" name="sexe" value="femme" id="femmme" required/> <label for="femme">F</label>
         </p><p>
 
 
@@ -42,6 +40,10 @@ echo $messageErreur;
             <input type="password" name="mdp2" id="mdp2" required/>
         </p><p>
 
-            <input type="submit" value="sign In" /> </p>
+            <input type="submit" value=" inscription" /> </p>
     </fieldset>
 </form>
+
+<?php
+echo $messageErreur;
+?>

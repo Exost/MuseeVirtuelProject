@@ -72,6 +72,7 @@ class Model{
                 echo "une erreur est survenue <a href='index.php> retour à la page d\'accueil</a>";
             die();
         }
+        $req_prep->execute();
         $res = true;
         if($req_prep == null){
             // si le resultat de la requete est vide
@@ -155,7 +156,7 @@ class Model{
             $req_prep = Model::$pdo->prepare($sql);
             $req_prep->bindParam(":nom_var", $para);
             $req_prep->execute();
-            $nomModel =  'model'.substr(static::$table , 3) ;
+            $nomModel =  'model'.ucfirst(static::$table); // met la premiere lettre en majuscule
             $req_prep->setFetchMode(PDO::FETCH_CLASS, $nomModel );
             if ($req_prep->rowCount()==0){
                 return null;

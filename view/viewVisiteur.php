@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <?php
-
+    require ("head.php");
 
 ?>
 <body>
 <?php
-
+require("headers/headerVisiteur.php");
 
 
 

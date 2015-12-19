@@ -30,6 +30,7 @@ else
 $view = '';
 
 $layout ='Visiteur';
+$pageTitle ='';
 if(isset($_SESSION['login'])){
     if($_SESSION['rang']=='admin'){
         $layout='Admin';
