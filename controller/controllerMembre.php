@@ -53,6 +53,10 @@ switch($action){
     case 'poster': // poster un document
         if(isset($_SESSION['login'])){
             $layout='Membre';
+            $dossier = "file/{$_SESSION['login']}";
+            if(!is_dir($dossier)){
+                mkdir($dossier); // creation de dossier  s'il n'a jamais poster de document
+            }
         }else{ // s'il n'est pas connecté
             $layout='Visiteur';
             $controller='visiteur';
