@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $ROOT = __DIR__;  /*  Correspond à /var/www/html/private/TD4
                                permet de le rendre portable
                             */

@@ -14,6 +14,7 @@ class modelMembre extends Model
     private $prenom;
     private $sexe;
     private $adresse_mail;
+    private $mot_de_passe;
     private $etat;
     private $rang;
     private $code_Act;
@@ -28,34 +29,30 @@ class modelMembre extends Model
      * @param $prenom
      * @param $sexe
      * @param $adresse_mail
+     * @param $mot_de_passe
      * @param $etat
      * @param $rang
      * @param $code_Act
      */
-    public function __construct($login=NULL, $nom=NULL, $prenom=NULL, $sexe=NULL, $adresse_mail=NULL, $etat=NULL,
-                                $rang=NULL, $code_Act=NULL)
+    public function __construct($login=NULL, $nom=NULL, $prenom=NULL, $sexe=NULL, $adresse_mail=NULL,
+                                $mot_de_passe=NULL,$etat=NULL, $rang=NULL, $code_Act=NULL)
     {
         if(!is_null($login)&& !is_null($nom)&& !is_null($prenom)&& !is_null($sexe)
-        && !is_null($adresse_mail) && !is_null($etat) && !is_null($rang)){
+        && !is_null($adresse_mail) &&!is_null($mot_de_passe) && !is_null($etat) && !is_null($rang)){
             $this->login = $login;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->sexe = $sexe;
             $this->adresse_mail = $adresse_mail;
+            $this->mot_de_passe = $mot_de_passe;
             $this->etat = $etat;
             $this->rang = $rang;
             $this->code_Act = $code_Act;
+
         }
 
     }
 
-    /**
-     * @return string
-     */
-    public static function getPrimary()
-    {
-        return self::$primary;
-    }
 
     /**
      * @return mixed
@@ -120,6 +117,16 @@ class modelMembre extends Model
     {
         return $this->login;
     }
+
+    /**
+     * @return null
+     */
+    public function getMotDePasse()
+    {
+        return $this->mot_de_passe;
+    }
+
+
 
 
     static function  validAccount($key){
