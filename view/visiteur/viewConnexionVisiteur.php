@@ -6,7 +6,7 @@
         <label for="passwd" class="label"  >mot de passe</label>
         <input type="password"  name="mdp" required/><p></p>
         <input type="submit" value="connexion" /> <p></p>
-        <a href="">mot de passe oublié ?</a>
+        <a href="index.php?controller=visiteur&action=oublie_mot_de_passe">mot de passe oublié ?</a>
     </fieldset>
 </form>
 <a href="index.php?controller=visiteur&action=inscription">vous n'avez pas encore de compte?</a>

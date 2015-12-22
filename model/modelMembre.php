@@ -197,4 +197,29 @@ class modelMembre extends Model
     }
 
 
+    function nouveauMDP(){ // change le mot de passe et l'envoi par mail
+        $nouvMdp = uniqid($this->login); // génère un mot de passe préfixé par le login
+        $sql ='UPDATE membre
+                SET mot_de_passe = :newMod
+                WHERE login = :log';
+        try{
+            $req_prep = Model::$pdo->prepare($sql);
+            $array =  array(':newMod'=> sha1($nouvMdp),
+                                ':log'=> $this->login);
+
+            $req_prep->execute($array);
+        }catch (PDOException $e){
+            if (Conf::getDebug()) {
+                echo "une erreur est survenue"; // affiche un message d'erreur
+            }
+            return -1;
+            die();
+        }
+        $message="{$this->login} votre mot de passe vient d'être mis a jour, ne le divulguez a personne
+        vous êtes le seul à en être informé
+
+        mot de passe: $nouvMdp
+        connectez-vous au site et pensez a le modifier";
+        return(mail($this->adresse_mail,'nouveau mot de passe',$message,'de ArtKabyle.org'));
+    }
 }

@@ -55,7 +55,7 @@ switch($action){
             $layout='Membre';
             $dossier = "file/{$_SESSION['login']}";
             if(!is_dir($dossier)){
-                mkdir($dossier); // creation de dossier  s'il n'a jamais poster de document
+                mkdir($dossier); // creation de dossier s'il n'a jamais poster de document
             }
         }else{ // s'il n'est pas connecté
             $layout='Visiteur';
@@ -78,4 +78,5 @@ switch($action){
 
         }
         break;
+
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");

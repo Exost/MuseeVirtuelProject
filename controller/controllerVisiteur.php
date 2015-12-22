@@ -67,6 +67,34 @@ switch($action){
         break;
     case 'activation':
         break;
+    case 'oublie_mot_de_passe':
+        if(isset($_SESSION['login'])){ // si un utilisateur connecté veut jouer les dur
+            $view='Erreur';
+            $controller='membre';
+            $messageErreur ='Vous êtes deja connecté';
+            $layout ='Membre';
+        }else{
+            $view = 'Oublie';
+            $pageTitle ='mot de passe oublié ';
+        }
+        break;
+    case 'resolution':
+        if(isset($_POST['login'])){
+            $membre = modelMembre::select($_POST['login']);
+            if(empty($membre)){ // si l'identifiant n'existe pas
+                $view = 'Oublie';
+                $pageTitle ='mot de passe oublié ';
+            }else{
+                $membre->nouveauMDP();
+                $pageTitle ='mot de passe oublié';
+                $view ='Oublie';
+                $messageErreur=' un mail vient de vous être envoyé ';
+            }
+        }else{
+            $pageTitle ='mot de passe oublié';
+            $view ='Oublie';
+        }
+        break;
 
 }
 require("{$ROOT}{$DS}view{$DS}view$layout.php");
