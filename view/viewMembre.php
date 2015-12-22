@@ -2,7 +2,7 @@
 <html>
 <?php
 
-
+require ('head.php');
 ?>
 <body>
 <?php

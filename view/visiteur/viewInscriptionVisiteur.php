@@ -133,27 +133,16 @@
 
     };
 
-    verification['mail']= function(){
-        var mail = document.getElementById('mail');
-        var span = getSpan(mail).style;
-        if(testMail(mail.value)){
-            span.display ='none';
-            return true;
-        }else{
-            span.display = 'inline-block';
-            return false;
-        }
-    };
 
 
     function verifSubmit(){
-        var result = false;
+        var result = true;
 
         for (var i in verification) {
-            result = verification[i](i) && result;
+            result = verification[i]() && result;
         }
         if (!result) {
-            alert("vous n'avez pas respecté les indication veuillez \n" +
+            alert("vous n'avez pas respecté les indications veuillez \n" +
                 " recommencer s'il vous plait");
             return false;
         }else{

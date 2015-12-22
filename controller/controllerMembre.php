@@ -31,20 +31,34 @@ switch($action){
                $controller ='visiteur';
                $view ='Connexion';
                $messageErreur ="votre compte n'est pas encore activé <a href=''>renvoyer le mail?</a>";
-               // option pour renvoyer le mail
+               // option pour renvoyer le mail a finir
            }else{
                 $view = 'profil';
                 if($membre->getRang() == 'admin'){
                     $layout='Admin';
                     $controller='admin'; // l'admin a des action speciale
                 }
-                elseif($membre->getRang() =='moderateur')
+                elseif($membre->getRang() =='moderateur'){
                     $layout='Moderateur';
+                }else{
+                    $layout='Membre';
+                }
                 $_SESSION['login']= $membre->getLogin();
                 $_SESSION['rang']= $membre->getRang();
 
             }
-        }else{
+        }elseif( !isset($_POST['login']) &&isset($_SESSION['login'])){
+            $view = 'profil';
+            $layout='Membre';
+            $pageTitle ='Profil';
+            if( $_SESSION['rang']=='admin'){
+                $layout ='Admin';
+            }elseif( $_SESSION['rang'] == 'moderateur'){
+                $layout ='Moderateur';
+            }
+
+        }
+        else{
             $pageTitle ='connexion';
             $controller ='visiteur';
             $view ='Connexion';
@@ -67,8 +81,9 @@ switch($action){
     case 'commenter':
         break;
     case 'profil': // voir son profil
-        if(isset($_POST['login'])){
+        if(isset($_SESSION['login'])){
             if($_SESSION['login']){
+                $pageTitle ='profil';
                 $view='Profil';
             }else{
                 $pageTitle ='connexion';
