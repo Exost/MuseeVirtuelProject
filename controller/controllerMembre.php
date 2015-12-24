@@ -46,7 +46,6 @@ switch($action){
                 }
                 $_SESSION['login']= $membre->getLogin();
                 $_SESSION['rang']= $membre->getRang();
-                echo $membre->getRang();
 
             }
         }elseif( !isset($_POST['login']) && isset($_SESSION['login'])){
@@ -150,6 +149,7 @@ switch($action){
         break;
     case 'exit':
         $pageTitle='connexion';
+
         if(isset($_SESSION['login'])){
             $messageErreur=" Aurevoir {$_SESSION['login']}";
             unset($_SESSION['login']);
