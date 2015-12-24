@@ -62,6 +62,7 @@ switch($action){
             $messageErreur ='Vous êtes deja connecté';
             $layout ='Membre';
         }else{
+            $pageTitle='connexion';
             $view ='Connexion';
         }
         break;

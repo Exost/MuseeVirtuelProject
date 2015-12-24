@@ -34,6 +34,7 @@ switch($action){
                // option pour renvoyer le mail a finir
            }else{
                 $view = 'profil';
+                $pageTitle='profil';
                 if($membre->getRang() == 'admin'){
                     $layout='Admin';
                     $controller='admin'; // l'admin a des action speciale
@@ -45,9 +46,10 @@ switch($action){
                 }
                 $_SESSION['login']= $membre->getLogin();
                 $_SESSION['rang']= $membre->getRang();
+                echo $membre->getRang();
 
             }
-        }elseif( !isset($_POST['login']) &&isset($_SESSION['login'])){
+        }elseif( !isset($_POST['login']) && isset($_SESSION['login'])){
             $view = 'profil';
             $layout='Membre';
             $pageTitle ='Profil';
@@ -82,16 +84,68 @@ switch($action){
         break;
     case 'profil': // voir son profil
         if(isset($_SESSION['login'])){
-            if($_SESSION['login']){
-                $pageTitle ='profil';
-                $view='Profil';
-            }else{
-                $pageTitle ='connexion';
-                $controller ='visiteur';
-                $view ='Connexion';
+            $pageTitle ='profil';
+            $view='Profil';
+            $layout='Membre';
+            if($_SESSION['rang']=='admin'){
+                $layout ='Admin';
+                $controller ='Admin';
+            }elseif($_SESSION['rang']== 'moderateur'){
+                $layout ='Moderateur';
             }
-
+        }else{
+            $pageTitle ='connexion';
+            $controller ='visiteur';
+            $view ='Connexion';
         }
         break;
+    case 'modifier':
+        if(isset($_SESSION['login']) && $_SESSION['rang'] != 'admin'){
+            // si c'est un membre ou un moderateur
+            $view ='Modifie';
+            $pageTitle='profil';
+            if($_SESSION['rang'] =='moderateur')
+                $layout='Moderateur';
+            else{
+                $pageTitle ='profil';
+                $layout='Membre';
+            }
+        }else{
+            $pageTitle ='connexion';
+            $controller ='visiteur';
+            $view ='Connexion';
+        }
+        break;
+    case 'modification':
+        if(isset($_SESSION['login']) ){
+        // s'il est connecté et que ce n'est pas l'admin
+            if(isset($_POST['login'])){
+                $membre = modelMembre::select($_SESSION['login']);
+                $login = $_POST['login'];
+                $nom = $_POST['nom'];
+                $prenom = $_POST['prenom'];
+                $mail = $_POST['mail'];
+                $view ='Profil';
+                $layout ='Membre';
+                if(!empty($_POST['oldPswd']) && !empty($_POST['newPswd']) &&
+                !empty($_POST['newMdp2'])){
+                // si les champ mot de passe sont rempli
+                    if($membre->getMotDePasse() == sha1($_POST['oldPswd'])){
+                        $mdp = sha1($_POST['newPswd']);
 
+                    }
+                }else{
+                    $mdp = $membre->getMotDePasse();
+                }
+                $tab = array($login, $nom, $prenom,$membre->getSexe() ,$mail,$mdp,'actif',$membre->getRang(), NULL);
+               // modelMembre::update($tab, $_SESSION['login']);
+                $_SESSION['login']= $_POST['login'];
+
+            }
+        }else{
+            $pageTitle ='connexion';
+            $controller ='visiteur';
+            $view ='Connexion';
+        }
+        break;
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");

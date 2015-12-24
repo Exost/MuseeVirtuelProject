@@ -6,14 +6,10 @@
  * Time: 17:03
  */
 $profilMembre = modelMembre::select($_SESSION['login']);
+
+require ('menuMembre.php');
 ?>
-<table>
-    <tr>
-        <td> <a href="index.php?controller=membre&action=profil">profil</a></td>
-        <td> modifier</td>
-        <td> documents</td>
-    </tr>
-</table>
+
 <ul>
     <li><b> <?php echo $profilMembre->getLogin(); ?></b></li>
     <li><?php echo $profilMembre->getNom(); ?></li>
