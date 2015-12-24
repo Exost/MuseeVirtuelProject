@@ -137,8 +137,8 @@ switch($action){
                 }else{
                     $mdp = $membre->getMotDePasse();
                 }
-                $tab = array($login, $nom, $prenom,$membre->getSexe() ,$mail,$mdp,'actif',$membre->getRang(), NULL);
-               // modelMembre::update($tab, $_SESSION['login']);
+                $tab = array($login, $nom, $prenom,$membre->getSexe() ,$mail,$mdp,'actif',$membre->getRang(), '');
+                modelMembre::update($tab,$_SESSION['login']);
                 $_SESSION['login']= $_POST['login'];
 
             }
@@ -147,5 +147,21 @@ switch($action){
             $controller ='visiteur';
             $view ='Connexion';
         }
+        break;
+    case 'exit':
+        $pageTitle='connexion';
+        if(isset($_SESSION['login'])){
+            $messageErreur=" Aurevoir {$_SESSION['login']}";
+            unset($_SESSION['login']);
+            unset($_SESSION['rang']);
+            $layout = 'Visiteur';
+            $view ='Connexion';
+            $controller ='visiteur';
+        }else{
+            $layout = 'Visiteur';
+            $view ='Connexion';
+            $controller ='visiteur';
+        }
+
         break;
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");

@@ -5,11 +5,11 @@
 require ('head.php');
 ?>
 <body>
+<nav>
+    <a href="index.php?controller=membre&action=exit"><img src="ressources/img/exit.png" style="width: 50px"/></a>
+</nav>
+
 <?php
-
-
-
-
 /**
  * Created by PhpStorm.
  * User: enzo

@@ -125,9 +125,9 @@ class Model{
     }
 
     function update($tab, $old) {
-        $sql = "UPDATE ".static::$table." SET";
+        $sql = 'UPDATE '.static::$table.' SET';
         foreach ($tab as $cle => $valeur){
-            $sql .=" ".$cle."=:new".$cle.",";
+            $sql .=' '.$cle.'=:new'.$cle.',';
         }
         $sql=rtrim($sql,",");
         $sql.=" WHERE ".static::$primary."=:oldid;";
@@ -135,12 +135,11 @@ class Model{
             $req_prep = Model::$pdo->prepare($sql);
             $values = array();
             foreach ($tab as $cle => $valeur){
-                $values[":new".$cle] = $valeur;
+                $values[":new$cle"] = $valeur;
             }
             $values[":oldid"] = $old;
             $req_prep->execute($values);
-            $obj = Model::select($tab[static::$primary]);
-            return $obj;
+
         } catch(PDOException $e) {
             if (Conf::getDebug()) {
                 echo "PROBLEME"; // affiche un message d'erreur
