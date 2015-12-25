@@ -1,35 +1,754 @@
-/*  Formulaire et JavaScript  */
 
-.hint {
+/* CSS classé plus au moin de haut en bas puis gauche à droite ( sur l'écran ) */
+
+@font-face { /* Import de police*/
+    font-family: "ArabDances";
+    src: url(ArabDances.ttf) format("truetype");
+}
+
+* {
+   box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body{ /* IDEM */
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue"; /* font générale */
+    min-height: 100%;
+    position: relative;
+    display : table;
+    width: 100%;
+}
+
+.contenu {
+	font-size : 2em;
+	}
+
+/* Image + Nom du site */
+
+#enseigne { /*  Nom du site*/
+    font-family: ArabDances, sans-serif ;
+    text-decoration: none;
+    font-size: 2em;
+    color : yellowgreen;
+    opacity:0.85;
+
     display: inline-block;
-    margin-left: 20px;
-    padding: 2px 4px;
-    border: 1px solid #555;
-    background-color: brown;
-    border-radius: 4px;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    background-color: white;
+}
+
+header img {
+    width : 70px ;
+    height: 70px ;
+}
+
+/* Fin header */
+
+footer{
+     /*Couleur de fond*/
+    text-align:center;/*texte centré*/
+    color : white ;
+    display : table-row;
+    height : auto;
+	position: relative;
+    clear: both;
+    bottom: 0;
+    position: relative; bottom: 0; left: 0; right: 0;
+
 }
 
 
-.correct {
-    border-color: rgba(68, 191, 68, 0.75);
+
+
+
+
+/* permet d'afficher toute les chaussure en ligne
+avec retour à la ligne automatique */
+
+
+
+.blockLeft {
+    float: left;
 }
 
-.correct:focus {
-    border-color: rgba(68, 191, 68, 0.75);
-    -moz-box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
-    -webkit-box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
-    box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+.blockRight{
+    float: right;
+    display: inline-block;
 }
 
-.incorrect {
-    border-color: rgba(191, 68, 68, 0.75);
+.image{
+    width: 40% ;
 }
 
-.incorrect:focus {
-    border-color: rgba(191, 68, 68, 0.75);
-    -moz-box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
-    -webkit-box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
-    box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* NAVIGATION */
+
+nav {
+    background-color: yellowgreen;
+    opacity: 0.72;
+    color: white;
 }
 
-/*   */
+    nav table{
+        width:100%;
+        height: 2.7em ;
+        margin:auto;
+    }
+
+    nav td {
+        width: 33%;
+        text-align: center; /* Search Bar */
+    }
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+
+nav li {
+    float: left;
+    margin-top: 0.2em ;
+    margin-bottom: 0.2em;
+    padding-left: 0.2em ;
+    padding-right: 0.2em;
+    text-align: center;
+    color: white;
+    font-size: 1.1em;
+}
+
+
+
+nav li a {
+    display: block;
+    color: #121212;
+    text-decoration: none;
+    padding: 0.5em;
+    text-align: center;
+    color: white;
+}
+
+nav li a:hover {
+    background-color: white;
+    border-radius: 3px;
+    color: black;
+}
+
+#firstRight { /* Panier */
+    margin-left: 1em;
+    margin-right: 2em;
+    font-size: 1.1em;
+    background-color: white ;
+    border-radius: 5px;
+    color: black;
+}
+
+
+#basket { /*Panier*/
+    color : #222222;
+}
+
+#basket:hover {
+    color : darkgray;
+}
+
+#firstLeft { /* Acceuil */
+    margin-left: 1.5em;
+}
+
+/* Barre de recherche */
+
+ .searchForm {
+     background-color: yellowgreen;
+     border:0px solid #dbdbdb;
+ }
+
+ #searchBar {
+     padding: 0.6em 1em;
+     background:White ;
+     border:0px solid #dbdbdb;
+ }
+
+
+ #searchSubmit {
+     position:relative;
+     padding:6px 15px;
+     left:-8px;
+     border:2px solid white ;
+     background-color: yellowgreen;
+     color:white ;
+ }
+
+ #searchSubmit:hover  {
+     background-color:#fafafa;
+     color: #121212;
+ }
+
+/* Fin barre de recherche */
+
+/*////////////////////////////////////////////////////////////////////////
+                                    ASIDE
+///////////////////////////////////////////////////////////////////////*/
+
+aside {
+    float: left;
+    border:solid 1px;
+    border-radius : 0.11em ;
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Responsive design : Affichage de modèles ( liste )  */
+
+@media screen and (max-width : 1440px)
+{
+        .table {
+            display: inline;
+        }
+
+        .table div {
+            display: inline-block;
+            width: 30%;
+            text-align: center;
+            padding: 0px;
+            margin-bottom: 2em;
+            margin-left: 0.7em;
+        }
+
+        .table div img {
+            width: 90%;
+            height: 250px;
+        }
+
+        .table p {
+            display: block;
+            -webkit-margin-before: 1em;
+        }
+}
+
+@media screen and (min-width : 1441px ) and (max-width : 1920px)
+{
+    .table {
+        float: right;
+        display: inline;
+        padding: 0%;
+    }
+
+    .table div {
+        display: inline-block;
+        width: 30%;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .table div img {
+        width: 95%;
+        height: 350px ;
+    }
+
+    .table p {
+        display: block;
+        -webkit-margin-before: 1em;
+    }
+}
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/* Responsive design : vue rapproché d'un modele */
+
+@media screen and (max-width : 1440px)
+{
+
+    .setModel {
+        display: inline;
+        padding: 1%;
+    }
+
+    .setModel div {
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .setModel div img {
+        width: 70%;
+        height: 70%;
+    }
+
+}
+
+@media screen and (min-width : 1441px ) and (max-width : 1920px)
+{
+
+    .setModel {
+        display: inline;
+        padding: 1%;
+    }
+
+    .setModel div {
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .setModel div img {
+        width: 50%;
+        height: 50%;
+    }
+
+}
+
+
+/* gestion dropdown menu */
+
+nav .dropdown{
+    display: none;
+    border-radius: 0px;
+    padding: 0;
+}
+
+nav .dropdown li {
+    float: none;
+    position: relative;
+    border-top: 1px solid #6b727c;
+    background-color: white;
+    opacity:0.85;
+    //text-overline-color : #222222;
+
+}
+
+
+nav .dropdown li a{
+    color : black ;
+}
+
+nav .dropdown li a:hover{
+    color : white ;
+    background-color: black ;
+
+}
+
+nav ul li:hover > ul {
+    display: block;
+    position: absolute;
+    z-index: 40;
+
+}
+
+nav ul:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* Fin dropdown menu */
+
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+#AllCat {
+    margin-left: 7.5em;
+    color : black;
+    font-style: italic;
+
+}
+
+#AllCat:hover {
+    color : cornflowerblue;
+}
+
+#AllCat:link {
+    text-decoration: none;
+}
+
+
+.viewModelOfBrand img{
+    width:50%;
+    height: 50%;
+}
+
+
+/*******************************************************/
+/* slide legende */
+.slideLegend{
+    position: relative;
+    display: inline-block;
+    padding: 05px;
+
+}
+.slideLegend figure{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    margin: 0;
+    padding: 0px;
+}
+
+.slideLegend figure:after{
+    position: absolute;
+    display: block;
+}
+
+.slideLegend figcaption{
+    position:absolute;
+    overflow: hidden;
+    left:0; right:0;
+    bottom: -30%; /* caché */
+    padding: 20px;
+    margin:0;
+
+    border-top: 1px solid rgb(225,225,225);
+    text-align:center;
+    letter-spacing: 0.05em;
+    word-spacing: 0.05em;
+    font-family: Georgia, Times, serif;
+    background: #fff;
+    background: rgba(255,255,255,0.7);
+    color: #555;
+    text-shadow: -1px -1px 0 rgba(255,255,255,0.3);
+
+}
+@keyframes figcaptionner {
+    0%, 25%, 50%, 75%, 100%						{ bottom: -55px;	}
+    5%, 20%, 30%, 45%, 55%, 70%, 80%, 95%		{ bottom: 5px;		}
+}
+
+.slideLegend figure:hover figcaption{
+    animation: figcaptionner 8s ;
+}
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+/* Diapo Acceuil */
+
+@media screen and (min-width : 1441px) and ( max-width: 1920px) { /* 1441-1920 */
+
+    #slideshow {
+        position: relative;
+        width: 50em;
+        height: 35em;
+        padding: 15px;
+        margin: 2em auto 2em;
+        background-color: #FFF;
+        border-radius: 2px 2px 2px 2px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+
+    }
+
+    #slideshow:before,
+    #slideshow:after {
+        position: absolute;
+        bottom: 16px;
+        z-index: -10;
+        width: 10%;
+        height: 20px;
+        content: " ";
+        background: rosybrown;
+        border-radius: 50%;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 20px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    #slideshow:before {
+        left: 0;
+        transform: rotate(-4deg);
+    }
+
+    #slideshow:after {
+        right: 0;
+        transform: rotate(4deg);
+    }
+
+    #slideshow .container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 35em;
+        margin-top: 0;
+    }
+
+    #slideshow .container:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: " ";
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+    }
+
+    #slideshow .slider {
+        /* effet diaporama */
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 400%;
+        height: 400px;
+    }
+
+    #slideshow figure {
+        /* annulation marge */
+        position: relative;
+        display: inline-block;
+
+        padding: 0;
+        margin: 0;
+    }
+
+    #slideshow figure:after {
+        position: absolute;
+        display: block;
+        content: " ";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 65px rgba(0, 0, 0, 0.5) inset;
+    }
+
+    .imageSlide { /* Taille image slide */
+        width: 50em;
+        height: 33.3em;
+    }
+
+    /*  animer le le slide */
+    @keyframes slider {
+        0%, 20%, 100% {
+            left: 0
+        }
+        25%, 45% {
+            left: -100%
+        }
+        50%, 70% {
+            left: -200%
+        }
+        75%, 95% {
+            left: 0%
+        }
+
+    }
+
+    /* mise en place de l'animation
+    change de slide toute les 20s
+    */
+    #slideshow .slider {
+        animation: slider 15s infinite;
+    }
+
+    #time {
+        position: absolute;
+        background-color: darkgray;
+        bottom: 15px;
+        left: 15px;
+        height: 3px;
+        background: rgb(214, 98, 13.8);
+        width: 400px;
+        animation: timeliner 32s infinite;
+    }
+
+    @keyframes timeliner {
+        0%, 25%, 50%, 75%, 100% {
+            width: 0;
+        }
+        20%, 45%, 70%, 100% {
+            width: 48em;
+        }
+
+    }
+}
+
+@media screen and (max-width : 1440px) {
+
+    #slideshow {
+        position: relative;
+        width: 50em;
+        height: 35em;
+        padding: 15px;
+        margin: 1em auto 1em;
+        background-color: #FFF;
+        border-radius: 2px 2px 2px 2px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+
+    }
+
+    #slideshow:before,
+    #slideshow:after {
+        position: absolute;
+        bottom: 16px;
+        z-index: -10;
+        width: 10%;
+        height: 20px;
+        content: " ";
+        background: rosybrown;
+        border-radius: 50%;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.4), 0 20px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    #slideshow:before {
+        left: 0;
+        transform: rotate(-4deg);
+    }
+
+    #slideshow:after {
+        right: 0;
+        transform: rotate(4deg);
+    }
+
+    #slideshow .container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 35em;
+        margin-top: 0;
+    }
+
+    #slideshow .container:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: " ";
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+    }
+
+    #slideshow .slider {
+        /* effet diaporama */
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 400%;
+        height: 400px;
+    }
+
+    #slideshow figure {
+        /* annulation marge */
+        position: relative;
+        display: inline-block;
+
+        padding: 0;
+        margin: 0;
+    }
+
+    #slideshow figure:after {
+        position: absolute;
+        display: block;
+        content: " ";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 65px rgba(0, 0, 0, 0.5) inset;
+    }
+
+    .imageSlide { /* Taille image slide */
+        width: 50em;
+        height: 33.3em;
+    }
+
+    /*  animer le le slide */
+    @keyframes slider {
+        0%, 20%, 100% {
+            left: 0
+        }
+        25%, 45% {
+            left: -108%
+        }
+        50%, 70% {
+            left: -210%
+        }
+        75%, 95% {
+            left: 0%
+        }
+
+    }
+
+    /* mise en place de l'animation
+    change de slide toute les 20s
+    */
+    #slideshow .slider {
+        animation: slider 15s infinite;
+    }
+
+    #time {
+        position: absolute;
+        background-color: darkgray;
+        bottom: 15px;
+        left: 15px;
+        height: 3px;
+        background: rgb(214, 98, 13.8);
+        width: 400px;
+        animation: timeliner 32s infinite;
+    }
+
+    @keyframes timeliner {
+        0%, 25%, 50%, 75%, 100% {
+            width: 0;
+        }
+        20%, 45%, 70%, 100% {
+            width: 48em;
+        }
+
+    }
+}
+
+ /* 1440px et moin */
+
+.imgModele {
+    width: 33%;
+    height: 28%;
+}
+
+
+aside {
+    margin-right: 0.3em;
+    padding: 0.1em;
+    height : 35em ;
+    display : block ;
+    
+}
+
+
+#imgViewBrand
+{
+    width: 20em ;
+    height : 15em ;
+
+}
+/* FIN Category */
+
+
+

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <?php
-    require ("head.php");
+
+require ("head.php");
+require ("header.php");
 
 ?>
 <body>
 <?php
-require("headers/headerVisiteur.php");
+require("navs/navVisiteur.php");
 
 
 
@@ -23,7 +25,10 @@ require("headers/headerVisiteur.php");
 $filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";
 $filename = "view".ucfirst($view) . ucfirst($controller) . '.php';
 require "{$filepath}{$filename}";
+
+require("footer.php") ;
 ?>
+
 
 </body>
 
