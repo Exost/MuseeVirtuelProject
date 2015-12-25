@@ -2,12 +2,11 @@
 <html>
 <?php
 
-require('head.php');
+require ("head.php");
+require ("header.php");
+require("navs/navMembre.php");
 ?>
 <body>
-<nav>
-    <a href="index.php?controller=membre&action=exit"><img src="ressources/img/exit.png" style="width: 50px"/></a>
-</nav>
 
 <?php
 /**
@@ -23,8 +22,10 @@ require('head.php');
 $filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";
 $filename = "view".ucfirst($view) . ucfirst($controller) . '.php';
 require "{$filepath}{$filename}";
-?>
 
+require("Footer.php");
+
+?>
 </body>
 
 <?php

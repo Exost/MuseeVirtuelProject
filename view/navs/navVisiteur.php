@@ -6,12 +6,7 @@
                     <li id="firstLeft">
                         <a href="index.php"> Acceuil </a>
                     </li>
-                    <li>
-                        <a href="index.php?controller=visiteur&action=inscription"> Inscription </a> <!-- Afficher les 5 derniers modèles ajoutés -->
-                    </li>
-                    <li>
-                        <a href="index.php?controller=visiteur&action=connexion"> Connexion </a>
-                    <li></li>
+
 
 
 
@@ -27,7 +22,7 @@
                         <a href="index.php?controller=visiteur&action=inscription"> S'inscrire </a>
                     </li>
                     <li  class="liNavBar" id ="Login">
-                        <a href="index.php?controller=visiteur&action=connexion"> Se Connecter</a>
+                        <a href="index.php?controller=visiteur&action=connexion">  Se Connecter</a>
                     </li>
                 </ul>
             </td>
