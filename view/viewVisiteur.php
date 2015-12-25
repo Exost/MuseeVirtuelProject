@@ -26,7 +26,7 @@ $filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";
 $filename = "view".ucfirst($view) . ucfirst($controller) . '.php';
 require "{$filepath}{$filename}";
 
-require("footer.php") ;
+require("Footer.php");
 ?>
 
 
