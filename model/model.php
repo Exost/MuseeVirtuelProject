@@ -124,23 +124,25 @@ class Model{
         }
     }
 
-    function update($tab, $old) {
-        $sql = 'UPDATE '.static::$table.' SET';
-        foreach ($tab as $cle => $valeur){
-            $sql .=' '.$cle.'=:new'.$cle.',';
+    function update($tab, $old)
+    {
+        $sql = "UPDATE " . static::$table . " SET";
+        foreach ($tab as $cle => $valeur) {
+            $sql .= " " . $cle . "=:new" . $cle . ",";
         }
-        $sql=rtrim($sql,",");
-        $sql.=" WHERE ".static::$primary."=:oldid;";
-        try{
+        $sql = rtrim($sql, ",");
+        $sql .= " WHERE " . static::$primary . "=:oldid;";
+        try {
             $req_prep = Model::$pdo->prepare($sql);
             $values = array();
-            foreach ($tab as $cle => $valeur){
-                $values[":new$cle"] = $valeur;
+            foreach ($tab as $cle => $valeur) {
+                $values[":new" . $cle] = $valeur;
             }
             $values[":oldid"] = $old;
             $req_prep->execute($values);
-
-        } catch(PDOException $e) {
+            //$obj = Model::select($tab[0]);
+           // return $obj;
+        } catch (PDOException $e) {
             if (Conf::getDebug()) {
                 echo "PROBLEME"; // affiche un message d'erreur
             }

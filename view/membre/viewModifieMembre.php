@@ -6,7 +6,7 @@
  * Time: 13:54
  */
 
-require ('menuMembre.php');
+
 $membreProfil = modelMembre::select($_SESSION['login']);
 ?>
 

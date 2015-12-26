@@ -10,6 +10,7 @@ require('head.php');
 </nav>
 
 <?php
+require ('membre/menuMembre.php');
 /**
  * Created by PhpStorm.
  * User: enzo

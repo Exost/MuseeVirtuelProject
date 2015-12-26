@@ -7,7 +7,6 @@
  */
 $profilMembre = modelMembre::select($_SESSION['login']);
 
-require ('menuMembre.php');
 ?>
 
 <ul>
