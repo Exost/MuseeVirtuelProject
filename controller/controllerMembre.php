@@ -8,13 +8,6 @@
 $messageErreur='';
 require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
 switch($action){
-    case 'deconnexion':
-        $layout='Visiteur';
-        $controller ='visiteur';
-        unset($_SESSION['login']);
-        // toute les les variable de l'visiteur
-        $view ='Connexion';
-        break;
     case 'connecte':
 
         if(isset($_POST['login'])){
@@ -149,7 +142,6 @@ switch($action){
         break;
     case 'exit':
         $pageTitle='connexion';
-
         if(isset($_SESSION['login'])){
             $messageErreur=" Aurevoir {$_SESSION['login']}";
             unset($_SESSION['login']);
