@@ -166,17 +166,6 @@ switch($action){
 
         break;
 
-    case 'upload' :
-        if(isset($_SESSION['login'])){
-            $view='upload';
-            $pageTitle= 'Upload Documents' ;
-            $controller='membre';
-        }
-        else {
-            $view='Erreur';
-            $controller='membre';
-            $messageErreur = 'Vous n\'ètes pas connectez , veuillez vous connecter pour uploader un fichier' ;
-            $layout = 'Membre' ;
-        }
+
 
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");
