@@ -136,9 +136,7 @@ switch($action){
                 }else{
                     $mdp = $membre->getMotDePasse();
                 }
-                $tab = array($login, $nom, $prenom,$membre->getSexe() ,
-                    $mail,$mdp,'actif',$_SESSION['rang'], NULL);
-                echo $tab[2];
+                $tab = array($login, $nom, $prenom,$membre->getSexe() ,$mail,$mdp,'actif',$membre->getRang(), '');
                 modelMembre::update($tab,$_SESSION['login']);
                 $_SESSION['login']= $_POST['login'];
 
@@ -165,9 +163,5 @@ switch($action){
             $controller ='visiteur';
         }
 
-        break;
-
-    case 'requete':
-        $view ='Requete';
         break;
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");

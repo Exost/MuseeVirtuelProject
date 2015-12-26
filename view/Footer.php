@@ -10,6 +10,6 @@
         <a href="index.php?action=CA"
             >Nos actions</a>
         <a href="index.php?action=CS"
-            > Créateurs du sit </a>
+            > Créateurs du site </a>
     </nav>
 </footer>
