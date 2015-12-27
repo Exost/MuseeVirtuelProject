@@ -32,8 +32,9 @@ switch($action) {
                 $date = $_POST['dateF'] ;
                 //$fichier = $_FILES['fichier'];
 
-                $newDoc = new modelDocument( $idDoc, $titre, $date,$type, $desc) ;
-                $newDoc->insert($newDoc);
+                //$newDoc = new modelDocument( $idDoc, $titre, $date,$type, $desc) ;
+                $newDoc = array($idDoc, $titre, $date,$type, $desc) ;
+                modelDocument::insert($newDoc);
 
                 $name = $_FILES['fichier']['name'];
                 $nomMembre = $_SESSION['login'] ;

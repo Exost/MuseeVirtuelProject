@@ -5,15 +5,15 @@
 
                 <label for="titreF" class="label">Titre du document</label>
                 <input type="text"  name="titreF"
-                       id="titreF"  required/></Br>
+                       id="titreF"  required placeholder="Compte pour enfant"/></Br>
 
-            <label for="dateF" class="label"> Date de parution </label>
+            <label for="dateF" class="label"> Année de parution </label>
             <input type="number"  name="dateF"
-                   id="dateF"  required/></Br>
+                   id="dateF"  required placeholder="1921"/></Br>
 
                 <label for="description" class="label">Description</label>
                 <input type="text"  name="descriptionF"
-                       id="descriptionF"  required/></Br>
+                       id="descriptionF"  required placeholder=" Texte ancien ......"/></Br>
 
                 <label for="category" class="label"> Type de Fichier</label>
                 <select  name="typeF" id="typeF">
