@@ -26,22 +26,25 @@ switch($action) {
                 $controller = 'membre';
                 $nbDoc = modelDocument::countElem();
                 $idDoc = $nbDoc['ResCount'] + 1;
-                $titre = $_POST['titreF'];
+                //$nomF = $_POST['nomF'];
                 $desc = $_POST['descriptionF'];
                 $type = $_POST['typeF'];
                 $date = $_POST['dateF'] ;
                 //$fichier = $_FILES['fichier'];
+                $nameF = $_FILES['fichier']['name'];
 
-                //$newDoc = new modelDocument( $idDoc, $titre, $date,$type, $desc) ;
-                $newDoc = array($idDoc, $titre, $date,$type, $desc) ;
+                print_r( $nameF);
+
+                $newDoc = array($idDoc, $nameF , $date,$type, $desc) ;
                 modelDocument::insert($newDoc);
 
-                $name = $_FILES['fichier']['name'];
                 $nomMembre = $_SESSION['login'] ;
 
-                $file_path = "{$ROOT}{$DS}file{$DS}{$nomMembre}/{$name}";
+
+                $file_path = "{$ROOT}{$DS}file{$DS}{$nomMembre}/{$nameF}";
                 if (!move_uploaded_file($_FILES['fichier']['tmp_name'], $file_path)) {
                     echo "La copie a échoué";
+                    break ;
                 }
 
 
@@ -50,12 +53,14 @@ switch($action) {
                 $controller = 'membre';
                 $view = 'erreur';
                 $messageErreur = " Echec de l'upload , veuillez recommencer la procédure. ";
+                break ;
             }
         } else { // si pas connecté
             $layout = 'Visiteur';
             $controller = 'visiteur';
             $view = 'erreur';
             $messageErreur = " Veuillez vous connecter";
+            break;
         }
 }
 

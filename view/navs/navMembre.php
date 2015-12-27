@@ -4,7 +4,7 @@
             <td>
                 <ul >
                     <li id="firstLeft">
-                        <a href="index.php"> Mon Profil </a>
+                        <a href="index.php?controller=membre&action=profil"> Mon Profil </a>
                     </li>
 
                     <li>
