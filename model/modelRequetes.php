@@ -15,6 +15,9 @@ class modelRequetes extends Model
     private $etat;
     private $login;
 
+    static $table = "requetes";
+    static $primary = "id";
+
     /**
      * modelRequetes constructor.
      * @param $id

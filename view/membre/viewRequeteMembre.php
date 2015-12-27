@@ -6,16 +6,24 @@
  * Time: 14:55
  */
 ?>
-<form method="post" action="">
+<div id="requete">
+    <div class="messages">
+        <!-- affichage du message par javascript -->
+    </div>
     <fieldset>
-        <label>sujet</label>
-        <select name="sujet" id="sujet">
-            <option>sujet de la requete</option>
-            <option value="">signalement</option>
-        </select><br/>
-        <label>requete</label>
-        <input type="text" name="texte"/><br/>
-        <input type="submit" value="envoyer"/>
-    </fieldset>
+        <form method="post" action="traitementRequeteAdmin.php">
 
-</form>
+            <label>sujet</label><br/>
+            <select name="sujet" id="sujet">
+                <option value="">sujet de la requete</option>
+                <option value="signalement">signalement</option>
+            </select><br/>
+            <label>requete</label><br/>
+            <textarea type="text" name="texte" id="texte"></textarea><br/>
+            <input type="submit" value="envoyer"/>
+
+
+        </form>
+    </fieldset>
+</div>
+

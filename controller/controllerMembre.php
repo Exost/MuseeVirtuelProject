@@ -170,6 +170,21 @@ switch($action){
             $layout = 'Visiteur';
             $view ='Connexion';
             $controller ='visiteur';
+            $pageTitle ='Connexion';
+        }
+
+        break;
+    case 'requete':
+        if(isset($_SESSION['rang']) && $_SESSION['rang'] != 'admin' ){
+            $view='Requete';
+            $layout ='Membre';
+            $pageTitle ='Contacter un administrateur';
+        }else{
+            $layout = 'Visiteur';
+            $view ='Connexion';
+            $controller ='visiteur';
+            $pageTitle ='Connexion';
+            $messageErreur='veuillez vous connecter';
         }
 
         break;

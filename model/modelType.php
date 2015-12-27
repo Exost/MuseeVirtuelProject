@@ -10,7 +10,7 @@ class modelType extends Model
 {
     private $nomType;
 
-    static $table = "Type";
+    static $table = "type";
     static $primary = "nomType";
 
     /**

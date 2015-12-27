@@ -24,8 +24,7 @@ switch($action) {
                 $layout='Membre';
                 $view = 'uploaded';
                 $controller = 'membre';
-                $nbDoc = modelDocument::countElem();
-                $idDoc = $nbDoc['ResCount'] + 1;
+
                 //$nomF = $_POST['nomF'];
                 $desc = $_POST['descriptionF'];
                 $type = $_POST['typeF'];
@@ -35,7 +34,7 @@ switch($action) {
 
                 print_r( $nameF);
 
-                $newDoc = array($idDoc, $nameF , $date,$type, $desc) ;
+                $newDoc = array('DEFAULT', $nameF , $date,$type, $desc) ;
                 modelDocument::insert($newDoc);
 
                 $nomMembre = $_SESSION['login'] ;

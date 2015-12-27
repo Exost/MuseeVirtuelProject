@@ -15,7 +15,7 @@ class modelDocument extends Model
     private $type;
     private $description;
 
-    static $table = "Document";
+    static $table = "document";
     static $primary = "idDocument";
 
     function __construct($idDocument, $titre, $an_parution, $type, $description)
