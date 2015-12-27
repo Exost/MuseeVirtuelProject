@@ -10,13 +10,13 @@ class modelType extends Model
 {
     private $nomType;
 
-    static $table = "type";
+    static $table = "Type";
     static $primary = "nomType";
 
     /**
      * @return mixed
      */
-    public function getNomType()
+    public function getType()
     {
         return $this->nomType;
     }

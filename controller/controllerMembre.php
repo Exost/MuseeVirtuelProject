@@ -7,7 +7,16 @@
  */
 $messageErreur='';
 require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
+require ("{$ROOT}{$DS}model{$DS}modelType.php");
+
 switch($action){
+    case 'deconnexion':
+        $layout='Visiteur';
+        $controller ='visiteur';
+        unset($_SESSION['login']);
+        // toute les les variable de l'visiteur
+        $view ='Connexion';
+        break;
     case 'connecte':
 
         if(isset($_POST['login'])){
@@ -58,11 +67,16 @@ switch($action){
             $view ='Connexion';
         }
         break;
-    case 'poster': // poster un document
+
+    case 'upload': // poster un document
+
         if(isset($_SESSION['login'])){
             $layout='Membre';
+            $controller= 'membre' ;
+            $view='Upload';
             $dossier = "file/{$_SESSION['login']}";
-            if(!is_dir($dossier)){
+            $tab_Type = modelType::getAll() ;
+            if(!is_dir($dossier)) {
                 mkdir($dossier); // creation de dossier s'il n'a jamais poster de document
             }
         }else{ // s'il n'est pas connecté
@@ -72,6 +86,8 @@ switch($action){
             $messageErreur=" Veuillez vous connecter";
         }
         break;
+
+
     case 'commenter':
         break;
     case 'profil': // voir son profil
@@ -142,6 +158,7 @@ switch($action){
         break;
     case 'exit':
         $pageTitle='connexion';
+
         if(isset($_SESSION['login'])){
             $messageErreur=" Aurevoir {$_SESSION['login']}";
             unset($_SESSION['login']);
@@ -156,4 +173,9 @@ switch($action){
         }
 
         break;
+
+
+
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");
+
+?>

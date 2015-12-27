@@ -25,7 +25,7 @@ class Model{
         try{
             $req_prep = Model::$pdo->query($SQL);
             //print_r( $req_prep );
-            $nomModel =  'model'.substr(static::$table , 3) ;
+            $nomModel =  'model'.static::$table ;
             $req_prep->setFetchMode(PDO::FETCH_CLASS, $nomModel );
             $all_Art = $req_prep->fetchAll(); ;
             return $all_Art ;
