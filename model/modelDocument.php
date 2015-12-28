@@ -6,6 +6,7 @@
  * Time: 03:22
  */
 
+require_once "{$ROOT}{$DS}model{$DS}model.php";
 class modelDocument extends Model
 {
 
