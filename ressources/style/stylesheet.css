@@ -767,6 +767,10 @@ aside {
     opacity:0.85;
 }
 
+#formRequetes tr:hover{
+    outline: thin solid blue;
+}
+
 tr#greenRow{
     background-color: yellowgreen;
     opacity: 0.72;

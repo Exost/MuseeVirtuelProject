@@ -34,8 +34,22 @@ $().ready(function(){
 
 
 function afficherBouton(){
+    result = false;
+    var checkBox = document.getElementsByClassName('check');
+    for(i=0;i<checkBox.length;i++){
+        if(checkBox[i].checked){
+            result=true;
+            break;
+        }
+    }
     var div = document.getElementById('suppression').style;
-    div.display ='block'; // on affiche le bouton
+    if(result){ // si une case est coché  alors on affiche le bouton supprimer
+        div.display ='block'; // on affiche le bouton
+    }else{
+        div.display ='none';
+    }
+
+
 }
 
 
@@ -43,6 +57,7 @@ $().ready(function(){
     $("#formRequetes form").submit(function(){
 
         // a finir
+        alert(('bonjour'));
 
 
 
@@ -52,6 +67,21 @@ $().ready(function(){
 });
 
 
+
+function afficherCacherCom(id) // a modifier pour cacher certain commentaire
+{
+    if(document.getElementById(id).style.visibility=="hidden")
+    {
+        document.getElementById(id).style.visibility="visible";
+        document.getElementById('bouton_'+id).innerHTML='Cacher le texte';
+    }
+    else
+    {
+        document.getElementById(id).style.visibility="hidden";
+        document.getElementById('bouton_'+id).innerHTML='Afficher le texte';
+    }
+    return true;
+}
 
 /*$(document).ready(function(){
    $("#connexion form").submit(function(){
