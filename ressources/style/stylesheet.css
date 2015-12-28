@@ -751,4 +751,39 @@ aside {
 /* FIN Category */
 
 
+#formRequetes {
+    position: relative;
+    vertical-align: middle;
+    padding: 2%;
+}
 
+#formRequetes form{
+    width: 70%;
+}
+
+#formRequetes tr{
+    outline: thin solid;
+    color : yellowgreen;
+    opacity:0.85;
+}
+
+tr#greenRow{
+    background-color: yellowgreen;
+    opacity: 0.72;
+    color: black;
+}
+
+tr#greenRow th{
+    background-color: yellowgreen;
+    opacity: 0.72;
+}
+
+#formRequetes th, td{
+    text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+#suppression{  display: none;  }

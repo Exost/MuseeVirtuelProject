@@ -18,6 +18,7 @@
                 <?php
                 require ("{$ROOT}{$DS}view{$DS}searchBar.php"); //SearchBar
                 ?>
+
 </td>
 
 <td>

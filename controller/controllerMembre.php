@@ -38,6 +38,7 @@ switch($action){
                 $view = 'profil';
                 $pageTitle='profil';
                 if($membre->getRang() == 'admin'){
+
                     $layout='Admin';
                     $controller='admin'; // l'admin a des action speciale
                 }

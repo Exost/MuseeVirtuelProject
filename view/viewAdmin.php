@@ -2,10 +2,13 @@
 <html>
 <?php
 
+require ("head.php");
+require ("header.php");
 
 ?>
 <body>
 <?php
+require ("{$ROOT}{$DS}view{$DS}navs{$DS}navAdmin.php");
 
 
 

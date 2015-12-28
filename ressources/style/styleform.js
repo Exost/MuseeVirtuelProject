@@ -33,6 +33,25 @@ $().ready(function(){
 });
 
 
+function afficherBouton(){
+    var div = document.getElementById('suppression').style;
+    div.display ='block'; // on affiche le bouton
+}
+
+
+$().ready(function(){
+    $("#formRequetes form").submit(function(){
+
+        // a finir
+
+
+
+        return false;
+    });
+
+});
+
+
 
 /*$(document).ready(function(){
    $("#connexion form").submit(function(){
