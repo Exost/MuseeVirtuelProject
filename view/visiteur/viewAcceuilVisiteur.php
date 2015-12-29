@@ -6,6 +6,6 @@
  * Time: 15:11
  */
 
- echo "page d'acceuil visiteur ";
+ echo "page d'accueil visiteur ";
 
 ?>
