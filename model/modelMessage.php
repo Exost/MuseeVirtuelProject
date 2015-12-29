@@ -15,24 +15,23 @@ class Message {
 	private $date;
 
 
-function __construct($idMessage=NULL; $auteur=NULL; $texte=NULL; $destinataire=NULL; $etat=NULL
-		$date=NULL)
+function __construct($idMessage=NULL; $auteur=NULL; $texte=NULL; $destinataire=NULL; $etat=NULL, $date=NULL)
 {
 	$this->idMessage 	= $idMessage;
 	$this->auteur 	 	= $auteur ;
 	$this->texte 	 	= $texte ;
-	$this->destinataire = $destinataire;
+	$this->destinataire 	= $destinataire;
 	$this->etat 		= $etat;
 	$this->date 		= $date;
 }
 
 
-public function getAuteur()			    {return $this->auteur ;}
-public function getTexte()			    {return $this->texte ;}
+public function getAuteur()		{return $this->auteur ;}
+public function getTexte()		{return $this->texte ;}
 public function getIdMessage()	  	{return $this->idmessage ;}
-public function getDestinataire()	  {return $this->destinataire ;}
-public function getEtat() 			    {return $this->etat ;}
-public function getDate() 			    {return $this->date ;}
+public function getDestinataire()	{return $this->destinataire ;}
+public function getEtat() 		{return $this->etat ;}
+public function getDate() 		{return $this->date ;}
 
 
 
