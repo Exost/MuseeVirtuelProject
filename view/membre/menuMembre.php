@@ -11,6 +11,7 @@
         <td> <a href="index.php?controller=membre&action=profil">profil</a></td>
         <td> <a href="index.php?controller=membre&action=modifier">modifier</a></td>
         <td> <a href="">documents</a></td>
-        <td><a href="index.php?controller=membre&action=requete">requete</a></td>
+        <td> <a href="index.php?controller=membre&action=requete">requete</a></td>
+        <td> <a href="index.php?controller=membre&action=message">messages</a></td>
     </tr>
 </table>
