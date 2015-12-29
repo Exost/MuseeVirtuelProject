@@ -23,7 +23,7 @@ switch ($action){
 	case 'send': 
 	
 	if(isset($_POST['texte']) && (isset(_POST['auteur']) && (isset($_POST['destinataire']) )
-		
+	{	
 		if( exist($_POST['destinataire']) ) // si le destinataire existe
 		{
 			$layout = "Membre" ;
@@ -33,7 +33,7 @@ switch ($action){
 			$auteur		= $_POST['auteur'];
 			$destinataire 	= $_POST['destinataire'];			
 		}
-		
+	}	
 		
 	break;
 
