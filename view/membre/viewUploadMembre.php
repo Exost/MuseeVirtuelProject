@@ -3,7 +3,7 @@
     <fieldset>
         <legend>Upload :</legend> <p>
 
-
+            <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
             <label for="upload" class="label"> Fichier</label>
             <input type="file" name="fichier"> </Br>
 

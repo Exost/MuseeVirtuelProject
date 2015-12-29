@@ -11,7 +11,8 @@ class Model{
         $login= conf::getLogin();
         $pass= conf::getPassword();
         try{
-            self::$pdo = new PDO("mysql:host=$host;dbname=$dbname",$login,$pass);
+            self::$pdo = new PDO("mysql:host=$host;dbname=$dbname",$login,$pass,
+                array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 
         }catch(PDOException $e) {
             echo $e->getMessage(); // affiche un message d'erreur

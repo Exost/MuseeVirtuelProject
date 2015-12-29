@@ -34,7 +34,7 @@ switch($action) {
 
                 print_r( $nameF);
 
-                $newDoc = array('DEFAULT', $nameF , $date,$type, $desc) ;
+                $newDoc = array('DEFAULT', $nameF , $date,$type, $desc,$_SESSION['login']) ;
                 modelDocument::insert($newDoc);
 
                 $nomMembre = $_SESSION['login'] ;
@@ -48,7 +48,7 @@ switch($action) {
 
 
             } else { // si echec upload
-                $layout = 'membre';
+                $layout = 'Membre';
                 $controller = 'membre';
                 $view = 'erreur';
                 $messageErreur = " Echec de l'upload , veuillez recommencer la procédure. ";
@@ -59,10 +59,38 @@ switch($action) {
             $controller = 'visiteur';
             $view = 'erreur';
             $messageErreur = " Veuillez vous connecter";
-            break;
         }
-}
+        break;
+    case 'readAll':
+            $view='All';
+            $allDocument = modelDocument::getAll();
+            if(isset($_SESSION['login'])){
+                $layout=ucfirst($_SESSION['rang']); // choisir le layout
+            }else{
+                $layout='Visiteur';
+            }
+            $pagetitle='oeuvres';
+        break;
+    case 'consulter':
+        if(isset($_GET['idDocument'])){
+            if(isset($_SESSION['login'])){
+                $layout=ucfirst($_SESSION['rang']); // choisir le layout
+            }else{
+                $layout='Visiteur';
+            }
+            $document = modelDocument::select($_GET['idDocument']);
+            if(!empty($document)){
+                $pagetitle = $document->getIdDocument();
+                $view = 'view'.ucfirst($document->getType());
+            }else{
+                $view="Error";
+                $pagetitle='oeuvre inexistante';
+            }
 
-require("{$ROOT}{$DS}view{$DS}view$layout.php");
+
+        }
+
+        break;
+}require("{$ROOT}{$DS}view{$DS}view$layout.php");
 
 ?>
