@@ -41,6 +41,14 @@ public function getDate() 			{return $this->date ;}
 
 public function getLast(){}
 
+public function getMessageRecueByIdMembre($id){
+	$sql='SELECT * FROM message WHERE destinataire = '.$id;
+
+	try{
+
+	}
+}
+
 
 
 

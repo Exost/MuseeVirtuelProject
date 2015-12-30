@@ -7,10 +7,11 @@ switch ($action){
 
 	case 'readAll':
 
-		$layout = "Membre" ;
-		$view   = "All" ;
-		$pageTitle='Messagerie';
-		$allMessage=modelMessage::getAll();
+		$layout 	= "Membre" ;
+		$view   	= "All" ;
+		$pageTitle	= 'Messagerie';
+		$allMessage	= modelMessage::getAll();
+		$idMembre 	= $_SESSION['login'];
 
 	break;
 

@@ -8,29 +8,23 @@
 ?>
 <div id="requete">
 
+	<fieldset>
+		<form method="post" action="traitementMessageMembre.php">
 
-	<form method="post" action="traitementMessageMembre.php">
-		<fieldset>
 			<div class="messages">
 				<!-- affichage du message par javascript -->
 			</div>
 
-			<table>
-				<tr>
 
-					<td><label for="texte"> Votre message </label><textarea name="texte" id="texte" required> </textarea></td></br>
-				</tr>
-				<tr>
+			<label for="texte"> Votre message </label>
+			<textarea name="texte" id="texte" required> </textarea>
+			</br>
+			<label for="destinataire"> Login destinataire </label>
+			<input type="texte" name="destinataire" id="texte" required> </input>
+			</br>
+			<input type="submit" value="envoyer" />
 
-					<td><label for="dest"> Login destinataire </label><input type="text" name="dest" id="destinataire" required/> </td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="envoyer" /></td>
-					</br>
-				</tr>
-			</table>
-
-		</fieldset>
-	</form>
+		</form>
+	</fieldset>
 
 </div>
