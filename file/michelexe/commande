@@ -1,0 +1,10 @@
+xinput -set-prop "Atmel Atmel maXTouch Digitizer" "Device Enabled" 0
+
+
+
+supprime du boot 
+
+sudo update-rc.d -f ecranTactile.sh remove
+
+http://labs.excilys.com/2014/05/05/lancement-dun-script-au-demarrage-de-linux/
+

@@ -12,5 +12,8 @@ echo $pdfPath;
 
 
 ?>
-<embed src="<?php echo $fichier[1] ?>" width="680px" height="800px">
+<embed src="<?php echo $fichier[1] ?>" width="70%" height="800px">
 </embed>
+<?php
+require ("{$ROOT}{$DS}view{$DS}commentaire.php");
+?>

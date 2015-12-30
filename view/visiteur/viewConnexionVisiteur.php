@@ -10,7 +10,7 @@
             <input type="text"  name="login" id="login" required/><p></p>
             <label for="passwd" class="label"  >mot de passe</label>
             <input type="password"  name="mdp"  id="mdp" required/><p></p>
-            <input type="submit" value="connexion" /> <p></p>
+            <input type="submit" value="connexion" class="button"/> <p></p>
             <a href="index.php?controller=visiteur&action=oublie_mot_de_passe">mot de passe oublié ?</a>
         </fieldset>
     </form>

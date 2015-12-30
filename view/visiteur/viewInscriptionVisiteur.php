@@ -48,7 +48,7 @@
             <span class="hint">les deux mot de passe sont différents</span>
         </p><p>
 
-            <input type="submit" value="s'inscrire" onsubmit="verifSubmit()"/> </p>
+            <input type="submit" value="s'inscrire" onsubmit="verifSubmit()" class="button"/> </p>
     </fieldset>
 </form>
 <script type="text/javascript">
