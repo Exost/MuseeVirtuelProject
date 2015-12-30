@@ -750,6 +750,9 @@ aside {
 }
 /* FIN Category */
 
+/*******************************************************/
+    /*              FORMULAIRE                             */
+/******************************************************/
 
 #formRequetes {
     position: relative;
@@ -782,7 +785,7 @@ tr#greenRow th{
     opacity: 0.72;
 }
 
-#formRequetes th, td{
+#formRequetes th, #formRequetes td{
     text-align: center;
     padding-right: 10px;
     padding-left: 10px;
@@ -791,3 +794,43 @@ tr#greenRow th{
 
 }
 #suppression{  display: none;  }
+
+.button{
+    background-color: yellowgreen;
+    opacity: 0.72;
+    color: #F0F5FF;
+    border-radius: 7px;
+    text-align:center;
+    margin: 3px;
+    width: 100px;
+    height: 30px;
+    border:yellowgreen 2px outset;
+}
+
+.button:hover{
+    color: yellowgreen;
+    background-color:#F0F5FF;
+}
+
+ /**************************************************/
+    /*       COMMENTAIRE ET DOCUMENT                   */
+/**************************************************/
+.espaceDocument{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+#typeTexte{
+    border: solid 1px;
+    padding: 1%;
+    width: 80%;  /* http://letrainde13h37.fr/11/decouverte-de-la-propriete-css-border-image/   */
+}
+
+
+.postionCom{
+    position: relative;
+    display: block;
+    margin-right: 5%;
+    margin-left: 5%;
+}
