@@ -7,13 +7,14 @@
  */
 ?>
 <div id="requete">
-	<div class="messages">
-		<!-- affichage du message par javascript -->
-	</div>
 
 
 	<form method="post" action="index.php?controller=message&action=envoie">
 		<fieldset>
+			<div class="messages">
+				<!-- affichage du message par javascript -->
+			</div>
+
 			<table>
 				<tr>
 					<td><label> Votre message </label></td>
