@@ -54,6 +54,11 @@ switch($controller)
         break;
     case 'recherche':
         require("{$ROOT}{$DS}controller{$DS}controllerRecherche.php");
+        break;
+    case 'commentaire':
+        require("{$ROOT}{$DS}controller{$DS}controllerCommentaire.php");
+        break;
+
 
 }
 

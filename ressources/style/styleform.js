@@ -7,7 +7,7 @@ $().ready(function(){
        var text = $('#texte').val();
 
        $(".messages").slideUp('1000', function(){
-           $('input[value="envoyer"]').hide().after('<img src="ressources/img/loader.gif" class="loader"/>');
+           $('input[value="envoyer"]').hide().after('<img src="ressources/img/loaders/loader.gif" class="loader"/>');
            $.post(action,{
                sujet:sujet,
                texte:text
@@ -52,12 +52,10 @@ function afficherBouton(){
 
 }
 
-
+// requete
 $().ready(function(){
     $("#formRequetes form").submit(function(){
 
-        // a finir
-        alert(('bonjour'));
 
 
 
@@ -82,6 +80,39 @@ function afficherCacherCom(id) // a modifier pour cacher certain commentaire
     }
     return true;
 }
+/////////////////////////////////////////////////////////////////////////
+// commentaire
+$().ready(function(){
+    $('.postionCom form').submit(function(){
+
+        loader =$(this).find('img[id="loader"]').show();
+
+
+        action = $(this).attr('action');
+        message =$(this).find("textarea[name='message']").val();
+        idDoc =$(this).find("input[name='idDoc']").val();
+        login = $(this).find("input[name='login']").val();
+       // alert(idDoc);
+        $.post(
+          action,{
+                message: message,
+                idDocument: idDoc
+            },
+            function(data){
+                loader.hide();
+                if(!data.match('ok')){
+                    $(".error").empty().append(data);
+                }else{
+                    $('#resultatAjax').hide().append("<td class='commentaire'><b><u>"+
+                    login+"</u></b> a dit:<br/>"+message+"</td>").slideDown();
+
+                }
+            }
+        );
+        return false;
+    });
+
+});
 
 /*$(document).ready(function(){
    $("#connexion form").submit(function(){

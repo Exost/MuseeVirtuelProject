@@ -815,6 +815,13 @@ tr#greenRow th{
  /**************************************************/
     /*       COMMENTAIRE ET DOCUMENT                   */
 /**************************************************/
+.layoutCom{
+    display: block;
+}
+
+.commentaire{
+    display: block;
+}
 .espaceDocument{
     margin-left: 10%;
     margin-right: 10%;
@@ -826,7 +833,10 @@ tr#greenRow th{
     padding: 1%;
     width: 80%;  /* http://letrainde13h37.fr/11/decouverte-de-la-propriete-css-border-image/   */
 }
-
+.textCom{
+    width: 200px;
+    height: 100px;
+}
 
 .postionCom{
     position: relative;

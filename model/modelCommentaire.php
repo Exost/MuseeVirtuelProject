@@ -6,6 +6,7 @@
  * Date: 30/12/15
  * Time: 02:38
  */
+require_once ("{$ROOT}{$DS}model{$DS}model.php");
 class modelCommentaire extends Model
 {
     private $idCom;

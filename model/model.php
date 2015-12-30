@@ -109,7 +109,7 @@ class Model{
         }
     }
 
-    function delete($para) {
+    static function delete($para) {
         $sql = "DELETE FROM ".static::$table." WHERE ".static::$primary."=:nom_var";
         try{
             $req_prep = Model::$pdo->prepare($sql);
