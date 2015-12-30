@@ -1,6 +1,6 @@
 <?php
-require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
-require ("{$ROOT}{$DS}model{$DS}modelMessage.php");
+require_once ("{$ROOT}{$DS}model{$DS}modelMembre.php");
+require_once ("{$ROOT}{$DS}model{$DS}modelMessage.php");
 
 
 switch ($action){
@@ -59,19 +59,14 @@ switch ($action){
 	elseif  ($_POST['destinataire'] == $_SESSION['login'])  { echo '<div class="erreur">Vous ne pouvez pas vous envoyer un message</requete></div>'; }
 
 	else {
-
-	$ROOT = __DIR__;
-	$DS = DIRECTORY_SEPARATOR;
-
 	//include "{$ROOT}{$DS}model{$DS}modelMessage.php";
 
-	//header('location : index.php?controller=membre&action=send');
 	$texte 			= $_POST['texte'];
     $destinataire 	= $_POST['destinataire'];
     $auteur			= $_SESSION['login'];
 
     echo '<div class="succes"> message envoyé avec succès </div>';
-    $newMessage = array('DEFAULT', $auteur,  $texte, $destinataire, "NL", now());
+    $newMessage = array('DEFAULT', $auteur,  $texte, $destinataire, "NL", "now()");
     modelMessage::insert($newMessage);
 
 

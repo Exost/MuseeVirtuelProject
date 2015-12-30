@@ -3,6 +3,7 @@
     <div class="messages">
 
     </div>
+
     <form method="post" action="index.php?controller=membre&action=connecte">
         <legend>Connexion</legend>
         <fieldset>

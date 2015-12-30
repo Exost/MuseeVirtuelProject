@@ -9,7 +9,7 @@
 <div id="requete">
 
 
-	<form method="post" action="index.php?controller=message&action=envoie">
+	<form method="post" action="traitementMessageMembre.php">
 		<fieldset>
 			<div class="messages">
 				<!-- affichage du message par javascript -->
@@ -17,15 +17,12 @@
 
 			<table>
 				<tr>
-					<td><label> Votre message </label></td>
-					</br>
-					<td><textarea name="texte" id="texte" ></textarea></td></br>
+
+					<td><label for="texte"> Votre message </label><textarea name="texte" id="texte" required> </textarea></td></br>
 				</tr>
 				<tr>
-					<td><label> Destinataire </label></td>
-					</br>
-					<td><input type="text" name="destinataire"></td>
-					</br>
+
+					<td><label for="dest"> Login destinataire </label><input type="text" name="dest" id="destinataire" required/> </td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="envoyer" /></td>
