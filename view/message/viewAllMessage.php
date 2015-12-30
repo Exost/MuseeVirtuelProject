@@ -1,4 +1,4 @@
-<?php
+<?php require_once "{$ROOT}{$DS}model{$DS}modelMessage.php";
 /**
  * Created by PhpStorm.
  * User: Clément
@@ -6,11 +6,18 @@
  * Time: 00:38
  */
 
-foreach( $allMessage as $message ){
-    $auteur = $message->getAuteur();
-    $texte  = $message->getTexte();
-    $id     = $message->getIdMessage();
+if($allMessage == NULL){ echo '<p> Vous n\'avez aucun message </p>'; }
+else
+{
+    foreach( $allMessage as $message ){
 
-    echo '<a href="index.php?controller=membre&action=consulter&idMessage=".$id >'.$message->getDate().$message->getAuteur().'</a></br>';
+        $auteur = $message->getAuteur();
+        $texte  = $message->getTexte();
+        $id     = $message->getIdMessage();
+        $date   = $message->getDate();
+
+        echo '<a href="index.php?controller=membre&action=consulter&idMessage=".$id >'.$date.$auteur.'</a></br>';
+
+    }
 
 }

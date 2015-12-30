@@ -17,8 +17,8 @@ class modelMessage extends Model{
 
 public function __construct($idMessage=NULL, $auteur=NULL, $texte=NULL, $destinataire=NULL, $etat=NULL, $date=NULL)
 {
-	if( is_null($idMessage) && is_null($auteur) && is_null($texte)
-		&& is_null($destinataire) && is_null($etat) && is_null($date) )
+	if( !is_null($idMessage) && !is_null($auteur) && !is_null($texte)
+		&& !is_null($destinataire) && !is_null($etat) && !is_null($date) )
 	{
 		$this->idMessage 	= $idMessage ;
 		$this->auteur 	 	= $auteur ;
@@ -39,14 +39,22 @@ public function getDate() 			{return $this->date ;}
 
 
 
+
+
 public function getLast(){}
 
-public function getMessageRecueByIdMembre($id){
-	$sql='SELECT * FROM message WHERE destinataire = '.$id;
+public static function getMessageRecueByIdMembre($id){
+	$sql='SELECT * FROM '.static::$table.' WHERE destinataire=:id';
 
 	try{
-
+		$rep=Model::$pdo->prepare($sql);
+		$rep->setFetchMode(PDO::FETCH_CLASS, 'message');
+		$rep->bindParam(":id", $id);
+		$rep->execute();
+		return $rep->fetch();
 	}
+	catch(PDOException $e){ if(Conf::getDebug()) { echo $e->getMessage(); } die(); }
+
 }
 
 
