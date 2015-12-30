@@ -193,8 +193,7 @@ switch($action){
 
         break;
 
-
-                case 'message' :
+    case 'message' :
             if (isset($_SESSION['login']) ){
                 $view="Message";
                 $layout="Membre";

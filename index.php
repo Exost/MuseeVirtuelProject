@@ -28,7 +28,8 @@ else
 $view = 'Acceuil';
 
 $layout ='Visiteur';
-$pageTitle ='Acceuil';
+$pageTitle ='Accueil';
+
 if(isset($_SESSION['login'])){
     if($_SESSION['rang']=='admin'){
         $layout='Admin';
@@ -54,7 +55,10 @@ switch($controller)
         break;
     case 'recherche':
         require("{$ROOT}{$DS}controller{$DS}controllerRecherche.php");
-
+        break;
+    case 'message':
+        require("{$ROOT}{$DS}controller{$DS}controllerMessage.php");
+        break;
 }
 
 ?>
