@@ -5,7 +5,6 @@
  * Date: 26/12/15
  * Time: 14:55
  */
-
 require_once "{$ROOT}{$DS}model{$DS}modelSujet.php";
 ?>
 <div id="requete">

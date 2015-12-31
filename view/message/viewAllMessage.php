@@ -1,3 +1,8 @@
+<fieldset class="allMessagesFieldset">
+
+<div>
+</div>
+
 <?php require_once "{$ROOT}{$DS}model{$DS}modelMessage.php";
 /**
  * Created by PhpStorm.
@@ -11,13 +16,17 @@ else
 {
     foreach( $allMessage as $message ){
 
-        $auteur = $message->getAuteur();
-        $texte  = $message->getTexte();
-        $id     = $message->getIdMessage();
-        $date   = $message->getDate();
+        $mes=$message;
+        $auteur = $mes->getAuteur();
+        $texte  = $mes->getTexte();
+        $id     = $mes->getIdMessage();
+        $date   = $mes->getDate();
 
-        echo '<a href="index.php?controller=membre&action=consulter&idMessage=".$id >'.$date.$auteur.'</a></br>';
+        echo '<a class="message" href="index.php?controller=membre&action=consulter&idMessage="{$id}.>'.$date.$auteur.'</a></br>';
 
     }
 
 }
+?>
+
+</fieldset>

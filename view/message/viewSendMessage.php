@@ -6,22 +6,26 @@
  * Time: 14:40
  */
 ?>
-<div id="requete">
+<div id="requete" xmlns="http://www.w3.org/1999/html">
 
 	<fieldset>
-		<form method="post" action="traitementMessageMembre.php">
 
-			<div class="messages">
-				<!-- affichage du message par javascript -->
-			</div>
+		<div class="messages">
+			<!-- affichage du message par javascript -->
+		</div>
 
+		<form method="post" action="index.php?controller=message&action=envoie">
+
+
+			<label > A l'intention de  </label>
+			<input type="text" name="destinataire" id="texte" placeholder="Login destinataire" required />
+			</br>
+			</br>
 
 			<label for="texte"> Votre message </label>
-			<textarea name="texte" id="texte" required> </textarea>
+			<textarea type="text" name="texte" id="texteMessage" required> </textarea>
 			</br>
-			<label for="destinataire"> Login destinataire </label>
-			<input type="texte" name="destinataire" id="texte" required> </input>
-			</br>
+
 			<input type="submit" value="envoyer" />
 
 		</form>

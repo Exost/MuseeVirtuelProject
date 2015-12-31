@@ -5,7 +5,7 @@
  * Date: 30/12/2015
  * Time: 02:39
  */
-session_start();
+//session_start();
 echo $_POST['texte'];
 echo $_POST['destinataire'];
 

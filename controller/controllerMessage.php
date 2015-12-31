@@ -12,6 +12,21 @@ switch ($action){
 		$pageTitle	= 'Messagerie';
 
 		$idMembre 	= $_SESSION['login'];
+		echo $idMembre;
+		$allMessage	= modelMessage::getAll();
+
+
+
+		break;
+
+	case 'readAllRecue':
+
+		$layout 	= "Membre" ;
+		$view   	= "All" ;
+		$pageTitle	= 'Messagerie';
+
+		$idMembre 	= $_SESSION['login'];
+		echo $idMembre;
 		$allMessage	= modelMessage::getMessageRecueByIdMembre($idMembre);
 
 
@@ -19,9 +34,10 @@ switch ($action){
 		break;
 
 
-// à faire
+// défnit viewOneMessage.php
 	case 'consulter':
 
+		//..Si l'url contient idMessage
 		if(isset($_GET['idMessage'])) {
 
 			if (isset($_SESSION['login'])) 	{ $layout = ucfirst($_SESSION['rang']); }
@@ -29,32 +45,31 @@ switch ($action){
 
 			$message = modelMessage::select($_GET['idMessage']);
 
+			//..Si il y a un message et un auteur
 			if (!empty($message) && !empty($auteur)) {
 				$pagetitle = $message->getIdMessage();
 				$view = "One";
-				if ($message->getEtat() != "L"){
-					$sql = 'UPDATE ' . static::table . ' SET etat="L" WHERE idmessage="' . $message->getIdMessage() . '"';
+
+				// On change l'etat
+				if ( $message->getEtat() != "L"){
+					$sql = 'UPDATE ' . static::$table . ' SET etat="L" WHERE idmessage="' . $message->getIdMessage() . '"';
 				}
 
 			}
-			$layout = "Membre";
-			$view = "";
+
 		}
+		else{ $layout = "Membre"; $view="All";}
 		break;
 
-// à faire
+
 	case 'delete':
 
 	break;
 
 
 	case 'envoyer':
-
 		$view="Send";
 		$layout="Membre";
-
-
-
 	break;
 
 	case 'envoie':
