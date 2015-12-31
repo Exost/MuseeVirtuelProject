@@ -29,20 +29,6 @@ public function __construct($idMessage=NULL, $auteur=NULL, $texte=NULL, $destina
 	}
 }
 
-
-public function getAuteur()			{return $this->auteur ;}
-public function getTexte()			{return $this->texte ;}
-public function getIdMessage()	  	{return $this->idMessage ;}
-public function getDestinataire()	{return $this->destinataire ;}
-public function getEtat() 			{return $this->etat ;}
-public function getDate() 			{return $this->date ;}
-
-
-
-
-
-public function getLast(){}
-
 public static function getMessageRecueByIdMembre($id){
 	$sql='SELECT * FROM '.static::$table.' WHERE destinataire=:id';
 
@@ -56,6 +42,20 @@ public static function getMessageRecueByIdMembre($id){
 	catch(PDOException $e){ if(Conf::getDebug()) { echo $e->getMessage(); } die(); }
 
 }
+
+public function getAuteur()			{return $this->auteur ;}
+
+public function getTexte()			{return $this->texte ;}
+
+public function getIdMessage()	  	{return $this->idMessage ;}
+
+public function getDestinataire()	{return $this->destinataire ;}
+
+public function getEtat() 			{return $this->etat ;}
+
+public function getDate() 			{return $this->date ;}
+
+public function getLast(){}
 
 
 

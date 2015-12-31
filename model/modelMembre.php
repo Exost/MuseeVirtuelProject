@@ -9,6 +9,8 @@
 require('model.php');
 class modelMembre extends Model
 {
+    static $primary ='login';
+    static $table = "membre" ;
     private $login;
     private $nom;
     private $prenom;
@@ -18,9 +20,6 @@ class modelMembre extends Model
     private $etat;
     private $rang;
     private $code_Act;
-
-    static $primary ='login';
-    static $table = "membre" ;
 
     /**
      * modelMembre constructor.
@@ -53,6 +52,72 @@ class modelMembre extends Model
 
     }
 
+    static function  validAccount($key){
+        $sql ="UPDATE membre
+                SET etat='actif'
+                WHERE login =:log";
+        try{
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->bindParam(":log", $key);
+            $req_prep->execute();
+        } catch(PDOException $e) {
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            }die();
+        }
+    }
+
+    /**
+     * @param $tab
+     * @param $id
+     * @param $mail
+     * @param $code
+     * @return bool
+     * inscription membre
+     */
+    static function createMembre($tab,$login,$mail, $code){
+        $res = false;
+        if(self::sendMail($login,$mail,$code)){
+            self::insert($tab);
+            $res = true;
+        }
+        return $res;
+    }
+
+    private static function sendMail ($login,$mail,$code){
+
+        // Génération aléatoire d'une clé
+
+
+
+        // Insertion de la clé dans la base de données (à adapter en INSERT si besoin)
+
+        // Préparation du mail contenant le lien d'activation
+        $destinataire = $mail;
+        $sujet = "Activer votre compte" ;
+        $entete = "From: Sneaker.com ";
+
+        // Le lien d'activation est composé du login(log) et de la clé(cle)
+        $message = 'Bienvenue sur VotreSite,
+
+        Pour activer votre compte, veuillez cliquer sur le lien ci dessous
+        ou copier/coller dans votre navigateur internet.
+
+        index.php?controller=user&action=activation&idUsr='.urlencode($login).'&code='.urlencode($code).'
+
+
+        ---------------
+        Ceci est un mail automatique, Merci de ne pas y répondre.';
+
+
+        return (mail($destinataire, $sujet, $message, $entete));
+
+        //...
+        // Fermeture de la connexion
+        //...
+        // Votre code
+        //...
+    }
 
     /**
      * @return mixed
@@ -125,78 +190,6 @@ class modelMembre extends Model
     {
         return $this->mot_de_passe;
     }
-
-
-
-
-
-    static function  validAccount($key){
-        $sql ="UPDATE membre
-                SET etat='actif'
-                WHERE login =:log";
-        try{
-            $req_prep = Model::$pdo->prepare($sql);
-            $req_prep->bindParam(":log", $key);
-            $req_prep->execute();
-        } catch(PDOException $e) {
-            if (Conf::getDebug()) {
-                echo $e->getMessage(); // affiche un message d'erreur
-            }die();
-        }
-    }
-
-    private static function sendMail ($login,$mail,$code){
-
-        // Génération aléatoire d'une clé
-
-
-
-        // Insertion de la clé dans la base de données (à adapter en INSERT si besoin)
-
-        // Préparation du mail contenant le lien d'activation
-        $destinataire = $mail;
-        $sujet = "Activer votre compte" ;
-        $entete = "From: Sneaker.com ";
-
-        // Le lien d'activation est composé du login(log) et de la clé(cle)
-        $message = 'Bienvenue sur VotreSite,
-
-        Pour activer votre compte, veuillez cliquer sur le lien ci dessous
-        ou copier/coller dans votre navigateur internet.
-
-        index.php?controller=user&action=activation&idUsr='.urlencode($login).'&code='.urlencode($code).'
-
-
-        ---------------
-        Ceci est un mail automatique, Merci de ne pas y répondre.';
-
-
-        return (mail($destinataire, $sujet, $message, $entete));
-
-        //...
-        // Fermeture de la connexion
-        //...
-        // Votre code
-        //...
-    }
-
-    /**
-     * @param $tab
-     * @param $id
-     * @param $mail
-     * @param $code
-     * @return bool
-     * inscription membre
-     */
-    static function createMembre($tab,$login,$mail, $code){
-        $res = false;
-        if(self::sendMail($login,$mail,$code)){
-            self::insert($tab);
-            $res = true;
-        }
-        return $res;
-    }
-
 
     function nouveauMDP(){ // change le mot de passe et l'envoi par mail
         $nouvMdp = uniqid($this->login); // génère un mot de passe préfixé par le login

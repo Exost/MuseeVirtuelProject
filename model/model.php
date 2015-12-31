@@ -125,30 +125,6 @@ class Model{
         }
     }
 
-    function update($tab, $old)
-    {
-        $sql = "UPDATE " . static::$table . " SET"; foreach ($tab as $cle => $valeur) { $sql .= " " . $cle . "=:new" . $cle . ","; }
-        $sql = rtrim($sql, ",");
-        $sql .= " WHERE " . static::$primary . "=:oldid;";
-        try {
-            $req_prep = Model::$pdo->prepare($sql);
-            $values = array();
-            foreach ($tab as $cle => $valeur) {
-                $values[":new" . $cle] = $valeur;
-            }
-            $values[":oldid"] = $old;
-            $req_prep->execute($values);
-            //$obj = Model::select($tab[0]);
-           // return $obj;
-        } catch (PDOException $e) {
-            if (Conf::getDebug()) {
-                echo "PROBLEME"; // affiche un message d'erreur
-            }
-            return -1;
-            die();
-        }
-    }
-
     static function select($para) {
         $sql = "SELECT * from ".static::$table." WHERE ".static::$primary."=:nom_var";
         try{
@@ -169,6 +145,30 @@ class Model{
             } else {
                 echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
             }
+            die();
+        }
+    }
+
+    function update($tab, $old)
+    {
+        $sql = "UPDATE " . static::$table . " SET"; foreach ($tab as $cle => $valeur) { $sql .= " " . $cle . "=:new" . $cle . ","; }
+        $sql = rtrim($sql, ",");
+        $sql .= " WHERE " . static::$primary . "=:oldid;";
+        try {
+            $req_prep = Model::$pdo->prepare($sql);
+            $values = array();
+            foreach ($tab as $cle => $valeur) {
+                $values[":new" . $cle] = $valeur;
+            }
+            $values[":oldid"] = $old;
+            $req_prep->execute($values);
+            //$obj = Model::select($tab[0]);
+           // return $obj;
+        } catch (PDOException $e) {
+            if (Conf::getDebug()) {
+                echo "PROBLEME"; // affiche un message d'erreur
+            }
+            return -1;
             die();
         }
     }

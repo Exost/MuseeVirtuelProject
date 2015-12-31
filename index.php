@@ -60,6 +60,9 @@ switch($controller)
     case 'message':
         require("{$ROOT}{$DS}controller{$DS}controllerMessage.php");
         break;
+    case 'commentaire':
+        require("{$ROOT}{$DS}controller{$DS}controllerCommentaire.php");
+        break;
 }
 
 ?>

@@ -10,14 +10,13 @@ require_once ('model.php');
 
 class modelRequetes extends Model
 {
+    static $table = "requetes";
+    static $primary = "id";
     private $id;
     private $sujet;
     private $texte;
     private $etat;
     private $login;
-
-    static $table = "requetes";
-    static $primary = "id";
 
     /**
      * modelRequetes constructor.
