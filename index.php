@@ -25,10 +25,12 @@ else
     $action =$_GET['action'];
 }
 
+//wtf pas de fichier viewAcceuilMembre
 $view = 'Acceuil';
 
 $layout ='Visiteur';
-$pageTitle ='Acceuil';
+$pageTitle ='Accueil';
+
 if(isset($_SESSION['login'])){
     if($_SESSION['rang']=='admin'){
         $layout='Admin';
@@ -55,11 +57,9 @@ switch($controller)
     case 'recherche':
         require("{$ROOT}{$DS}controller{$DS}controllerRecherche.php");
         break;
-    case 'commentaire':
-        require("{$ROOT}{$DS}controller{$DS}controllerCommentaire.php");
+    case 'message':
+        require("{$ROOT}{$DS}controller{$DS}controllerMessage.php");
         break;
-
-
 }
 
 ?>

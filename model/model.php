@@ -127,10 +127,7 @@ class Model{
 
     function update($tab, $old)
     {
-        $sql = "UPDATE " . static::$table . " SET";
-        foreach ($tab as $cle => $valeur) {
-            $sql .= " " . $cle . "=:new" . $cle . ",";
-        }
+        $sql = "UPDATE " . static::$table . " SET"; foreach ($tab as $cle => $valeur) { $sql .= " " . $cle . "=:new" . $cle . ","; }
         $sql = rtrim($sql, ",");
         $sql .= " WHERE " . static::$primary . "=:oldid;";
         try {

@@ -8,9 +8,11 @@
 require_once "{$ROOT}{$DS}model{$DS}modelSujet.php";
 ?>
 <div id="requete">
+
     <div class="messages">
         <!-- affichage du message par javascript -->
     </div>
+
     <fieldset>
         <form method="post" action="traitementRequeteAdmin.php">
 

@@ -7,6 +7,7 @@
  * Time: 14:25
  */
 require_once ('model.php');
+
 class modelRequetes extends Model
 {
     private $id;
@@ -29,11 +30,13 @@ class modelRequetes extends Model
     public function __construct($id=NULL, $sujet=NULL, $texte=NULL, $etat=NULL, $login=NULL)
     {
         if(!is_null($id)&& !is_null($sujet) && !is_null($texte)&& !is_null($etat) && !is_null($login)){
+
             $this->id = $id;
             $this->sujet = $sujet;
             $this->texte = $texte;
             $this->etat = $etat;
             $this->login = $login;
+
         }
 
     }

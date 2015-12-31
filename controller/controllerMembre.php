@@ -10,6 +10,7 @@ require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
 require ("{$ROOT}{$DS}model{$DS}modelType.php");
 
 switch($action){
+
     case 'deconnexion':
         $layout='Visiteur';
         $controller ='visiteur';
@@ -91,6 +92,8 @@ switch($action){
 
     case 'commenter':
         break;
+
+
     case 'profil': // voir son profil
         if(isset($_SESSION['login'])){
             $pageTitle ='profil';
@@ -190,7 +193,14 @@ switch($action){
 
         break;
 
+    case 'message' :
+            if (isset($_SESSION['login']) ){
+                $view="Message";
+                $layout="Membre";
+                $pageTitle="Messages";
+            }
 
+        break;
 
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");
 
