@@ -14,6 +14,7 @@
 if($allMessage == NULL){ echo '<p> Vous n\'avez aucun message </p>'; }
 else
 {
+    echo 'Tous vos message'
     foreach( $allMessage as $message ){
 
         $mes=$message;
@@ -22,7 +23,7 @@ else
         $id     = $mes->getIdMessage();
         $date   = $mes->getDate();
 
-        echo '<a class="message" href="index.php?controller=membre&action=consulter&idMessage="{$id}.>'.$date.$auteur.'</a></br>';
+        echo '<a class="message" href="index.php?controller=membre&action=consulter&idMessage="{$id}.><fieldset>'.$date.$auteur.'</fieldset></a></br></br>';
 
     }
 

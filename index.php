@@ -25,7 +25,7 @@ else
     $action =$_GET['action'];
 }
 
-//wtf pas de fichier viewAcceuilMembre
+
 $view = 'Acceuil';
 
 $layout ='Visiteur';

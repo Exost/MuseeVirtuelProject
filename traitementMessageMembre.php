@@ -11,7 +11,7 @@ echo $_POST['destinataire'];
 
 if      (empty($_POST['destinataire']) )        { echo '<div class="erreur">Veuillez entrer un destinataire</requete></div>'; }
 elseif  (empty($_POST['texte']))                { echo '<div class="erreur">Vous n\'avez pas écrit de message message</requete></div>'; }
-elseif  ($_POST['dest'] == $_SESSION['login'])  { echo '<div class="erreur">Vous ne pouvez pas vous envoyer un message</requete></div>'; }
+elseif  ($_POST['destinataire'] == $_SESSION['login'])  { echo '<div class="erreur">Vous ne pouvez pas vous envoyer un message</requete></div>'; }
 
 else{
 
