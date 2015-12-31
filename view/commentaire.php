@@ -1,5 +1,5 @@
 <?php // ne s'affiche que si l'utilisateur est connecté
-require ("{$ROOT}{$DS}model{$DS}modelCommentaire.php");
+require_once ("{$ROOT}{$DS}model{$DS}modelCommentaire.php");
     if(isset($_SESSION['login'])){ ?>
         <div class="postionCom">
             <div class="error"></div>

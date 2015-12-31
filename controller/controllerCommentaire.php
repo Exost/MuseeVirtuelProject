@@ -6,7 +6,7 @@
  * Time: 16:35
  */
 require_once ("{$ROOT}{$DS}model{$DS}modelCommentaire.php");
-require ("{$ROOT}{$DS}model{$DS}modelDocument.php");
+require_once ("{$ROOT}{$DS}model{$DS}modelDocument.php");
 $layout ='Membre';
 switch($action){
     case 'supprimer':
@@ -20,18 +20,22 @@ switch($action){
                     /*si le le commentaire et le membre est propriétaire du commentaire
                     * ou que c'est un admin
                     */
-                    setcookie('idCom', $_GET['idCom'], time() + 365*24*3600, null, null, false, true);
-                    modelCommentaire::delete($_GET['idCom']); // on supprime le commentaire
                     $document = modelDocument::select($com->getIdDocument());
+                    setcookie('idDoc', $document->getIdDocument(), time() + 365*24*3600, null, null, false, true);
+                    modelCommentaire::delete($_GET['idCom']); // on supprime le commentaire
+
                     $view=ucfirst($document->getType());
                     $controller='document';
                     $layout =ucfirst($_SESSION['rang']);
                 }else{
-
+                    $document = modelDocument::select($_COOKIE['idDoc']);
+                    $view=ucfirst($document->getType());
+                    $controller='document';
+                    $layout =ucfirst($_SESSION['rang']);
                 }
 
             }else{
-                $document = modelDocument::select($_COOKIE['idCom']);
+                $document = modelDocument::select($_COOKIE['idDoc']);
                 $view=ucfirst($document->getType());
                 $controller='document';
                 $layout =ucfirst($_SESSION['rang']);
