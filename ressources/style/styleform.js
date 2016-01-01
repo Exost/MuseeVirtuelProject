@@ -1,4 +1,8 @@
 
+
+
+
+
 $().ready(function(){
    $("#requete form").submit(function(){
 
@@ -52,18 +56,6 @@ function afficherBouton(){
 
 }
 
-// requete
-$().ready(function(){
-    $("#formRequetes form").submit(function(){
-
-
-
-
-        return false;
-    });
-
-});
-
 
 
 function afficherCacherCom(id) // a modifier pour cacher certain commentaire
@@ -81,7 +73,7 @@ function afficherCacherCom(id) // a modifier pour cacher certain commentaire
     return true;
 }
 /////////////////////////////////////////////////////////////////////////
-// commentaire
+//                              commentaire // ///
 $().ready(function(){
     $('.postionCom form').submit(function(){
 
@@ -114,51 +106,29 @@ $().ready(function(){
 
 });
 
-/*$(document).ready(function(){
-   $("#connexion form").submit(function(){
 
-       var resultat = true;
-       var action = $(this).attr('action');
-       var login = $("#login").val();
-       var mdp = $("#mdp").val(); // valeur du mot de passe
+// pour la suppression de requetes
+$().ready(function(){
+    $("#formRequetes form").submit(function(){
+        var action = $(this).attr('action');
+        var checkBox = [];
+        $('input:checked').each(function(){
+            checkBox.push($(this).val());
+        });
+        $.post(
+            action,{
+                resultatCheckBox:checkBox
+            },function(data){
+                $('input:checked').each(function(){
+                    $(this).parent().parent().remove(); // on supprime de l'affichage
+                });
 
-       $.ajax({
-          url           : action,
-           type         : 'post',
-           timeout      : 3000,
-           data         : $(this).serialize(),
-           dataType     : 'json',
-           beforeSend   : function(){ // avant l'envoi
-               $('input[value="connexion"]').hide().after('<img src="ressources/img/loader.gif" class="loader"/>');
-               // on cache le bouton et on affiche le loader
-           },
-           success  : function(data){
-               $(".messages").html('yolo swag');
-           },
-           error    : function(){
-               $(".messages").html("une erreur s'est produite");
-                resultat.value = false;
+            }
 
-           }
+        );
 
-       });
-        return resultat;// le formulaire ne sera pas soumis
-   });
+
+        return false;
+    });
 });
 
-
-$(".messages").slideUp('800', function(){
-    $('input[value="connexion"]').hide().after('<img src="ressources/img/loader.gif" class="loader"/>');
-    // on cache le bouton et on affiche le loader
-    $.post(action,{
-            login: login,
-            mdp: mdp
-        },function(data){
-            $(".messages").html(data);
-            // on modifie la div message
-            $(".messages").slideDown('slow');
-            $(".loader").fadeOut(); // on cache le loader
-            $('input[value="connexion"]').fadeIn('slow');
-        }
-    );
-});*/

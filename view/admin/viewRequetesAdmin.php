@@ -1,9 +1,12 @@
+<?php
+    if(!empty($allRequetes)){
 
+?>
 <div id="formRequetes" >
     <div class="messages">
 
     </div>
-    <form action="#" method="post" >
+    <form action="suppressionRequete.php" method="post" >
         <table>
             <tr id="greenRow">
                 <th> </th>
@@ -23,8 +26,16 @@
             }
             ?>
         </table>
-        <input type="submit" value="supprimer" id="suppression"/>
+        <input type="submit" value="supprimer" id="suppression" class="button"/>
     </form>
 
 </div>
-
+<?php
+    }else{
+        ?>
+    <div>
+        il n'y a actuellement aucune requetes
+    </div>
+<?php
+    }
+?>

@@ -31,6 +31,6 @@ require "{$filepath}{$filename}";
 </body>
 
 <?php
-
+    require("Footer.php");
 ?>
 </html>
