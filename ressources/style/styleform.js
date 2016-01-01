@@ -111,17 +111,29 @@ $().ready(function(){
 $().ready(function(){
     $("#formRequetes form").submit(function(){
         var action = $(this).attr('action');
-        var checkBox = [];
+        var allCheckBox = [];
+        $("input[type='checkbox']").each(function(){
+            allCheckBox.push($(this).val());
+        });
+        var boxChecked= [];
         $('input:checked').each(function(){
-            checkBox.push($(this).val());
+            boxChecked.push($(this).val());
         });
         $.post(
             action,{
-                resultatCheckBox:checkBox
+                resultatCheckBox:boxChecked
             },function(data){
-                $('input:checked').each(function(){
-                    $(this).parent().parent().remove(); // on supprime de l'affichage
-                });
+                if(allCheckBox.length == boxChecked.length){
+                    $("form[action='suppressionRequete.php']").remove();
+                    $("div[class='information']").append("il n'y a actuellement aucune requete");
+                    // $("input[id='suppression']").remove();
+                }else{
+                    $('input:checked').each(function(){
+                        $(this).parent().parent().remove(); // on supprime de l'affichage
+
+                    });
+                }
+
 
             }
 

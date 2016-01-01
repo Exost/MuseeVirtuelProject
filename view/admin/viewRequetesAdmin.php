@@ -3,7 +3,7 @@
 
 ?>
 <div id="formRequetes" >
-    <div class="messages">
+    <div class="information">
 
     </div>
     <form action="suppressionRequete.php" method="post" >
@@ -33,7 +33,7 @@
 <?php
     }else{
         ?>
-    <div>
+    <div style="padding: 3%">
         il n'y a actuellement aucune requetes
     </div>
 <?php
