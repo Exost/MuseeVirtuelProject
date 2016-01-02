@@ -2,33 +2,28 @@
 /**
  * Created by PhpStorm.
  * User: Clément
- * Date: 30/12/2015
- * Time: 14:40
+ * Date: 02/01/2016
+ * Time: 01:14
  */
 ?>
-<div id="requete" xmlns="http://www.w3.org/1999/html">
+<div id="requete">
 
-	<fieldset>
+<div class="messages">
+    <!-- affichage du message par javascript -->
+</div>
 
-		<div class="messages">
-			<!-- affichage du message par javascript -->
-		</div>
+<form method="post" action="traitementMessageMembre.php">
 
-		<form method="post" action="index.php?controller=message&action=envoie">
+    <label>pour</label>
+    <input type="text" name="d" placeholder="login destinataire"/>
+    </br>
+    </br>
 
+    <label>Message</label></br>
+    <textarea type="texte" name="t" ></textarea>
+     </br>
 
-			<label > A l'intention de  </label>
-			<input type="text" name="destinataire" id="texte" placeholder="Login destinataire" required />
-			</br>
-			</br>
+    <input type="submit" value="envoyer" />
 
-			<label for="texte"> Votre message </label>
-			<textarea type="text" name="texte" id="texteMessage" required> </textarea>
-			</br>
-
-			<input type="submit" value="envoyer" />
-
-		</form>
-	</fieldset>
-
+    </form>
 </div>

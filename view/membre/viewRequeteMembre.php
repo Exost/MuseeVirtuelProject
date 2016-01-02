@@ -26,6 +26,7 @@ require_once "{$ROOT}{$DS}model{$DS}modelSujet.php";
                 ?>
                 <option value="autre">autre</option>
             </select><br/>
+
             <label>requete</label><br/>
             <textarea type="text" name="texte" id="texte"></textarea><br/>
             <input type="submit" value="envoyer"/>

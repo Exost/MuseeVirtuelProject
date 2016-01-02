@@ -1,33 +1,49 @@
-<fieldset class="allMessagesFieldset">
-
-<div>
-</div>
-
 <?php require_once "{$ROOT}{$DS}model{$DS}modelMessage.php";
-/**
- * Created by PhpStorm.
- * User: Clément
- * Date: 30/12/2015
- * Time: 00:38
- */
-
-if($allMessage == NULL){ echo '<p> Vous n\'avez aucun message </p>'; }
-else
-{
-    echo 'Tous vos message'
-    foreach( $allMessage as $message ){
-
-        $mes=$message;
-        $auteur = $mes->getAuteur();
-        $texte  = $mes->getTexte();
-        $id     = $mes->getIdMessage();
-        $date   = $mes->getDate();
-
-        echo '<a class="message" href="index.php?controller=membre&action=consulter&idMessage="{$id}.><fieldset>'.$date.$auteur.'</fieldset></a></br></br>';
-
-    }
-
-}
+if(!empty($allMessage) ) {
 ?>
+<div id="formRequetes" >
+    <div class="information">
 
-</fieldset>
+    </div>
+
+        <fieldset class="allMessagesFieldset">
+        <p>Tous vos message </p>
+        <form action="supressionMessage.php" method="post" >
+        <table class="tableMessage">
+        <tr id="greenRow">  <th> </th> <th> de </th> <th> date </th>  <th> message </th> </tr>
+
+<?php
+        foreach( $allMessage as $message ){
+
+            $mes=$message;
+            $auteur = $mes->getAuteur();
+            $texte  = $mes->getTexte();
+            $id     = $mes->getIdMessage();
+            $date   = $mes->getDateMessage();
+            $etat   = $mes->getEtat();
+
+        if($etat = 'NL'){ $style="<strong>"; $styleEnd="</strong>"; }
+        else            { $style=""; $styleEnd="" ;}
+
+            echo "<tr>";
+            echo '<a class="message" href="index.php?controller=message&action=consulter&idMessage='.$id.'" >';
+            echo "<td><input type='checkbox' value='{$mes->getIdMessage()}' onclick='return afficherBouton()' class='check'/></td>";
+            echo '<td>'.$style.$auteur.$styleEnd.'</a></td>';
+            echo '<td>'.$style.$date.$styleEnd.'</a></td>';
+            echo '<td>'.$style.$texte.$styleEnd.'</a></td>';
+            echo '</a>';
+            echo "<tr>";
+        }
+
+
+
+
+        echo '</table> <input type="submit" value="supprimer" id="suppression" class="button"/> </form> </fieldset></div>';
+}
+else{
+?>
+    <div style="padding: 3%">
+        vous n'avez actuellement auncun message ...
+    </div>
+
+<?php } ?>

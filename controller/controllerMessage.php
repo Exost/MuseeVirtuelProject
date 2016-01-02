@@ -12,7 +12,7 @@ switch ($action){
 		$pageTitle	= 'Messagerie';
 
 		$idMembre 	= $_SESSION['login'];
-		echo $idMembre;
+
 		$allMessage	= modelMessage::getAll();
 
 
@@ -26,7 +26,7 @@ switch ($action){
 		$pageTitle	= 'Messagerie';
 
 		$idMembre 	= $_SESSION['login'];
-		echo $idMembre;
+
 		$allMessage	= modelMessage::getMessageRecueByIdMembre($idMembre);
 
 
@@ -37,9 +37,10 @@ switch ($action){
 // défnit viewOneMessage.php
 	case 'consulter':
 
+		echo 1;
 		//..Si l'url contient idMessage
 		if(isset($_GET['idMessage'])) {
-
+		echo 1;
 			if (isset($_SESSION['login'])) 	{ $layout = ucfirst($_SESSION['rang']); }
 			else 							{ $layout = 'Visiteur'; }
 
@@ -75,7 +76,7 @@ switch ($action){
 	case 'envoie':
 
 		if      (isset($_POST['destinataire']))                 { echo '<div class="erreur">Veuillez entrer un destinataire</requete></div>'; }
-		elseif  (!isset($_POST['texte']))                        { echo '<div class="erreur">Vous n\'avez pas écrit de message message</requete></div>'; }
+		elseif  (!isset($_POST['texte']))                       { echo '<div class="erreur">Vous n\'avez pas écrit de message message</requete></div>'; }
 		elseif  ($_POST['destinataire'] == $_SESSION['login'])  { echo '<div class="erreur">Vous ne pouvez pas vous envoyer un message</requete></div>'; }
 
 		else {
@@ -87,14 +88,15 @@ switch ($action){
 
 		echo '<div class="succes"> message envoyé avec succès </div>';
 		$newMessage = array('DEFAULT', $auteur,  $texte, $destinataire, "NL", "now()");
-		modelMessage::insert($newMessage);
+		if(modelMessage::insert($newMessage)){ $view="envoyer";}
+		else { $view="envoie";}
 
 
 
 
 
 			$layout = "Membre";
-			$view = "send";
+			$view = "envoye";
 
 	}
 		break;
