@@ -24,10 +24,12 @@ else{
    // header('location : index.php?controller=membre&action=send');
 
 
-    $newMessage = array('DEFAULT', $_SESSION['login'], $_POST['texte'], $_POST['destinataire'], "NL", "NOW()");
-    modelMessage::insert($newMessage);
+    $newMessage = array('DEFAULT', $_SESSION['login'], $_POST['t'], $_POST['d'], "NL", "NOW()");
 
-    echo '<div class="succes"> message envoye avec succes </div>';
+    if(modelMessage::insert($newMessage)){
+        echo '<div class="succes"> message envoye avec succes </div>';
+    }
+
 
 
 }

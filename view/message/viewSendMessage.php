@@ -8,11 +8,8 @@
 ?>
 <div id="mes">
 
-<div class="messages">
-    <!-- affichage du message par javascript -->
-</div>
 
-<form method="post" action="traitementMessageMembre.php">
+<form method="post" action="index.php?controller=message&action=envoie">
 
     <label>pour</label>
     <input type="text" name="d" placeholder="login destinataire"/>
@@ -27,3 +24,4 @@
 
     </form>
 </div>
+

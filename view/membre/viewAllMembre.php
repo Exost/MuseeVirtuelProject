@@ -8,7 +8,7 @@ if(!empty($allMembre) ) {
     <p>Tous vos amis<p>
 
     <table class="tableMembre">
-</div>
+
 
     <?php
 
@@ -26,13 +26,13 @@ if(!empty($allMembre) ) {
         }
     }
 
-    echo '</table></fieldset></br>';
+    echo '</table></fieldset></br></div>';
 }
 else{
     ?>
 
 <div style="padding: 3%">
-    Vous n'avez actuellement aucun amis ...
+    Vous n'avez actuellement aucun ami ...
     <a href="index.php?controller=membre&action=find" >faites-vous en</a>
 </div>
 

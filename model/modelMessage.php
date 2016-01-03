@@ -15,17 +15,17 @@ class modelMessage extends Model{
 	private $dateMessage;
 
 
-	public function __construct($idmessage=NULL, $auteur=NULL, $texte=NULL, $destinataire=NULL, $etat=NULL, $dateMessage=NULL)
+	public function __construct($idmessage=NULL, $auteur=NULL, $texte=NULL, $destinataire=NULL, $etat=NULL )
 	{
 		if( !is_null($idmessage) && !is_null($auteur) && !is_null($texte)
-			&& !is_null($destinataire) && !is_null($etat) && !is_null($dateMessage) )
+			&& !is_null($destinataire) && !is_null($etat) )
 		{
 			$this->idmessage 		= $idmessage ;
 			$this->auteur 	 		= $auteur ;
 			$this->texte 	 		= $texte ;
 			$this->destinataire	 	= $destinataire ;
 			$this->etat 			= $etat ;
-			$this->dateMessage 		= $dateMessage ;
+
 		}
 	}
 
@@ -53,8 +53,8 @@ class modelMessage extends Model{
 	}
 
 
-
-	public function getLast(){}
+	// retourne les $int derniers messages
+	public function getLast($int){}
 
 
 

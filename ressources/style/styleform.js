@@ -38,41 +38,6 @@ $().ready(function(){
 
 
 
-$().ready(function(){
-    $("#mess form").submit(function(){
-
-        var action = $(this).attr('action');
-        var d = $('#d').val();
-        var t = $('#t').val();
-
-        $(".messages").slideUp('1000', function(){
-            $('input[value="envoyer"]').hide().after('<img src="ressources/img/loaders/loader.gif" class="loader"/>');
-            $.post(action,{
-                    d:d,
-                    t:t
-                },function(data){
-                    $(".messages").html(data);
-                    $(".messages").slideDown('slow');
-                    $(".loader").fadeOut(); // on cache le loader
-                    $('input[value="envoyer"]').fadeIn('slow');
-
-                    if(data.match('succès') != null){
-                        $("#mess form").slideUp();
-                    }
-
-                }
-            );
-        });
-
-
-
-        return false;
-    });
-
-});
-
-
-
 function afficherBouton(){
     result = false;
     var checkBox = document.getElementsByClassName('check');

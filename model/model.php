@@ -105,8 +105,10 @@ class Model{
             } else {
                 echo 'Une erreur est survenue <a href="https://infolimon.iutmontp.univ-montp2.fr/~contremoulinp/TD6/index.php"> retour a la page d\'accueil </a>';
             }
+            return 0;
             die();
         }
+        return 1;
     }
 
     static function delete($para) {
