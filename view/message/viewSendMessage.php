@@ -6,7 +6,7 @@
  * Time: 01:14
  */
 ?>
-<div id="requete">
+<div id="mes">
 
 <div class="messages">
     <!-- affichage du message par javascript -->

@@ -94,7 +94,7 @@ switch($action){
         break;
 
 
-    case 'profil': // voir son profil
+    case 'profil': // voir le profil d'un membre profil
         if(isset($_SESSION['login'])){
             $pageTitle ='profil';
             $view='Profil';
@@ -111,6 +111,7 @@ switch($action){
             $view ='Connexion';
         }
         break;
+
     case 'modifier':
         if(isset($_SESSION['login']) && $_SESSION['rang'] != 'admin'){
             // si c'est un membre ou un moderateur
@@ -202,6 +203,32 @@ switch($action){
 
         break;
 
+
+    case 'readAll':
+
+        if (isset($_SESSION['login']) ){
+            $view="All";
+            $layout="Membre";
+            $pageTitle="Vos amis";
+
+            $allMembre=modelMembre::getAll();
+        }
+
+        break;
+
+    case 'amis':
+
+        if (isset($_SESSION['login']) ){
+            $view="All";
+            $layout="Membre";
+            $pageTitle="Vos amis";
+
+            $idMembre=$_SESSION['login'];
+
+        }
+
+
+        break;
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");
 
 ?>

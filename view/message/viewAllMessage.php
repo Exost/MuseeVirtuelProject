@@ -42,8 +42,9 @@ if(!empty($allMessage) ) {
 }
 else{
 ?>
+
     <div style="padding: 3%">
-        vous n'avez actuellement auncun message ...
+        Vous n'avez actuellement aucun message ...
     </div>
 
 <?php } ?>

@@ -13,5 +13,6 @@
         <td> <a href="">documents</a></td>
         <td> <a href="index.php?controller=membre&action=requete">requete</a></td>
         <td> <a href="index.php?controller=membre&action=message">messages</a></td>
+        <td> <a href="index.php?controller=membre&action=readAll">membres</a></td>
     </tr>
 </table>
