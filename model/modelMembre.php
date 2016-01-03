@@ -216,4 +216,25 @@ class modelMembre extends Model
         connectez-vous au site et pensez a le modifier";
         return(mail($this->adresse_mail,'nouveau mot de passe',$message,'de ArtKabyle.org'));
     }
+
+    static function getNbrMessagesNL(){
+        $sql='SELECT * FROM message WHERE destinataire="'.$_SESSION["login"].'" AND etat="NL"';
+
+        try{
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->execute();
+
+            $count=0;
+            foreach ($req_prep as $message){
+                $count=$count+1;
+            }
+        }catch (PDOException $e){
+            if (Conf::getDebug()) {
+                echo "une erreur est survenue"; // affiche un message d'erreur
+            }
+            return -1;
+            die();
+        }
+        return $count;
+    }
 }

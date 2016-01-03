@@ -199,6 +199,8 @@ switch($action){
                 $view="Message";
                 $layout="Membre";
                 $pageTitle="Messages";
+
+                $NbMessageNL=modelMembre::getNbrMessagesNL();
             }
 
         break;
