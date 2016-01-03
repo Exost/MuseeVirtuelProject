@@ -16,12 +16,14 @@ if(!empty($allMembre) ) {
 
         $id=$membre->getLogin();
 
+        if($id == $_SESSION['login']) {}
+        else{
+                echo '<tr>';
+                echo '<li><a class="membre" href="index.php?controller=membre&action=profil&idMembre=' . $id . '" >' . $id . '</a></li>';
+                echo '';
+                echo '<tr>';
 
-        echo '<tr>';
-        echo '<li><a class="membre" href="index.php?controller=membre&action=profil&idMembre='.$id.'" >'.$id.'</a></li>';
-        echo '';
-        echo '<tr>';
-
+        }
     }
 
     echo '</table></fieldset></br>';
