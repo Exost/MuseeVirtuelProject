@@ -144,3 +144,31 @@ $().ready(function(){
     });
 });
 
+
+//////// SUR UPLOAD FICHIER
+$().ready(function () {
+
+    $('input[type="file"]').on('change', function() {
+        var fichier = this.files[0];
+        var reader = new FileReader();
+        divInformation = $("#etatUpload");
+        if(fichier.type != 'image/png' && fichier.type !='image/gif'
+            && fichier.type != 'image/jpg' && fichier.type !='application/pdf'
+            && fichier.type !="audio/mpeg" && fichier.type !=""){
+            alert('fichier non pris en charge ');
+            $('input[value="Upload"]').hide();
+            divInformation.append("fichier non prise en charge ").hide();
+            divInformation.fadeIn('slow');
+
+            // suppression
+        }else if(fichier.size > 15000000  ){
+            alert("la fichier trop important");
+            $('input[value="Upload"]').hide();
+        }else{
+            $('input[value="Upload"]').show();
+        }
+
+    });
+
+
+});
