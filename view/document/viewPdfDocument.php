@@ -20,9 +20,10 @@ foreach (scandir($path) as $file_name){
 
 $pdfPath= $path.''.$docPath;
 $fichier = explode('MuseeVirtuelProject/',$pdfPath);
-echo $pdfPath;
-
-
+/*
+ * suite à une erreur survenue je ne sais pas pourquoi mais il ne trouvais pas le fichier avec toute
+ * le chemin il m"a fallut le rogner pour ne prendre que la partie file/membre/nom_oeuvre
+*/
 ?>
 <embed src="<?php echo $fichier[1] ?>" width="70%" height="800px">
 </embed>

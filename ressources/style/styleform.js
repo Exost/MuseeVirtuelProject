@@ -173,3 +173,11 @@ $().ready(function () {
 
 
 });
+
+
+function fill(Value)
+{
+    $('#searchBar').val(Value);
+    $('#display').hide();
+}
+

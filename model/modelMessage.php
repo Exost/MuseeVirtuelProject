@@ -29,31 +29,35 @@ class modelMessage extends Model{
 		}
 	}
 
-
-	public function getAuteur()			{return $this->auteur ;}
-	public function getTexte()			{return $this->texte ;}
-	public function getIdMessage()	  	{return $this->idmessage ;}
-	public function getDestinataire()	{return $this->destinataire ;}
-	public function getEtat() 			{return $this->etat ;}
-	public function getDateMessage() 	{return $this->dateMessage ;}
-
-
-
 	public static function getMessageRecueByIdMembre($id){
-		$sql='SELECT * FROM '.static::$table.' WHERE destinataire=:id';
+		$sql='SELECT * FROM message WHERE destinataire=:id
+				ORDER BY dateMessage';
 
 		try{
 			$rep=Model::$pdo->prepare($sql);
-			$rep->setFetchMode(PDO::FETCH_CLASS, 'message');
+			$rep->setFetchMode(PDO::FETCH_CLASS, 'modelMessage');
 			$rep->bindParam(":id", $id);
 			$rep->execute();
-			return $rep->fetch();
+			return $rep->fetchAll();
 		}
 		catch(PDOException $e){ if(Conf::getDebug()) { echo $e->getMessage(); } die(); }
 	}
 
+	public function getAuteur()			{return $this->auteur ;}
+
+	public function getTexte()			{return $this->texte ;}
+
+	public function getIdMessage()	  	{return $this->idmessage ;}
+
+	public function getDestinataire()	{return $this->destinataire ;}
+
+	public function getEtat() 			{return $this->etat ;}
+
+	public function getDateMessage() 	{return $this->dateMessage ;}
+
 
 	// retourne les $int derniers messages
+
 	public function getLast($int){}
 
 

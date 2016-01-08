@@ -20,10 +20,14 @@
 
         }
     }
+    $absolutePath= $path.''.$docPath;
+    $musiquePath = explode('MuseeVirtuelProject/',$absolutePath);
+    /*
+     * voir viewPdfDocument explication
+     */
 
-    $musiquePath = $path.''.$docPath;
     ?>
-    <source src="<?php echo $musiquePath; ?>"/>
+    <source src="<?php echo $musiquePath[1]; ?>"/>
     votre navigateur n'est pas compatible
 </audio>
 <?php

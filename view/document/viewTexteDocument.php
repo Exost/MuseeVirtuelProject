@@ -32,5 +32,4 @@ foreach (scandir($path) as $file_name){
     require ("{$ROOT}{$DS}view{$DS}commentaire.php");
     ?>
 
-
 </div>

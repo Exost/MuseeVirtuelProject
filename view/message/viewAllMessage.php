@@ -1,4 +1,4 @@
-<?php require_once "{$ROOT}{$DS}model{$DS}modelMessage.php";
+<?php // a revoir
 if(!empty($allMessage) ) {
 ?>
 <div id="formRequetes" >
