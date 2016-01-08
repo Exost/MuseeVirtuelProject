@@ -22,7 +22,7 @@ $().ready(function(){
                     $('input[value="envoyer"]').fadeIn('slow');
 
                     if(data.match('succès') != null){
-                        $("#requete form").slideUp();
+                        $("#requete form").slideUp(); // si l'envoie a fonctionné
                     }
 
                 }
@@ -175,9 +175,33 @@ $().ready(function () {
 });
 
 
-function fill(Value)
-{
-    $('#searchBar').val(Value);
-    $('#display').hide();
-}
+//  sur la messagerie
+$().ready(function(){
+    $("#messagerie form").submit(function(){
+        var envoyeur = $("input[name='envoyeur']").val();
+        var destinataire =$("input[name='destinataire']").val();
+        var texte = $(this).find("textarea").val();
+
+        var action= $(this).attr('action');
+        $("#informationMessage").slideUp('1000', function(){
+            $('input[value="envoyer"]').hide().after('<img src="ressources/img/loaders/loader.gif" class="loader"/>');
+            $.post(
+                action,{
+                    envoyeur: envoyeur,
+                    destinataire: destinataire,
+                    message: texte
+                },function(data){
+                    $("#informationMessage").html(data);// on ajoute le message
+                    $("#informationMessage").slideDown('slow');
+                    if(data == "message envoyé"){
+                        $('#messagerie form').slideUp();
+                    }
+                }
+            );
+        });
+
+        return false;
+    });
+
+});
 

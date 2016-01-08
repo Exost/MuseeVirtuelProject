@@ -6,13 +6,12 @@
  * Date: 28/12/15
  * Time: 19:28
  */
-require_once "{$ROOT}{$DS}model{$DS}model.php";
+include_once "{$ROOT}{$DS}model{$DS}model.php";
 class modelSujet extends Model
 {
-    private $nomSujet;
-
     static $table ='sujet';
     static $primary ='nomSujet';
+    private $nomSujet;
 
     /**
      * modelSujet constructor.

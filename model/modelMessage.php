@@ -1,6 +1,6 @@
 <?php
 
-require_once "{$ROOT}{$DS}model{$DS}model.php";
+include_once "{$ROOT}{$DS}model{$DS}model.php";
 
 class modelMessage extends Model{
 

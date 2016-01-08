@@ -6,7 +6,7 @@
  * Date: 26/12/15
  * Time: 14:25
  */
-require_once ('model.php');
+include_once ('model.php');
 
 class modelRequetes extends Model
 {

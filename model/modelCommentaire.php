@@ -6,17 +6,16 @@
  * Date: 30/12/15
  * Time: 02:38
  */
-require_once ("{$ROOT}{$DS}model{$DS}model.php");
+include_once ("{$ROOT}{$DS}model{$DS}model.php");
 class modelCommentaire extends Model
 {
+    static $table = "commentaire";
+    static $primary = "idCom";
     private $idCom;
     private $loginMembre;
     private $idDocument;
     private $message;
 
-
-    static $table = "commentaire";
-    static $primary = "idCom";
     /**
      * modelCommentaire constructor.
      * @param $idCom

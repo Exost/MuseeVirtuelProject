@@ -6,21 +6,12 @@
  * Time: 15:42
  */
 
+include_once 'model.php';
 class modelType extends Model
 {
-    private $nomType;
-
     static $table = "type";
     static $primary = "nomType";
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->nomType;
-    }
-
+    private $nomType;
 
     public function __construct($nom = NULL)
     {
@@ -28,5 +19,13 @@ class modelType extends Model
             $this->name_Cat = $nom;
         }
 
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->nomType;
     }
 }

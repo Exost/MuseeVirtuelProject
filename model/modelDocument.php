@@ -6,19 +6,18 @@
  * Time: 03:22
  */
 
-require_once "{$ROOT}{$DS}model{$DS}model.php";
+include_once "{$ROOT}{$DS}model{$DS}model.php";
 class modelDocument extends Model
 {
 
+    static $table = "document";
+    static $primary = "idDocument";
     private $idDocument;
     private $titre;
     private $an_parution;
     private $type;
     private $description;
     private $login;
-
-    static $table = "document";
-    static $primary = "idDocument";
 
     function __construct($idDocument=NULL, $titre=NULL, $an_parution =NULL, $type=NULL, $description
         =NULL, $login=NULL)

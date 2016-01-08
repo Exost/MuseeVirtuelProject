@@ -6,7 +6,7 @@
  * Date: 17/12/15
  * Time: 16:17
  */
-require('model.php');
+include_once('model.php');
 class modelMembre extends Model
 {
     static $primary ='login';
@@ -119,6 +119,27 @@ class modelMembre extends Model
         //...
     }
 
+    static function getNbrMessagesNL(){
+        $sql='SELECT * FROM message WHERE destinataire="'.$_SESSION["login"].'" AND etat="NL"';
+
+        try{
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->execute();
+
+            $count=0;
+            foreach ($req_prep as $message){
+                $count=$count+1;
+            }
+        }catch (PDOException $e){
+            if (Conf::getDebug()) {
+                echo "une erreur est survenue"; // affiche un message d'erreur
+            }
+            return -1;
+            die();
+        }
+        return $count;
+    }
+
     /**
      * @return mixed
      */
@@ -215,26 +236,5 @@ class modelMembre extends Model
         mot de passe: $nouvMdp
         connectez-vous au site et pensez a le modifier";
         return(mail($this->adresse_mail,'nouveau mot de passe',$message,'de ArtKabyle.org'));
-    }
-
-    static function getNbrMessagesNL(){
-        $sql='SELECT * FROM message WHERE destinataire="'.$_SESSION["login"].'" AND etat="NL"';
-
-        try{
-            $req_prep = Model::$pdo->prepare($sql);
-            $req_prep->execute();
-
-            $count=0;
-            foreach ($req_prep as $message){
-                $count=$count+1;
-            }
-        }catch (PDOException $e){
-            if (Conf::getDebug()) {
-                echo "une erreur est survenue"; // affiche un message d'erreur
-            }
-            return -1;
-            die();
-        }
-        return $count;
     }
 }
