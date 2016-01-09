@@ -5,7 +5,6 @@ if(!empty($allMessage) ) {
     <div class="information">
 
     </div>
-
         <fieldset class="allMessagesFieldset">
         <p>Tous vos message </p>
         <form action="supressionMessage.php" method="post" >
