@@ -151,11 +151,13 @@ class Model{
         }
     }
 
-    function update($tab, $old)
+static function  update($tab, $old)
     {
-        $sql = "UPDATE " . static::$table . " SET"; foreach ($tab as $cle => $valeur) { $sql .= " " . $cle . "=:new" . $cle . ","; }
+        $sql = "UPDATE " . static::$table . " SET";
+        foreach ($tab as $cle => $valeur) { $sql .= " " . $cle . "=:new" . $cle . ","; }
         $sql = rtrim($sql, ",");
         $sql .= " WHERE " . static::$primary . "=:oldid;";
+        //print_r( $sql );
         try {
             $req_prep = Model::$pdo->prepare($sql);
             $values = array();
@@ -174,6 +176,10 @@ class Model{
             die();
         }
     }
+
+
+
+
 
 
 

@@ -207,3 +207,47 @@ $().ready(function(){
 
 });
 
+
+
+// sur liste membre
+$().ready(function(){
+   $(".etatMembre").on('change', function () {
+       $('#actionChangementEtat').show();
+   });
+});
+
+$().ready(function(){
+    $("#gestiionMembre form").submit(function(){
+        var action= $(this).attr('action');
+        etatMembre =[];
+        loginMembre =[];
+        $("select[class='etatMembre']").each(function(){
+            etatMembre.push($(this).val());
+        });
+        $("input[class='loginMembre']").each(function(){
+           loginMembre.push($(this).val());
+        });
+
+        $(".messages").slideUp('1000', function(){
+            $.post(action,{
+                    etats:etatMembre,
+                    logins:loginMembre
+                },function(data){
+                    if(data != 'ok'){
+                        $(".messages").html(data);
+                    }else{
+                        $(".messages").html("tous les changement ont été effectué avec succès");
+                        $(".messages").slideDown('slow');
+                    }
+
+                }
+            );
+        });
+
+
+
+
+
+       return false;
+    });
+});

@@ -25,17 +25,51 @@ switch($action){
             $messageErreur ="erreur vous n'avez pas le droit d'effectuer cette action";
             $layout = ucfirst($_SESSION['rang']);
             $controller = $_SESSION['rang'];
-        }
+        }require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
     case 'requete':
             $pageTitle='requetes membres';
             $view='Requetes';
             $allRequetes = modelRequetes::getAll();
-
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
     case 'liste_membre':
         $allMembre =modelMembre::getAll();
         $pageTitle='liste membre';
         $view='AllMembre';
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
-}require("{$ROOT}{$DS}view{$DS}view$layout.php");
+    case 'changerEtat':
+        extract($_POST);
+        if(!isset($_POST['etats']) || !isset($_POST['logins'])){
+            echo "une erreur est survenue ";
+        }elseif(empty($_POST['etats']) || empty($_POST['logins'])){
+            echo "erreur les champs sont vide ";
+        }else{
+            for($i=0; $i< sizeof($_POST['logins']); $i++){
+                $membre = modelMembre::select($_POST['logins'][$i]);
+                if(empty($membre)){
+                    echo "erreur le ou les membres n'existent pas ";
+                    exit();
+                }else{
+                    $code = $membre->getCodeAct();
+                    if($_POST['etats'][$i]=='actif'){
+                        $code ='';
+                    }
+                    $valeur = array(
+                        'login' => $_POST['logins'][$i],
+                        'nom' =>$membre->getNom(),
+                        'prenom' =>$membre->getPrenom(),
+                        'sexe' =>$membre->getSexe(),
+                        'adresse_mail'=>$membre->getAdresseMail(),
+                        'mot_de_passe'=>$membre->getMotDePasse(),
+                        'etat'=>$_POST['etats'][$i],
+                        'rang'=>$membre->getRang(),
+                        'code_Act'=>$code);
+                    modelMembre::update($valeur,$_POST['logins'][$i]);
+                }
+
+            }echo "ok";
+        }
+        break;
+}
