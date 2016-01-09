@@ -16,7 +16,7 @@ html {
 }
 
 body{ /* IDEM */
-    background-color: white;
+    background-color: yellowgreen;
     padding: 0;
     margin: 0;
     font-family: "Helvetica Neue"; /* font générale */
@@ -711,12 +711,12 @@ nav ul:after{
 
     #time {
         position: absolute;
-        background-color: darkgray;
+        background-color: lightgray;
         bottom: 15px;
         left: 15px;
         height: 3px;
         background: rgb(214, 98, 13.8);
-        width: 400px;
+        width: 15em;
         animation: timeliner 32s infinite;
     }
 
@@ -856,7 +856,7 @@ tr#greenRow th{
 
 #left {
   display: inline-block;
-    background-color: yellowgreen;
+    background-color: white;
     width: 60%;
     margin-top: 0.3em;
     margin-bottom: 0.3em;
@@ -864,13 +864,13 @@ tr#greenRow th{
     vertical-align: top;
     border-radius: 0.9em;
     height: 41.5em;
-    border: solid;
+    border: 1px solid;
     border-color: lightgrey;
 }
 
 #right {
     display: inline-block;
-    background-color: yellowgreen;
+    background-color: white ;
     width: 25%;
     margin-top: 0.3em;
     margin-bottom: 0.3em;
@@ -878,8 +878,8 @@ tr#greenRow th{
     vertical-align: top;
     border-radius: 0.9em;
     height: 41.5em;
-    border: solid;
-    border-color: lightgrey;
+    border: 1px solid;
+    border-color: lightgray ;
 }
 
 
