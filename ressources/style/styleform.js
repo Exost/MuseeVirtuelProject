@@ -151,14 +151,16 @@ $().ready(function () {
 
     $('input[type="file"]').on('change', function() {
         var fichier = this.files[0];
-        var reader = new FileReader();
+
         divInformation = $("#etatUpload");
+        divInformation.hide();
+
         if(fichier.type != 'image/png' && fichier.type !='image/gif'
             && fichier.type != 'image/jpg' && fichier.type !='application/pdf'
-            && fichier.type !="audio/mpeg" && fichier.type !=""){
+            && fichier.type !="audio/mpeg" && fichier.type !=""){ // tout les fichier pris en charge
             alert('fichier non pris en charge ');
             $('input[value="Upload"]').hide();
-            divInformation.append("fichier non prise en charge ").hide();
+            divInformation.empty().append("fichier non pris en charge ").hide();
             divInformation.fadeIn('slow');
 
             // suppression
@@ -205,3 +207,47 @@ $().ready(function(){
 
 });
 
+
+
+// sur liste membre
+$().ready(function(){
+   $(".etatMembre").on('change', function () {
+       $('#actionChangementEtat').show();
+   });
+});
+
+$().ready(function(){
+    $("#gestiionMembre form").submit(function(){
+        var action= $(this).attr('action');
+        etatMembre =[];
+        loginMembre =[];
+        $("select[class='etatMembre']").each(function(){
+            etatMembre.push($(this).val());
+        });
+        $("input[class='loginMembre']").each(function(){
+           loginMembre.push($(this).val());
+        });
+
+        $(".messages").slideUp('1000', function(){
+            $.post(action,{
+                    etats:etatMembre,
+                    logins:loginMembre
+                },function(data){
+                    if(data != 'ok'){
+                        $(".messages").html(data);
+                    }else{
+                        $(".messages").html("tous les changement ont été effectué avec succès");
+                        $(".messages").slideDown('slow');
+                    }
+
+                }
+            );
+        });
+
+
+
+
+
+       return false;
+    });
+});
