@@ -24,8 +24,17 @@ foreach (scandir($path) as $file_name){
          * Time: 15:14
          */
         $fichierText =$path.''.$docPath;
-        $text = file_get_contents($fichierText);
-        echo $text;
+
+
+        $monfichier = fopen($fichierText, 'r+');
+
+        // 2 : on lit la première ligne du fichier
+        $ligne = fgets($monfichier);
+
+        // 3 : quand on a fini de l'utiliser, on ferme le fichier
+        fclose($monfichier);
+
+        echo $ligne;
         ?>
     </div>
     <?php
