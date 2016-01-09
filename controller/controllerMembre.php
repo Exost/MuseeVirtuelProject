@@ -35,7 +35,12 @@ switch($action){
                $view ='Connexion';
                $messageErreur ="votre compte n'est pas encore activé <a href=''>renvoyer le mail?</a>";
                // option pour renvoyer le mail a finir
-           }else{
+           }elseif($membre->getEtat() =='bloque'){
+                $pageTitle ='connexion';
+                $controller ='visiteur';
+                $view ='Connexion';
+                $messageErreur ="votre compte est bloqué vous ne pouvez pas vous connecter ";
+            }else{
                 $view = 'profil';
                 $pageTitle='profil';
                 if($membre->getRang() == 'admin'){
@@ -140,17 +145,28 @@ switch($action){
                 $mail = $_POST['mail'];
                 $view ='Profil';
                 $layout ='Membre';
-                if(!empty($_POST['oldPswd']) && !empty($_POST['newPswd']) &&
-                !empty($_POST['newMdp2'])){
+                if(isset($_POST['oldPswd']) && isset($_POST['newPswd']) &&
+                isset($_POST['newMdp2'])){
                 // si les champ mot de passe sont rempli
                     if($membre->getMotDePasse() == sha1($_POST['oldPswd'])){
                         $mdp = sha1($_POST['newPswd']);
 
+                    }else{
+                        $mdp = $membre->getMotDePasse();
                     }
                 }else{
                     $mdp = $membre->getMotDePasse();
                 }
-                $tab = array($login, $nom, $prenom,$membre->getSexe() ,$mail,$mdp,'actif',$membre->getRang(), '');
+                $tab = array(
+                    'login'=>$login,
+                    'nom'=>$nom,
+                    'prenom'=>$prenom,
+                    'sexe'=>$membre->getSexe(),
+                    'adresse_mail'=>$mail,
+                    'mot_de_passe'=>$mdp,
+                    'etat'=>$membre->getEtat(),
+                    'rang'=>$membre->getRang(),
+                    'code_Act'=>'');
                 modelMembre::update($tab,$_SESSION['login']);
                 $_SESSION['login']= $_POST['login'];
 
