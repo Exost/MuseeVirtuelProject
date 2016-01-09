@@ -151,14 +151,16 @@ $().ready(function () {
 
     $('input[type="file"]').on('change', function() {
         var fichier = this.files[0];
-        var reader = new FileReader();
+
         divInformation = $("#etatUpload");
+        divInformation.hide();
+
         if(fichier.type != 'image/png' && fichier.type !='image/gif'
             && fichier.type != 'image/jpg' && fichier.type !='application/pdf'
-            && fichier.type !="audio/mpeg" && fichier.type !=""){
+            && fichier.type !="audio/mpeg" && fichier.type !=""){ // tout les fichier pris en charge
             alert('fichier non pris en charge ');
             $('input[value="Upload"]').hide();
-            divInformation.append("fichier non prise en charge ").hide();
+            divInformation.empty().append("fichier non pris en charge ").hide();
             divInformation.fadeIn('slow');
 
             // suppression
