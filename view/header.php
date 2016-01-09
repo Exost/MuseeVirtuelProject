@@ -18,10 +18,4 @@
     </header>
 
 <?php
-/**
- * Created by PhpStorm.
- * User: enzo
- * Date: 26/10/15
- * Time: 13:05
- */
 ?>

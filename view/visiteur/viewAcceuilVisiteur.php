@@ -1,11 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Jeff
- * Date: 25/12/2015
- * Time: 15:11
- */
+<div id="left">
+   <?php require("{$ROOT}{$DS}view{$DS}imgDefilante.php");  /* Diapo Acceuil */ ?>
+</div>
 
- echo "page d'accueil visiteur ";
+<div id="right" >
 
-?>
+</div>

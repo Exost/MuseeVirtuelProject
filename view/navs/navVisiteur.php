@@ -1,15 +1,12 @@
 <nav>
-    <table style="width:100%;height: 2.7em ;margin:auto;">
+    <table>
         <tr>
-            <td>
-                <ul >
-                    <li id="firstLeft">
-                        <a href="index.php"> Acceuil </a>
-                    </li>
-
-
-
-
+            <td id="blocEnseigne">
+                <a href="index.php">
+                    <img src='ressources/img/berbere.png' alt='icone'>
+                </a>
+                <h1 id="nomDuSite"> Musée Virtuel berbere </h1>
+            </td>
             <td>
                 <?php
                 require ("{$ROOT}{$DS}view{$DS}searchBar.php"); //SearchBar
@@ -18,7 +15,7 @@
 
             <td>
                 <ul>
-                    <li class="liNavBar">
+                    <li class="liNavBar" id="firstRight">
                         <a href="index.php?controller=visiteur&action=inscription"> S'inscrire </a>
                     </li>
                     <li  class="liNavBar" id ="Login">
@@ -29,3 +26,6 @@
         </tr>
     </table>
 </nav>
+
+
+
