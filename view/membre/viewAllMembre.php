@@ -6,7 +6,7 @@ if(!empty($allMembre) ) {
 
     <fieldset>
     <p>Tous vos amis<p>
-
+    <p>Membres connectés : <?php echo $allMembreCo ?> </p>  
     <table class="tableMembre">
 
 
