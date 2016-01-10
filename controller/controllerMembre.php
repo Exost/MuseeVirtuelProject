@@ -229,6 +229,7 @@ switch($action){
             $layout="Membre";
             $pageTitle="Vos amis";
 
+            $allMembreCo = modelMembre::getNbMembreConnecte();
             $allMembre=modelMembre::getAll();
         }
 
