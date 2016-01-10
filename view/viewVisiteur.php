@@ -7,9 +7,11 @@ require ("head.php");
 
 ?>
 <body>
+<div id="header">
 <?php
 require("navs/navVisiteur.php");
-
+?>
+</div>
 
 
 /**
@@ -25,9 +27,13 @@ require("navs/navVisiteur.php");
 $filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";
 $filename = "view".ucfirst($view) . ucfirst($controller) . '.php';
 require "{$filepath}{$filename}";
+?>
 
+<div id="divFooter" >
+<?php
 require("Footer.php");
 ?>
+</div>
 
 
 </body>

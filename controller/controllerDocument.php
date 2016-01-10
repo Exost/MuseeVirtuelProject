@@ -10,7 +10,7 @@ $messageErreur='';
 require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
 require ("{$ROOT}{$DS}model{$DS}modelDocument.php");
 
-è                $layout='Visiteur';
+                $layout='Visiteur';
             }
             $document = modelDocument::select($_GET['idDocument']);
             if(!empty($document)){

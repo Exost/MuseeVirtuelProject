@@ -16,14 +16,27 @@ html {
 }
 
 body{ /* IDEM */
-    background-color: yellowgreen;
+    background-color: white;
     padding: 0;
-    margin: 0;
+    margin-bottom: 0em;
     font-family: "Helvetica Neue"; /* font générale */
     min-height: 100%;
     position: relative;
     display : table;
     width: 100%;
+    height: 85%;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0em;
+}
+
+
+#backgroundAcceuil {
+    background-color: yellowgreen;
 }
 
 .contenu {
@@ -54,9 +67,9 @@ body{ /* IDEM */
 
 nav {
     background-color: white;
-    opacity: 1;
     color: white;
     height: 4.7em ;
+    border: 1px solid lightgray;
 }
 
     nav table{
@@ -87,7 +100,7 @@ nav li {
     padding-right: 0.2em;
     text-align: center;
     color: white;
-    font-size: 1.1em;
+    font-size: 1.3em;
 }
 
 /* Image + Nom du site */
@@ -100,16 +113,19 @@ nav li {
     opacity:0.85;
     vertical-align: middle;
     display: inline-block;
+    float: left;
+    margin-right: 0.5em;
 }
 
 #blocEnseigne {
     padding-left : 0.3em ;
+    margin-right: 0em;
 }
 
 nav img { /* flag/drapeau */
     width: auto;
     height: 3.5em;
-    margin-right: 0.3em;
+    margin-right: 0.6em;
     margin-left: 0.1em;
     margin-top: 0.35em;
     float: left;
@@ -136,26 +152,46 @@ nav li a:hover {
     color: black;
 }
 
+#divFooter {
+    height: 1.5em;
 
-footer{
+}
+
+#divFooterIN { /*permet de centrer les liens dans la divFooter mère */
+    margin-bottom: auto;
+    marin-top: auto;
+}
+
+
+
+#navFooter{
     /*Couleur de fond*/
     text-align:center;/*texte centré*/
     color : white ;
+    font-size: 1.2em;
     display : table-row;
-    height : 1.5em;
+    height : 0.1em;
     position: absolute;
     clear: both;
     bottom: 0;
     left: 0; right: 0;
+    margin-top: 0em;
+    height: 3em ;
+}
+
+#footer a { /* Liens footer */
+    margin-right: 1.7em;
+    color : yellowgreen;
+    text-decoration: none;
 
 }
 
 
 
+
 #firstRight { /* s'inscrire */
-    margin-left: 7em;
+    margin-left: 6em;
     margin-right: 1em;
-    font-size: 1.1em;
     background-color: white ;
     border-radius: 5px;
     color: black;
@@ -716,7 +752,7 @@ nav ul:after{
         left: 15px;
         height: 3px;
         background: rgb(214, 98, 13.8);
-        width: 15em;
+        width: 100%;
         animation: timeliner 32s infinite;
     }
 
@@ -882,6 +918,46 @@ tr#greenRow th{
     border-color: lightgray ;
 }
 
+
+/* formulaire inscription */
+
+fieldset {
+    border : 1px solid yellowgreen;
+    border-radius: 0.7em;
+}
+
+input[type=text] {
+     border: 1px outset #999;
+     border-radius: 0.3em;
+
+ }
+
+input[type=password] {
+    border: 1px outset #999;
+    border-radius: 0.3em;
+
+}
+
+input[type=mail] {
+    border: 1px outset #999;
+    border-radius: 0.3em;
+
+}
+
+#divForm {
+    margin-top: 2.7em ;
+    text-align: center ;
+    width : 70% ;
+    margin-left: auto;
+    margin-right: auto ;
+}
+
+legend {
+    color : yellowgreen;
+    font-size: 1.8em;
+}
+
+/* ------------------------------*/
 
 /*
             AUDIO

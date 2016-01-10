@@ -1,6 +1,7 @@
 
-<footer>
-    <nav class="footer">
+
+    <nav id="navFooter">
+
         <a href="index.php?action=QSN"
             >Qui sommes-nous ?</a>
         <a href="index.php?action=CN"
@@ -11,5 +12,6 @@
             >Nos actions</a>
         <a href="index.php?action=CS"
             > Créateurs du site </a>
+
     </nav>
-</footer>
+

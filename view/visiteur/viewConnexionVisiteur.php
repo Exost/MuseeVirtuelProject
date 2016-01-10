@@ -1,9 +1,8 @@
 
-<div id="connexion">
+<div id="divForm">
     <div class="messages">
 
     </div>
-
     <form method="post" action="index.php?controller=membre&action=connecte">
         <legend>Connexion</legend>
         <fieldset>
@@ -13,9 +12,9 @@
             <input type="password"  name="mdp"  id="mdp" required/><p></p>
             <input type="submit" value="connexion" class="button"/> <p></p>
             <a href="index.php?controller=visiteur&action=oublie_mot_de_passe">mot de passe oublié ?</a>
+            <a href="index.php?controller=visiteur&action=inscription">vous n'avez pas encore de compte?</a>
         </fieldset>
     </form>
-    <a href="index.php?controller=visiteur&action=inscription">vous n'avez pas encore de compte?</a>
     <br/>
     <?php
     echo "<div style='text-align: center;color:red'>$messageErreur</div>";
