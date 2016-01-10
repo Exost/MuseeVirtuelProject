@@ -7,34 +7,29 @@ require ("head.php");
 
 ?>
 <body>
-<div id="header">
-<?php
-require("navs/navVisiteur.php");
-?>
+
+<div id="wrap">
+        <div id="divHeader">
+        <?php
+        require("navs/navVisiteur.php");
+        ?>
+        </div>
+
+        <div id="divMain">
+        <?php
+
+        $filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";
+        $filename = "view".ucfirst($view) . ucfirst($controller) . '.php';
+        require "{$filepath}{$filename}";
+        ?>
+        </div>
+
+        <div id="divFooter" >
+        <?php
+        require("Footer.php");
+        ?>
+        </div>
 </div>
-
-
-/**
- * Created by PhpStorm.
- * User: enzo
- * Date: 14/10/15
- * Time: 21:10
- */
-// Si $controleur='voiture' et $view='All',
-// alors $filepath=".../view/voiture/"
-//       $filename="viewAllVoiture.php";
-// et on charge '.../view/voiture/viewAllVoiture.php'
-$filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";
-$filename = "view".ucfirst($view) . ucfirst($controller) . '.php';
-require "{$filepath}{$filename}";
-?>
-
-<div id="divFooter" >
-<?php
-require("Footer.php");
-?>
-</div>
-
 
 </body>
 

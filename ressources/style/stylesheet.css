@@ -24,20 +24,33 @@ body{ /* IDEM */
     position: relative;
     display : table;
     width: 100%;
-    height: 85%;
+    height: 100%;
+    margin : 0em ;
 }
 
-#footer {
+#wrap{
+    min-height:100%;
+    position: relative;
+}
+
+#divHeader{
+    position: relative;
+}
+
+#divMain{
+    position : relative;
+    padding-bottom: 0px;
+    height: 100%;
+    background-color: yellowgreen;
+}
+#divFooter{
+    height: 100px;
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-top: 0em;
 }
 
 
-#backgroundAcceuil {
-    background-color: yellowgreen;
-}
 
 .contenu {
 	font-size : 2em;
@@ -152,10 +165,7 @@ nav li a:hover {
     color: black;
 }
 
-#divFooter {
-    height: 1.5em;
 
-}
 
 #divFooterIN { /*permet de centrer les liens dans la divFooter mère */
     margin-bottom: auto;
@@ -179,7 +189,7 @@ nav li a:hover {
     height: 3em ;
 }
 
-#footer a { /* Liens footer */
+#navFooter a { /* Liens footer */
     margin-right: 1.7em;
     color : yellowgreen;
     text-decoration: none;
@@ -890,6 +900,9 @@ tr#greenRow th{
     margin-left: 5%;
 }
 
+
+/* Acceuil Visiteur */
+
 #left {
   display: inline-block;
     background-color: white;
@@ -917,7 +930,7 @@ tr#greenRow th{
     border: 1px solid;
     border-color: lightgray ;
 }
-
+/* fin Acceuil Visiteur */
 
 /* formulaire inscription */
 
