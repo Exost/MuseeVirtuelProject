@@ -2,6 +2,7 @@
 $logPosteur = $document->getLogin(); // login du membre qui a poster le document
 $path = "{$ROOT}{$DS}file{$DS}$logPosteur{$DS}";
 $docPath='';
+
 foreach (scandir($path) as $file_name){
     if($file_name !='.'& $file_name !='..'){
         $file_array = explode('.',$file_name);
