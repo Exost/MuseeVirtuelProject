@@ -41,9 +41,10 @@ switch($action){
         break;
     case 'changerEtat':
         extract($_POST);
-        if(!isset($_POST['etats']) || !isset($_POST['logins'])){
+        if(!isset($_POST['etats']) || !isset($_POST['logins'])
+            || !isset($_POST['rangs'])){
             echo "une erreur est survenue ";
-        }elseif(empty($_POST['etats']) || empty($_POST['logins'])){
+        }elseif(empty($_POST['etats']) || empty($_POST['logins']) || empty($_POST['rangs'])){
             echo "erreur les champs sont vide ";
         }else{
             for($i=0; $i< sizeof($_POST['logins']); $i++){
@@ -64,7 +65,7 @@ switch($action){
                         'adresse_mail'=>$membre->getAdresseMail(),
                         'mot_de_passe'=>$membre->getMotDePasse(),
                         'etat'=>$_POST['etats'][$i],
-                        'rang'=>$membre->getRang(),
+                        'rang'=>$_POST['rangs'][$i],
                         'code_Act'=>$code);
                     modelMembre::update($valeur,$_POST['logins'][$i]);
                 }

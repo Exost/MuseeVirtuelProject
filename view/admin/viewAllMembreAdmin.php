@@ -1,4 +1,4 @@
-<div id="gestiionMembre">
+<div id="gestionMembre">
     <div class="messages">
 
     </div>
@@ -20,7 +20,15 @@
                 if($membre->getRang() !='admin'){
                     echo '<tr>';
                     echo "<td><a href=''>{$membre->getLogin()}</a></td>";
-                    echo "<td><a>{$membre->getRang()}</a></td>";
+                    echo "<td>
+                           <select class='rangMembre'>
+                               <option value='{$membre->getRang()}'>{$membre->getRang()}</option>  " ;
+                            if($membre->getRang()=='membre'){
+                                echo "<option value='moderateur'>moderateur</option>";
+                            }else{
+                                echo "<option value='membre'>membre</option>";
+                            }
+                           echo " </select></td>";
                     echo "<td><select class='etatMembre'>
                         <option value='{$membre->getEtat()}'>{$membre->getEtat()}</option>
                         ";

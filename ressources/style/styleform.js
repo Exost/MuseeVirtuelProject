@@ -217,21 +217,33 @@ $().ready(function(){
 });
 
 $().ready(function(){
-    $("#gestiionMembre form").submit(function(){
+    $(".rangMembre").on('change', function () {
+        $('#actionChangementEtat').show();
+    });
+});
+
+
+$().ready(function(){
+    $("#gestionMembre form").submit(function(){
         var action= $(this).attr('action');
         etatMembre =[];
         loginMembre =[];
+        rangMembre =[];
         $("select[class='etatMembre']").each(function(){
             etatMembre.push($(this).val());
         });
         $("input[class='loginMembre']").each(function(){
            loginMembre.push($(this).val());
         });
+        $("select[class='rangMembre']").each(function(){
+            rangMembre.push($(this).val());
+        });
 
         $(".messages").slideUp('1000', function(){
             $.post(action,{
                     etats:etatMembre,
-                    logins:loginMembre
+                    logins:loginMembre,
+                    rangs:rangMembre
                 },function(data){
                     if(data != 'ok'){
                         $(".messages").html(data);
