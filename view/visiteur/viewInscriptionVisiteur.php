@@ -1,5 +1,5 @@
 
-<form method="post" action="index.php?controller=visiteur&action=inscrit" onsubmit="return verifSubmit();">
+<form method="post" action="index.php?controller=visiteur&action=inscrit" onsubmit="return verifSubmit();" id="inscriptionVisiteur">
     <div id="divForm">
         <fieldset>
             <legend id="inscription">Formulaire d'inscription :</legend> <p>

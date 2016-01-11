@@ -3,19 +3,13 @@
 <?php
 
 require ("head.php");
-require ("header.php");
 require("navs/navMembre.php");
 ?>
 <body>
 
 <?php
-require ('membre/menuMembre.php');
-/**
- * Created by PhpStorm.
- * User: enzo
- * Date: 14/10/15
- * Time: 21:10
- */
+//require ('membre/menuMembre.php');
+
 // Si $controleur='voiture' et $view='All',
 // alors $filepath=".../view/voiture/"
 //       $filename="viewAllVoiture.php";

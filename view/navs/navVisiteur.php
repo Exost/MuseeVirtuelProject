@@ -5,7 +5,7 @@
                 <a href="index.php">
                     <img src='ressources/img/berbere.png' alt='icone'>
                 </a>
-                <h1 id="nomDuSite"> Musée Virtuel berbere </h1>
+                <h1 id="nomDuSite"> Musée Virtuel Berbère </h1>
             </td>
             <td>
                 <?php

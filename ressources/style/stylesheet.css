@@ -42,6 +42,9 @@ body{ /* IDEM */
     padding-bottom: 0px;
     height: 100%;
     background-color: yellowgreen;
+    vertical-align:middle;
+
+
 }
 #divFooter{
     height: 100px;
@@ -187,6 +190,7 @@ nav li a:hover {
     left: 0; right: 0;
     margin-top: 0em;
     height: 3em ;
+    padding: 1em;
 }
 
 #navFooter a { /* Liens footer */
@@ -199,7 +203,7 @@ nav li a:hover {
 
 
 
-#firstRight { /* s'inscrire */
+#firstRight {
     margin-left: 6em;
     margin-right: 1em;
     background-color: white ;
@@ -223,7 +227,7 @@ nav li a:hover {
 /* Barre de recherche */
 
  .searchForm {
-     background-color: whitesmoke;
+     background-color: white;
      border:0px solid red;
 
  }
@@ -378,7 +382,7 @@ aside {
 
 nav .dropdown{
     display: none;
-    border-radius: 0px;
+    border-radius: 0.7em;
     padding: 0;
 }
 
@@ -386,8 +390,8 @@ nav .dropdown li {
     float: none;
     position: relative;
     border-top: 1px solid #6b727c;
-    background-color: white;
-    opacity:0.85;
+    background-color: yellowgreen;
+    opacity:0.65;
     //text-overline-color : #222222;
 
 }
@@ -650,7 +654,7 @@ nav ul:after{
         padding: 15px;
         margin-left: 1em;
         margin-bottom: 2em;
-        margin-top: 1em;
+        margin-top: 1.8em;
         border: 1px solid #ddd;
         background: #FFF;
         border-radius: 2px 2px 2px 2px;
@@ -912,7 +916,7 @@ tr#greenRow th{
     margin-left: 5.5em;
     vertical-align: top;
     border-radius: 0.9em;
-    height: 41.5em;
+    height: 39.5em;
     border: 1px solid;
     border-color: lightgrey;
 }
@@ -926,9 +930,16 @@ tr#greenRow th{
     margin-left: 0.4em;
     vertical-align: top;
     border-radius: 0.9em;
-    height: 41.5em;
+    height: 39.5em;
     border: 1px solid;
     border-color: lightgray ;
+}
+
+#texteAcceuil {
+    margin-top: 0.3em;
+    font-size: 1.4em;
+    padding: 1em ;
+    color:  dimgrey;
 }
 /* fin Acceuil Visiteur */
 
@@ -964,10 +975,108 @@ input[type=mail] {
     margin-left: auto;
     margin-right: auto ;
 }
+/* Page Inscription Visiteur */
+
+#inscriptionVisiteur {
+    margin-top: 8em ;
+}
+
+
+#inscriptionVisiteur .button {
+    background-color: white;
+    color: dimgray;
+    font-size: 1.1em;
+}
+
+#inscriptionVisiteur .button:hover {
+    background-color: yellow ;
+    color: black ;
+}
+
+#inscriptionVisiteur label {
+    color : dimgray;
+    font-size: 1.3em;
+}
+
+#inscriptionVisiteur .label {
+    color : dimgray;
+    font-size: 1.3em;
+}
+
+#inscriptionVisiteur #label {
+    color : dimgray;
+    font-size: 1.3em;
+}
+
+/* Fin page incsription visiteur */
+
+#flagAcceuil {
+    width: 100%;
+    height: auto;
+    padding: 1.5em;
+}
+
+/* Page connexion Visiteur */
+
+#connexionVisiteur {
+    margin-top: 12em;
+}
+#connexionVisiteur a
+{
+    color : dimgrey;
+    font-size: 1.3em;
+    margin-right: 1em ;
+    margin-left: 5.9em;
+    text-decoration: none;
+}
+#connexionVisiteur a:hover {
+    color:  white;
+}
+
+#connexionVisiteur .button {
+    background-color: white;
+    color: dimgray;
+}
+
+#connexionVisiteur .button:hover {
+    background-color: yellow ;
+    color: black ;
+}
+
+#connexionVisiteur .label {
+    color : dimgray;
+    font-size: 1.3em;
+}
+
+/* Fin Page connexion Visiteur */
 
 legend {
-    color : yellowgreen;
+    color : dimgray;
     font-size: 1.8em;
+}
+
+
+#uploadF {
+    text-decoration: none;
+    font-size: 1.5em;
+    color : yellowgreen;
+    opacity:0.85;
+    vertical-align: middle;
+    display: inline-block;
+    float: left;
+    margin-left: 5.8em;
+    margin-top: 0.8em;
+}
+
+#deco {
+    margin-left: 4.5em ;
+}
+
+#firstRightNavMembre {
+    margin-left: 3em;
+    background-color: white ;
+    border-radius: 5px;
+    color: black;
 }
 
 /* ------------------------------*/

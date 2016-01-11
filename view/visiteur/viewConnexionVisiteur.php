@@ -3,16 +3,16 @@
     <div class="messages">
 
     </div>
-    <form method="post" action="index.php?controller=membre&action=connecte">
+    <form method="post" action="index.php?controller=membre&action=connecte" id="connexionVisiteur">
         <legend>Connexion</legend>
         <fieldset>
-            <label for="id" class="label"  >login</label>
+            <label for="id" class="label"  > Login :  </label>
             <input type="text"  name="login" id="login" required/><p></p>
-            <label for="passwd" class="label"  >mot de passe</label>
+            <label for="passwd" class="label"  > Mot de passe :  </label>
             <input type="password"  name="mdp"  id="mdp" required/><p></p>
-            <input type="submit" value="connexion" class="button"/> <p></p>
-            <a href="index.php?controller=visiteur&action=oublie_mot_de_passe">mot de passe oublié ?</a>
-            <a href="index.php?controller=visiteur&action=inscription">vous n'avez pas encore de compte?</a>
+            <input type="submit" value="Connexion" class="button"/> <p></p>
+            <a href="index.php?controller=visiteur&action=oublie_mot_de_passe">Mot de passe oublié ?</a>
+            <a href="index.php?controller=visiteur&action=inscription">Vous n'avez pas encore de compte?</a>
         </fieldset>
     </form>
     <br/>
