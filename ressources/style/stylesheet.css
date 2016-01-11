@@ -35,6 +35,7 @@ body{ /* IDEM */
 
 #divHeader{
     position: relative;
+    padding-bottom: 2%;
 }
 
 #divMain{
