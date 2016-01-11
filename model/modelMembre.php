@@ -120,7 +120,7 @@ class modelMembre extends Model
     }
 
     static function getNbrMessagesNL(){
-        $sql='SELECT * FROM message WHERE destinataire="'.$_SESSION["login"].'" AND etat="NL"';
+        $sql='SELECT * FROM message WHERE destinataire="'.$_SESSION["login"].'" AND etat="nl"';
 
         try{
             $req_prep = Model::$pdo->prepare($sql);
@@ -236,5 +236,72 @@ class modelMembre extends Model
         mot de passe: $nouvMdp
         connectez-vous au site et pensez a le modifier";
         return(mail($this->adresse_mail,'nouveau mot de passe',$message,'de ArtKabyle.org'));
+    }
+
+
+    static function getNbMembreConnecte() {
+        $sqlCount='SELECT * from cpt_connectes ';
+
+        try{
+            $req_prep= Model::$pdo->prepare($sqlCount);
+            $req_prep->execute();
+
+            $compteur = 0;
+
+            foreach ($req_prep as $key ) { $compteur++; }
+
+        }catch(PDOException $e){ if (Conf::getDebug()) { echo "une erreur est survenue"; }
+            return -1;
+            die();
+        }
+        return $compteur;
+    }
+
+
+
+    static function insertMembreEnLigne(){
+
+        $login=$_SESSION['login'];
+        $sqlCount =' SELECT count(login) from cpt_connectes where login="'.$login.'"' ;
+        $sqlInsert=' INSERT into cpt_connectes values ("'.$login.'") ';
+
+        try{
+            $req_prep= Model::$pdo->prepare($sqlCount);
+            $req_prep->execute();
+
+            if($req_prep != NULL){
+
+                try{
+                    Model::$pdo->query($sqlInsert);
+
+
+                }catch(PDOException $e){ if ( Conf::getDebug() ) { echo "une erreur est survenue"; }
+                    return -1;
+                    die();
+                }
+
+            }else{
+                echo "vous etes déjâ deconnecté ... ";
+            }
+
+        }catch(PDOException $e){ if (Conf::getDebug()) { echo "une erreur est survenue"; }
+            return -1;
+            die();
+        }
+    }
+
+    static function deleteMembreEnLigne(){
+
+        $login=$_SESSION['login'];
+        $sql='DELETE from cpt_connectes where login="'.$login.'"' ;
+
+        try{
+            Model::$pdo->query($sql);
+
+
+        }catch(PDOException $e){ if ( Conf::getDebug() ) { echo "une erreur est survenue"; }
+            return -1;
+            die();
+        }
     }
 }
