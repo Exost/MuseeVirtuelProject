@@ -9,6 +9,7 @@
                 <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
                 <label for="upload" class="label"> Fichier</label>
                 <input type="file" name="fichier" > <br/>
+                <br/>
 
                 <label for="category" class="label"> Type de Fichier</label>
                 <select  name="typeF" id="typeF">
@@ -17,18 +18,19 @@
                         echo "<option value='{$a->getType()}'>{$a->getType()}</option>";
                     ?>
                 </select> <br/>
-
+                <br/>
 
                 <label for="description" class="label">Description</label>
                 <input type="text"  name="descriptionF"
                        id="descriptionF"  required placeholder=" Texte ancien ......"/></Br>
 
+                <br/>
                 <label for="dateF" class="label"> Année de parution </label>
                 <input type="number"  name="dateF"
                        id="dateF"  required placeholder="1921"/></Br>
 
-
-                <input type="submit" value="Upload" class="button"/> </p>
+                <br/>
+                <input type="submit" value="Upload" class="button" id="uploadButton"/> </p>
         </fieldset>
     </form>
 </div>

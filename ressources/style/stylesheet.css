@@ -259,9 +259,6 @@ nav li a:hover {
 
 /* Fin barre de recherche */
 
-/*////////////////////////////////////////////////////////////////////////
-                                    ASIDE
-///////////////////////////////////////////////////////////////////////*/
 
 aside {
     float: left;
@@ -270,113 +267,6 @@ aside {
 }
 
 
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-/* Responsive design : Affichage de modèles ( liste )  */
-
-@media screen and (max-width : 1440px)
-{
-        .table {
-            display: inline;
-        }
-
-        .table div {
-            display: inline-block;
-            width: 30%;
-            text-align: center;
-            padding: 0px;
-            margin-bottom: 2em;
-            margin-left: 0.7em;
-        }
-
-        .table div img {
-            width: 90%;
-            height: 250px;
-        }
-
-        .table p {
-            display: block;
-            -webkit-margin-before: 1em;
-        }
-}
-
-@media screen and (min-width : 1441px ) and (max-width : 1920px)
-{
-    .table {
-        float: right;
-        display: inline;
-        padding: 0%;
-    }
-
-    .table div {
-        display: inline-block;
-        width: 30%;
-        text-align: center;
-        padding: 0px;
-        margin: 0px;
-    }
-
-    .table div img {
-        width: 95%;
-        height: 350px ;
-    }
-
-    .table p {
-        display: block;
-        -webkit-margin-before: 1em;
-    }
-}
-
-/*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-
-/* Responsive design : vue rapproché d'un modele */
-
-@media screen and (max-width : 1440px)
-{
-
-    .setModel {
-        display: inline;
-        padding: 1%;
-    }
-
-    .setModel div {
-        display: inline-block;
-        width: 50%;
-        text-align: center;
-        padding: 0px;
-        margin: 0px;
-    }
-
-    .setModel div img {
-        width: 70%;
-        height: 70%;
-    }
-
-}
-
-@media screen and (min-width : 1441px ) and (max-width : 1920px)
-{
-
-    .setModel {
-        display: inline;
-        padding: 1%;
-    }
-
-    .setModel div {
-        display: inline-block;
-        width: 50%;
-        text-align: center;
-        padding: 0px;
-        margin: 0px;
-    }
-
-    .setModel div img {
-        width: 50%;
-        height: 50%;
-    }
-
-}
 
 
 /* gestion dropdown menu */
@@ -968,6 +858,10 @@ input[type=mail] {
     border-radius: 0.3em;
 
 }
+input[type=number] {
+    border: 1px outset #999;
+    border-radius: 0.3em;
+}
 
 #divForm {
     margin-top: 2.7em ;
@@ -979,7 +873,7 @@ input[type=mail] {
 /* Page Inscription Visiteur */
 
 #inscriptionVisiteur {
-    margin-top: 8em ;
+    margin-top: 4em ;
 }
 
 
@@ -1121,6 +1015,20 @@ legend {
 }
 
 /* Fin mon profile */
+ #upload {
+     margin-top: 10em ;
+ }
+
+ #uploadButton {
+     margin-left: 28em;
+ }
+
+/* Upload Fichier */
+
+
+
+
+/* Fin vue Upload fichier */
 
 /* ------------------------------*/
 
