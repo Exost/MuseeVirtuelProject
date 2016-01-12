@@ -5,7 +5,7 @@
         <a href="index.php?action=QSN"
             >Qui sommes-nous ?</a>
         <a href="index.php?controller=membre&action=requete"
-            >Nous contacter</a>
+            >Suggestions </a>
         <a href="index.php?action=NT"
             >Nos coordonées</a>
         <a href="index.php?action=CA"

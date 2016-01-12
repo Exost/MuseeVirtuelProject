@@ -8,7 +8,11 @@
                 <a href="index.php">
                     <img src='ressources/img/berbere.png' alt='icone'>
                 </a>
-                <a href="index.php?controller=membre&action=upload" id="uploadF"> Uploader une Oeuvre </a>
+                <a href="index.php?controller=document&action=readAll" id="uploadF"> Oeuvres </a>
+                <ul class="dropdown">
+                    <li> <a href="index.php?controller=membre&action=upload" id="uploadF"> Uploader une Oeuvre </a> </li>
+                    <li> <a href="index.php?controller=document&action=readall"> Documents en ligne </a> </li>
+                </ul>
             </td>
             <td>
                 <?php
@@ -22,7 +26,7 @@
                         <a href="index.php?controller=membre&action=profil"> Mon Profil </a>
                         <ul class="dropdown">
                             <li> <a href="index.php?controller=membre&action=profil">Voir mon Profil</a> </li>
-                            <li> <a href="index.php?controller=membre&action=modifier">Modifier mon Poril</a> </li>
+                            <li> <a href="index.php?controller=membre&action=modifier">Modifier mon Profil</a> </li>
                             <li> <a href="index.php?controller=membre&action=document">Mes Documents</a> </li>
                             <li> <a href="index.php?controller=membre&action=message">Messagerie</a> </li>
                             <li> <a href="index.php?controller=membre&action=readAll">Membres</a> </li>

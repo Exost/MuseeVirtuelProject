@@ -61,6 +61,7 @@ switch($action) {
             $messageErreur = " Veuillez vous connecter";
         }
         break;
+
     case 'readAll':
             $view='All';
             $allDocument = modelDocument::getAll();

@@ -9,25 +9,25 @@
 
 $membreProfil = modelMembre::select($_SESSION['login']);
 ?>
-
-<form method="post" action="index.php?controller=membre&action=modification">
+<div id="divForm" >
+<form method="post" action="index.php?controller=membre&action=modification" id="inscriptionVisiteur">
     <fieldset>
         <label>Login</label>
         <input value="<?php echo $membreProfil->getLogin();?>" name="login"/><br/>
-        <label>nom</label>
+        <label>Nom</label>
         <input value="<?php echo $membreProfil->getNom();?>"  name="nom"/><br/>
-        <label>prenom</label>
+        <label>Prenom</label>
         <input value="<?php echo $membreProfil->getPrenom();?>" name="prenom"/><br/>
-        <label>adresse mail</label>
+        <label>Adresse mail</label>
         <input value="<?php echo $membreProfil->getAdresseMail();?>" name="mail"/><br/>
-        <label>ancien mot de passe</label>
+        <label>Ancien Mot de passe</label>
         <input type="password" name="oldPswd"/><br/>
-        <label>nouveau mot de passe</label>
+        <label>Nouveau mot de passe</label>
         <input type="password" name="newPswd"/><br/>
-        <label>valider mot de passe</label>
+        <label>Validez le nouveau mot de passe</label>
         <input type="password" name="newMdp2"/><br/>
-        <input type="submit" value="modifier profil"/>
+        <input type="submit" value="Modifier le profil"/>
 
     </fieldset>
-
+</div>
 </form>
