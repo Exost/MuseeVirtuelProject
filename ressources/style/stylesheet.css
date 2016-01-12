@@ -87,6 +87,8 @@ nav {
     color: white;
     height: 4.7em ;
     border: 1px solid lightgray;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
 }
 
     nav table{
@@ -875,6 +877,12 @@ tr#greenRow th{
  /**************************************************/
     /*       COMMENTAIRE ET DOCUMENT                   */
 /**************************************************/
+
+#allDoc{
+    margin: 2%;
+    margin-top: 4%;
+}
+
 .layoutCom{
     display: block;
 }
@@ -883,9 +891,9 @@ tr#greenRow th{
     display: block;
 }
 .espaceDocument{
+    margin-top: 5%;
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 2%;
 }
 
 #typeTexte{
@@ -978,9 +986,7 @@ input[type=mail] {
 }
 /* Page Inscription Visiteur */
 
-#inscriptionVisiteur {
-    margin-top: 8em ;
-}
+
 
 
 #inscriptionVisiteur .button {
