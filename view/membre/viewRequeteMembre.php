@@ -13,7 +13,7 @@ require_once "{$ROOT}{$DS}model{$DS}modelSujet.php";
         <!-- affichage du message par javascript -->
     </div>
 
-    <fieldset>
+    <fieldset style="margin-top: 13em">
         <form method="post" action="traitementRequeteAdmin.php">
 
             <label>sujet</label><br/>
