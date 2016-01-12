@@ -30,12 +30,13 @@
                             <li> <a href="index.php?controller=membre&action=document">Mes Documents</a> </li>
                             <li> <a href="index.php?controller=membre&action=message">Messagerie</a> </li>
                             <li> <a href="index.php?controller=membre&action=readAll">Membres</a> </li>
+                            <li>
+                                <a href="index.php?controller=membre&action=exit"> Se Déconnecter </a>
+                            </li>
                        </ul>
                     </li>
 
-                    <li  class="liNavBar" id ="Login">
-                        <a href="index.php?controller=membre&action=exit" id="deco"> Se Déconnecter </a>
-                    </li>
+
                 </ul>
             </td>
         </tr>
