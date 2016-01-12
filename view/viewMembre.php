@@ -2,7 +2,7 @@
 <html>
 <?php
 
-require ("head.php");
+require("head.php");
 require("navs/navMembre.php");
 ?>
 <body>

@@ -8,6 +8,7 @@
 $messageErreur='';
 require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
 require ("{$ROOT}{$DS}model{$DS}modelType.php");
+require ("{$ROOT}{$DS}model{$DS}modelDocument.php");
 
 switch($action){
 
@@ -229,7 +230,7 @@ switch($action){
         if (isset($_SESSION['login']) ){
             $view="All";
             $layout="Membre";
-            $pageTitle="Vos amis";
+            $pageTitle="Toutes les oeuvres";
 
             $allMembreCo = modelMembre::getNbMembreConnecte();
             $allMembre=modelMembre::getAll();
@@ -248,8 +249,19 @@ switch($action){
 
         }
 
+    case 'mesDocuments':
 
+
+        if (isset($_SESSION['login']) ){
+            $view="Document";
+            $layout="Membre";
+            $pageTitle="Vos oeuvres";
+
+            $login=$_SESSION['login'];
+            $allDocumentByLogin=modelDocument::getAllDocumentByLogin($login);
+        }
         break;
+
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");
 
 ?>

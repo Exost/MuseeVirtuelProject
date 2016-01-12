@@ -81,6 +81,22 @@ class modelDocument extends Model
     }
 
 
+    static function getAllDocumentByLogin($login){
 
+        $sql='SELECT * from document where login=:login';
+
+        try{
+
+            $rep=Model::$pdo->prepare($sql);
+            $rep->setFetchMode(PDO::FETCH_CLASS, 'modelDocument');
+            $rep->bindParam(":login", $login);
+            $rep->execute();
+            return $rep->fetchAll();
+
+        }catch(PDOException $e){ if (Conf::getDebug()) { echo "une erreur est survenue"; }
+            return -1;
+            die();
+        }
+    }
 
 }

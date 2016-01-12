@@ -1,11 +1,24 @@
 <div class="espaceDocument">
     <?php
-    /**
-     * Created by PhpStorm.
-     * User: enzo
-     * Date: 29/12/15
-     * Time: 03:48
-     */
+
+    // Gestion compteur de visite
+    $idDocument = $document->getIdDocument();
+    if(file_exists($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt'))
+    {
+        // On ouvre le compteur
+        $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'r+');
+        $compte = fgets($compteur_f); //On recupere la valeur de la premiere ligne
+    }else{
+
+        $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'a+');
+        $compte = 0;
+    }
+    $compte++;
+    fseek($compteur_f, 0);          // on replace le curseur
+    fputs($compteur_f, $compte);    // On entre les valeurs du compteur
+    fclose($compteur_f);
+
+
     $logPosteur = $document->getLogin(); // login du membre qui a poster le document
     $path = "{$ROOT}{$DS}file{$DS}$logPosteur{$DS}";
     $docPath='';
@@ -35,7 +48,7 @@
         <source src="<?php echo $musiquePath[1]; ?>"/>
         votre navigateur n'est pas compatible
     </audio>
-
+    <div > <fieldset> Cette page a été visitée <?php echo $compte ?> fois ! </fieldset> </div>
 
 
 

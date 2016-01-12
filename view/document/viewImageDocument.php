@@ -1,10 +1,34 @@
 <?php
+
+// Gestion compteur de visite
+$idDocument = $document->getIdDocument();
+if(file_exists($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt'))
+{
+    // On ouvre le compteur
+    $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'r+');
+    $compte = fgets($compteur_f); //On recupere la valeur de la premiere ligne
+}else{
+
+    $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'a+');
+    $compte = 0;
+}
+$compte++;
+fseek($compteur_f, 0);          // on replace le curseur
+fputs($compteur_f, $compte);    // On entre les valeurs du compteur
+fclose($compteur_f);
 /**
  * Created by PhpStorm.
  * User: enzo
  * Date: 29/12/15
  * Time: 15:14
  */
+?>
+
+<div class="image">
+
+</div>
+
+<?php
 $logPosteur = $document->getLogin(); // login du membre qui a poster le document
 $path = "{$ROOT}{$DS}file{$DS}$logPosteur{$DS}";
 $docPath='';
@@ -19,3 +43,12 @@ foreach (scandir($path) as $file_name){
 
     }
 }
+
+?>
+
+<div > <fieldset> Cette page a été visitée <?php echo $compte ?> fois ! </fieldset> </div>
+
+<?php
+    require ("{$ROOT}{$DS}view{$DS}commentaire.php");
+?>
+

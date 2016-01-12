@@ -72,6 +72,7 @@ switch($action) {
             }
             $pagetitle='oeuvres';
         break;
+
     case 'consulter':
         if(isset($_GET['idDocument'])){
             if(isset($_SESSION['login'])){
@@ -93,6 +94,20 @@ switch($action) {
         }
 
         break;
+
+    case 'mesDocuments':
+
+
+        if (isset($_SESSION['login']) ){
+            $view="Document";
+            $layout="Membre";
+            $pageTitle="Vos oeuvres";
+
+            $login=$_SESSION['login'];
+            $allDocumentByLogin=modelDocument::getAllDocumentByLogin($login);
+        }
+        break;
+
 }require("{$ROOT}{$DS}view{$DS}view$layout.php");
 
 ?>

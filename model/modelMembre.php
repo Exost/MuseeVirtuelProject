@@ -239,6 +239,10 @@ class modelMembre extends Model
     }
 
 
+
+
+//________________________________________________________________________________________
+// Gestion des compteur de page
     static function getNbMembreConnecte() {
         $sqlCount='SELECT * from cpt_connectes ';
 
@@ -304,4 +308,6 @@ class modelMembre extends Model
             die();
         }
     }
+
+
 }
