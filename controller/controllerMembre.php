@@ -14,7 +14,7 @@ switch($action){
     case 'deconnexion':
         $layout='Visiteur';
         $controller ='visiteur';
-        unset($_SESSION['login']);
+       // unset($_SESSION['login']);
         // toute les les variable de l'visiteur
         $view ='Connexion';
         break;
@@ -43,6 +43,7 @@ switch($action){
             }else{
                 $view = 'profil';
                 $pageTitle='profil';
+
                 if($membre->getRang() == 'admin'){
 
                     $layout='Admin';
@@ -55,7 +56,7 @@ switch($action){
                 }
                 $_SESSION['login']= $membre->getLogin();
                 $_SESSION['rang']= $membre->getRang();
-
+                modelMembre::insertMembreEnLigne(); // on a besoin que $_SESSION['login'] soit définit
             }
         }elseif( !isset($_POST['login']) && isset($_SESSION['login'])){
             $view = 'profil';
@@ -182,6 +183,7 @@ switch($action){
 
         if(isset($_SESSION['login'])){
             $messageErreur=" Aurevoir {$_SESSION['login']}";
+            modelMembre::deleteMembreEnLigne(); // on a besoin que $_SESSION['login'] soit définit
             unset($_SESSION['login']);
             unset($_SESSION['rang']);
             $layout = 'Visiteur';
