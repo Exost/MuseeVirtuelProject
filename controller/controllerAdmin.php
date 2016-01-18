@@ -83,4 +83,6 @@ switch($action){
         }
         require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
+    case "suppressionDoc":
+        break;
 }

@@ -55,5 +55,13 @@ $fichier = explode('MuseeVirtuelProject/',$pdfPath);
 
 <div > <fieldset> Cette page a été visitée <?php echo $compte ?> fois ! </fieldset> </div>
 <?php
+$note =round(modelNote::noteDocument($document->getIdDocument())[0]);
+for($i=0; $i<$note; $i++){
+    echo "<span style='color: green;font-size: 3.5em'>★</span>";
+}
+for($j=0; $j<5-$note; $j++){
+    echo "<span style='color: red; font-size: 3.5em'>☆</span>";
+}
+echo "<br/>";
 require ("{$ROOT}{$DS}view{$DS}commentaire.php");
 ?>

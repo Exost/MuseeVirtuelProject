@@ -57,6 +57,21 @@ class modelNote extends Model
         return $req_prep->fetchAll();
     }
 
+    static function noteDocument ($id){
+        $sql = 'SELECT AVG (note)
+                FROM note
+                WHERE idDocument =:id';
+        try{
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->bindParam(":id",$id);
+            $req_prep->execute();
+        }catch (PDOException $e){
+
+        }
+        return $req_prep->fetch();
+
+    }
+
     /**
      * @return mixed
      */

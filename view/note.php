@@ -7,9 +7,9 @@
  */
 ?>
 <div id="rating" ><!--
-   --><a href="#5" title="Donner 5 étoiles">☆</a><!--
-   --><a href="#4" title="Donner 4 étoiles">☆</a><!--
-   --><a href="#3" title="Donner 3 étoiles">☆</a><!--
-   --><a href="#2" title="Donner 2 étoiles">☆</a><!--
-   --><a href="#1" title="Donner 1 étoile">☆</a>
+   --><a class='noteEtoile' href="<?php  echo "#5#{$document->getIdDocument()}";?>" title="Donner 5 étoiles">☆</a><!--
+   --><a class='noteEtoile' href="<?php  echo "#4#{$document->getIdDocument()}";?>" title="Donner 4 étoiles">☆</a><!--
+   --><a class='noteEtoile' href="<?php  echo "#3#{$document->getIdDocument()}";?>" title="Donner 3 étoiles">☆</a><!--
+   --><a class='noteEtoile' href="<?php  echo "#2#{$document->getIdDocument()}";?>" title="Donner 2 étoiles">☆</a><!--
+   --><a class='noteEtoile' href="<?php  echo "#1#{$document->getIdDocument()}";?>" title="Donner 1 étoile">☆</a>
 </div>

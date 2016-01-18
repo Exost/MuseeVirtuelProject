@@ -113,10 +113,12 @@ switch($action) {
         break;
 
     case 'notation':
-        if(isset($_GET['idDocument'], $_GET['note'])){
-            $valeur = array("DEFAULT",$_GET['idDocument'],$_GET['note'],
+        extract($_POST);
+        if(isset($_POST['idDocument']) && isset($_POST['note'])){
+            $valeur = array("DEFAULT",$_POST['idDocument'],$_POST['note'],
                 $_SESSION['login']);
             modelNote::insert($valeur);
+            echo "ok";
         }
         break;
     case 'documentMembre':
@@ -128,6 +130,7 @@ switch($action) {
         }
         require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
+
 }
 
 ?>

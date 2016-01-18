@@ -263,6 +263,8 @@ $().ready(function(){
        return false;
     });
 });
+
+
 state = true;
 function afficherNote(){
     if(state){
@@ -275,10 +277,30 @@ function afficherNote(){
     }
 
     return false;
-
-
-
-
-
-
 }
+
+
+$().ready(function(){
+    $(".noteEtoile").each(function(){
+        $(this).on("click",function(){
+            var reg = new RegExp("#");
+            var tableau = this.href.split(reg);
+            nbEtoile =tableau[1];
+            idDocument = tableau[2];
+
+
+            $.post("index.php?controller=document&action=notation",{
+                    note:nbEtoile,
+                    idDocument:idDocument
+            },
+                function(data){
+                    if(data == 'ok'){
+                       $("#rating").hide();
+                        $("a[href='#']").hide();
+                    }
+                }
+            );
+            return false;
+        })
+    });
+});
