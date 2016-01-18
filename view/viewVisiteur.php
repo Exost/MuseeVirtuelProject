@@ -24,11 +24,11 @@ require ("head.php");
         ?>
         </div>
 
-        <div id="divFooter" >
+
+
         <?php
         require("Footer.php");
         ?>
-        </div>
 </div>
 
 </body>

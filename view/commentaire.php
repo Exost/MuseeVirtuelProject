@@ -4,7 +4,7 @@ require_once ("{$ROOT}{$DS}model{$DS}modelNote.php");
     if(isset($_SESSION['login'])){
         if(empty(modelNote::noteByMembre($_SESSION['login'],$document->getIdDocument()))
             ) {
-            echo "<a href='' onclick=''>noter</a>";
+            echo "<a href='#' onclick='afficherNote(); return false;'>noter</a>";
             require "note.php";
         }
 

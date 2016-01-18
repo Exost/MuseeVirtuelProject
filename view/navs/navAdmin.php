@@ -11,6 +11,13 @@
             <td>
                 <ul >
                     <li id="firstLeft">
+                        <a href="index.php?controller=document&action=readAll">gestion document</a>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <ul >
+                    <li id="firstLeft">
                         <a href="index.php?controller=admin&action=liste_membre">gestion Membres</a>
                     </li>
                 </ul>

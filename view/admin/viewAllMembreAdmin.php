@@ -19,7 +19,10 @@
             foreach($allMembre as $membre){
                 if($membre->getRang() !='admin'){
                     echo '<tr>';
-                    echo "<td><a href=''>{$membre->getLogin()}</a></td>";
+                    echo "<td><a href='index.php?controller=admin&action=voirMembre&login={$membre->getLogin()}'>
+                                    {$membre->getLogin()}
+                               </a>
+                          </td>";
                     echo "<td>
                            <select class='rangMembre'>
                                <option value='{$membre->getRang()}'>{$membre->getRang()}</option>  " ;

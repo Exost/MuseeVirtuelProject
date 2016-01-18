@@ -39,7 +39,7 @@ switch($action){
         $view='AllMembre';
         require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
-    case 'changerEtat':
+    case 'changerEtat': /// javascript
         extract($_POST);
         if(!isset($_POST['etats']) || !isset($_POST['logins'])
             || !isset($_POST['rangs'])){
@@ -72,5 +72,15 @@ switch($action){
 
             }echo "ok";
         }
+        break;
+    case "voirMembre":
+        if($_GET['login']){
+           $membre = modelMembre::select($_GET['login']);
+            $view = 'ProfilMembre';
+            $pageTitle ='profil'.$_GET['login'];
+        }else{
+
+        }
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
 }

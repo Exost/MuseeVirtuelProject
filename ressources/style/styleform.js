@@ -263,3 +263,22 @@ $().ready(function(){
        return false;
     });
 });
+state = true;
+function afficherNote(){
+    if(state){
+        rate = $("#rating");
+        rate.slideDown();
+        state=false;
+    }else{
+        rate.slideUp('1000');
+        state=true;
+    }
+
+    return false;
+
+
+
+
+
+
+}

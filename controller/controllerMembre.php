@@ -80,7 +80,7 @@ switch($action){
     case 'upload': // poster un document
 
         if(isset($_SESSION['login'])){
-            $layout='Membre';
+            $layout=ucfirst($_SESSION['rang']);
             $controller= 'membre' ;
             $view='Upload';
             $dossier = "file/{$_SESSION['login']}";

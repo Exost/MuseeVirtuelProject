@@ -26,5 +26,13 @@
         </table>
     </form>
 </div>
+<?php
+    if(isset($_SESSION["login"])){?>
+        <a href='index.php?controller=membre&action=upload' >
+                nouveau documents
+        </a>
+<?php
+    }
+?>
 
 

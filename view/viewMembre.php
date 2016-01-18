@@ -18,8 +18,8 @@ $filepath = "{$ROOT}{$DS}view{$DS}{$controller}{$DS}";
 $filename = "view".ucfirst($view) . ucfirst($controller) . '.php';
 require "{$filepath}{$filename}";
 
-require("Footer.php");
 
+require("Footer.php");
 ?>
 </body>
 

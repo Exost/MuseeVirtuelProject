@@ -119,6 +119,15 @@ switch($action) {
             modelNote::insert($valeur);
         }
         break;
+    case 'documentMembre':
+        if(isset($_GET['login'])){
+            $listeDoc = modelDocument::getAllDocumentByLogin($_GET['login']);
+            $view ='AllOfMembre';
+            $pageTitle ='Liste document';
+            $layout =ucfirst($_SESSION['rang']);
+        }
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
+        break;
 }
 
 ?>
