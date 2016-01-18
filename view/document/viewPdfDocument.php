@@ -9,7 +9,7 @@ if(file_exists($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_docume
 
 }else{
 
-    $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'a+');
+    $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'w+');
     $compte = 0;
 }
 
