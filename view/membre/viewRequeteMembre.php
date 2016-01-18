@@ -16,9 +16,9 @@ require_once "{$ROOT}{$DS}model{$DS}modelSujet.php";
     <fieldset style="margin-top: 13em">
         <form method="post" action="traitementRequeteAdmin.php">
 
-            <label>sujet</label><br/>
+            <label>Sujet :</label><br/>
             <select name="sujet" id="sujet">
-                <option value="">sujet de la requete</option>
+                <option value="">Sujet de la requete</option>
                 <?php
                 foreach(modelSujet::getAll() as $sujet){
                     echo "<option value='{$sujet->getNomSujet()}'>{$sujet->getNomSujet()}</option>";
@@ -27,7 +27,7 @@ require_once "{$ROOT}{$DS}model{$DS}modelSujet.php";
                 <option value="autre">autre</option>
             </select><br/>
 
-            <label>requete</label><br/>
+            <label>Requête :</label><br/>
             <textarea type="text" name="texte" id="texte"></textarea><br/>
             <input type="submit" value="envoyer"/>
 
