@@ -48,7 +48,9 @@
         <source src="<?php echo $musiquePath[1]; ?>"/>
         votre navigateur n'est pas compatible
     </audio>
-    <div > <fieldset> Cette page a été visitée <?php echo $compte ?> fois ! </fieldset> </div>
+    <div>
+        <fieldset> Cette page a Ã©tÃ© visitÃ© <?php echo $compte ?> fois ! </fieldset>
+    </div>
 
 
 

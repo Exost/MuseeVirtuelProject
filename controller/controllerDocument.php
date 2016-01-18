@@ -9,15 +9,24 @@
 $messageErreur='';
 require ("{$ROOT}{$DS}model{$DS}modelMembre.php");
 require ("{$ROOT}{$DS}model{$DS}modelDocument.php");
+require ("{$ROOT}{$DS}model{$DS}modelNote.php");
 
-
+if(!isset($_SESSION['login'])){
+    $action='non_connecte';
+}
 switch($action) {
+    case 'non_connecte':
 
+            $layout = 'Visiteur';
+            $view ='Connexion';
+            $controller ='visiteur';
+            $pageTitle ='Connexion';
+            $messageErreur='veuillez vous connecter';
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
+
+        break;
     case 'uploaded' :
 
-
-        if(isset($_SESSION['login']))
-        {
             if (!empty($_FILES['fichier']) && is_uploaded_file($_FILES['fichier']['tmp_name']))
             {
                 $pagetitle = "Document mis en ligne";
@@ -54,15 +63,10 @@ switch($action) {
                 $messageErreur = " Echec de l'upload , veuillez recommencer la procédure. ";
                 break ;
             }
-        } else { // si pas connecté
-            $layout = 'Visiteur';
-            $controller = 'visiteur';
-            $view = 'erreur';
-            $messageErreur = " Veuillez vous connecter";
-        }
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
 
-    case 'readAll':
+    case 'readAll': // voir toutes les oeuvre
             $view='All';
             $allDocument = modelDocument::getAll();
             if(isset($_SESSION['login'])){
@@ -71,6 +75,7 @@ switch($action) {
                 $layout='Visiteur';
             }
             $pagetitle='oeuvres';
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
 
     case 'consulter':
@@ -92,22 +97,28 @@ switch($action) {
 
 
         }
-
+        require("{$ROOT}{$DS}view{$DS}view$layout.php");
         break;
 
     case 'mesDocuments':
 
 
-        if (isset($_SESSION['login']) ){
             $view="Document";
             $layout="Membre";
             $pageTitle="Vos oeuvres";
 
             $login=$_SESSION['login'];
             $allDocumentByLogin=modelDocument::getAllDocumentByLogin($login);
-        }
+
         break;
 
-}require("{$ROOT}{$DS}view{$DS}view$layout.php");
+    case 'notation':
+        if(isset($_GET['idDocument'], $_GET['note'])){
+            $valeur = array("DEFAULT",$_GET['idDocument'],$_GET['note'],
+                $_SESSION['login']);
+            modelNote::insert($valeur);
+        }
+        break;
+}
 
 ?>

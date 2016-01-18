@@ -1,6 +1,15 @@
 <?php // ne s'affiche que si l'utilisateur est connecté
 require_once ("{$ROOT}{$DS}model{$DS}modelCommentaire.php");
-    if(isset($_SESSION['login'])){ ?>
+require_once ("{$ROOT}{$DS}model{$DS}modelNote.php");
+    if(isset($_SESSION['login'])){
+        if(empty(modelNote::noteByMembre($_SESSION['login'],$document->getIdDocument()))
+            ) {
+            echo "<a href='' onclick=''>noter</a>";
+            require "note.php";
+        }
+
+        ?>
+
         <div class="postionCom">
             <div class="error"></div>
             <table class="layoutCom">
