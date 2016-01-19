@@ -1,21 +1,24 @@
 <?php
-
-// Gestion compteur de visite
 $idDocument = $document->getIdDocument();
+
 if(file_exists($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt'))
 {
     // On ouvre le compteur
     $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'r+');
     $compte = fgets($compteur_f); //On recupere la valeur de la premiere ligne
+
 }else{
 
-    $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'a+');
+    $compteur_f = fopen($ROOT.$DS.'ressources'.$DS.'compteur'.$DS.'compteur_visite_document_'.$idDocument.'.txt', 'w+');
     $compte = 0;
 }
+
 $compte++;
 fseek($compteur_f, 0);          // on replace le curseur
 fputs($compteur_f, $compte);    // On entre les valeurs du compteur
 fclose($compteur_f);
+
+
 
 
 
