@@ -145,7 +145,7 @@ $().ready(function(){
     });
 });
 
-// pour la suppression de requetes
+// pour la suppression de messages
 $().ready(function(){
     $("#formMessage form").submit(function(){
         var action = $(this).attr('action');
