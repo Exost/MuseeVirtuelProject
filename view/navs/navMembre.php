@@ -16,6 +16,7 @@
                         </ul>
                 </li>
             </td>
+
             <td>
                 <?php
                 require ("{$ROOT}{$DS}view{$DS}searchBar.php"); //SearchBar
