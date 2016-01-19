@@ -242,7 +242,28 @@ class modelMembre extends Model
 
 
 //________________________________________________________________________________________
-// Gestion des compteur de page
+// Gestion des membres en ligne
+
+    public function estEnLigne(){
+        $login = $this->login;
+
+        $sqlCount =' SELECT * from cpt_connectes where login="'.$login.'"' ;
+
+        try{
+            $req_prep= Model::$pdo->prepare($sqlCount);
+            $req_prep->execute();
+            $compteur=0;
+            foreach ($req_prep as $key ) { $compteur++; }
+            if( $compteur != NULL )   { return 1; }
+            else                      { return 0; }
+
+        }catch(PDOException $e) { if ( Conf::getDebug() ) { echo "une erreur est survenue"; }
+            return -1;
+            die();
+        }
+    }
+
+
     static function getNbMembreConnecte() {
         $sqlCount='SELECT * from cpt_connectes ';
 
@@ -308,6 +329,8 @@ class modelMembre extends Model
             die();
         }
     }
+
+
 
 
 }

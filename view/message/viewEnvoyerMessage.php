@@ -6,23 +6,29 @@
  * Time: 01:14
  */
 ?>
-<div id="messagerie">
-    <div id="informationMessage">
 
+
+    <div id="messagerie" style="margin-top: 9em">
+        <div id="informationMessage">
+
+        </div>
+
+
+        <legend> Nouveau message</legend></br>
+        <form method="post" action="index.php?controller=message&action=envoie">
+
+            <label></label>
+            <input style="display: none" name='envoyeur'
+                   value="<?php echo $_SESSION['login']; ?>"/>
+            <input type="text" name="destinataire" placeholder="login destinataire"/>
+            <p></p>
+
+            <label></label>
+            <textarea type="texte" name="message" class="texteareaMessage" placeholder="Entrer votre message" ></textarea>
+            <br />
     </div>
+            <input class="bouton_messagerie" type="submit" value="envoyer" />
+        </form>
 
-    <form method="post" action="index.php?controller=message&action=envoie">
 
-        <label>pour</label>
-        <input style="display: none" name='envoyeur'
-               value="<?php echo $_SESSION['login']; ?>"/>
-        <input type="text" name="destinataire" placeholder="login destinataire"/>
-        <p></p>
-
-        <label>Message</label></br>
-        <textarea type="texte" name="message" ></textarea>
-        <br />
-        <input type="submit" value="envoyer" />
-    </form>
-</div>
 

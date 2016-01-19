@@ -6,23 +6,24 @@ else 					{ $PlurielS = ''; $PlurielX = ''; }
 
 ?>
 
-<fieldset>
+<div id="divMain" style="margin-top: 9em">
 	<div class="gestionMessage">
-<?php
-echo 'Vous avez '.$NbMessageNL.' nouveau'.$PlurielX.' message'.$PlurielS.'</br>';
-?>
 
-		<table>
-			<tr>
-				<td><a href="index.php?controller=message&action=envoyer">Nouveau Message</a></td>
-				<td><a href="index.php?controller=message&action=readAll">Mes messages</a></td>
-			</tr>
-		</table>
+
+		<?php echo 'Vous avez '.$NbMessageNL.' nouveau'.$PlurielX.' message'.$PlurielS.'</br>'; ?>
+
 	</div>
 
 
-	</fieldset>
-
+</div>
+<div class="bouton_messagerie_div" >
+	<table class="bouton_messagerie_tab"  >
+		<tr>
+			<td><a class="bouton_messagerie" class="monProfil" href="index.php?controller=message&action=readAll">Mes messages</a></td>
+			<td><a class="bouton_messagerie" href="index.php?controller=message&action=envoyer">Nouveau Message</a></td>
+		</tr>
+	</table>
+</div>
 <!--____________________________________________________________________________________
 -->
 

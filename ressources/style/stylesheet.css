@@ -278,6 +278,18 @@ aside {
     border-radius : 0.11em ;
 }
 
+/*////////////////////////////////////////////////////////////////////////
+                                    Hyperlien
+///////////////////////////////////////////////////////////////////////*/
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none;
+    color:green;
+}
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
@@ -791,7 +803,7 @@ nav ul:after{
     }
 }
 
- /* 1440px et moin */
+ /* 1440px et moins */
 
 .imgModele {
     width: 33%;
@@ -1132,6 +1144,113 @@ legend {
 }
 
 /* Fin mon profile */
+
+
+/* Messagerie */
+
+
+
+.gestionMessage{
+    text-align: center;
+}
+
+.bouton_messagerie_div{
+    display: block;
+    width: 50%;
+    margin : auto;
+    text-align: center;
+
+    padding: 5px;
+}
+
+.bouton_messagerie_tab{
+    display: inline-block;
+
+    margin : auto;
+
+
+}
+
+.bouton_messagerie{
+    display: block;
+    background-color: yellowgreen;
+    opacity: 0.72;
+    color: #222222;
+    border-radius: 7px;
+    text-align:center;
+    margin: 3px;
+    width: 200px;
+    height: 30px;
+    border:yellowgreen 2px outset;
+
+    padding: 3px;
+
+
+}
+
+.bouton_messagerie:hover{
+    color: #F0F5FF;
+}
+
+/* Fin Messagerie */
+
+
+/* Mes messages */
+
+
+#formMessage {
+    position: relative;
+    vertical-align: middle;
+    padding: 2%;
+}
+
+#auteurMessageTab{
+    width: 10%;
+    text-align: center;
+}
+
+#dateMessageTab{
+    width: 25%;
+    text-align: center;
+}
+
+#texteMessageTab{
+    width: 70%;
+
+}
+/* Fin mes messages */
+
+
+/* Envoyer un message */
+
+#messagerie{
+    position : relative;
+    padding-bottom: 5px;
+    padding-left: 2em ;
+    height: 100%;
+    background-color: yellowgreen;
+    vertical-align:middle;
+}
+
+#informationMessage{
+    font-size : 18px;
+    font-style: italic;
+}
+
+
+.texteareaMessage{
+
+    height: 100px;
+    width: 50%;
+}
+
+.bouton_envoyer_message{
+    padding: 3px;
+
+}
+
+/* Fin envoyer un message */
+
 
 /* ------------------------------*/
 

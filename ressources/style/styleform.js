@@ -145,6 +145,42 @@ $().ready(function(){
     });
 });
 
+// pour la suppression de requetes
+$().ready(function(){
+    $("#formMessage form").submit(function(){
+        var action = $(this).attr('action');
+        var allCheckBox = [];
+        $("input[type='checkbox']").each(function(){
+            allCheckBox.push($(this).val());
+        });
+        var boxChecked= [];
+        $('input:checked').each(function(){
+            boxChecked.push($(this).val());
+        });
+        $.post(
+            action,{
+                resultatCheckBox:boxChecked
+            },function(data){
+                if(allCheckBox.length == boxChecked.length){
+                    $("form[action='suppressionMessage.php']").remove();
+                    $("div[class='information']").append("vous n'avez aucun message");
+                    // $("input[id='suppression']").remove();
+                }else{
+                    $('input:checked').each(function(){
+                        $(this).parent().parent().remove(); // on supprime de l'affichage
+
+                    });
+                }
+
+
+            }
+
+        );
+
+
+        return false;
+    });
+});
 
 //////// SUR UPLOAD FICHIER
 $().ready(function () {

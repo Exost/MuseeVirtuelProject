@@ -9,7 +9,13 @@
 <div class="messageOne">
 
     <?php
+        $destinataire = NULL;
+        $Date = NULL;
+        $texte = NULL;
 
+        echo $destinataire;
+        echo $Date;
+        echo $texte;
     ?>
 
 
