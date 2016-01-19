@@ -7,7 +7,7 @@ if(!empty($allMessage) ) {
     </div>
         <fieldset class="allMessagesFieldset">
         <p>Tous vos message </p>
-        <form action="supressionMessage.php" method="post" >
+        <form action="suppressionMessage.php" method="post" >
         <table class="tableMessage">
         <tr id="greenRow">  <th> </th> <th> de </th> <th> date </th>  <th> message </th> </tr>
 

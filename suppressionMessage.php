@@ -18,5 +18,5 @@ extract($_POST);
 include_once "{$ROOT}{$DS}model{$DS}modelMessage.php";
 $checked = $_POST['resultatCheckBox'];
 foreach($checked as $simpleBox){
-    modelMessage::delete($simpleBox);
+    modelMessages::delete($simpleBox);
 }
